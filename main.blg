@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: apalike.bst
+Database file #1: bibliographies/biblio.bib.bib
+Warning--there's a number but no volume in tomas2010aqa
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            499 strings with 4483 characters,
+and the built_in function-call counts, 1886 in all, are:
+= -- 186
+> -- 63
+< -- 5
++ -- 22
+- -- 20
+* -- 144
+:= -- 327
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 32
+chr.to.int$ -- 5
+cite$ -- 6
+duplicate$ -- 81
+empty$ -- 137
+format.name$ -- 27
+if$ -- 380
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 27
+num.names$ -- 15
+pop$ -- 38
+preamble$ -- 1
+purify$ -- 35
+quote$ -- 0
+skip$ -- 59
+stack$ -- 0
+substring$ -- 125
+swap$ -- 16
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 1
+while$ -- 13
+width$ -- 0
+write$ -- 66
+(There was 1 warning)

@@ -1,0 +1,31 @@
+ \fancychapter{Implementation}
+While the first chapter focus on your ideas the second can focus on the implementation. Though that may change from thesis to thesis.
+
+\begin{figure}
+\begin{boxedverbatim}
+DefineGlobals
+   clock   alias   clk
+   reset   alias   rst
+   max_latency     17
+   feedback        0
+   DefineInputs
+      X   std_logic_vector(11 downto 0)
+   EndInputs
+   DefineOutputs
+      Y   std_logic_vector(11 downto 0)
+   EndOutputs
+EndGlobals
+\end{boxedverbatim}
+\caption{An example code section.}
+\label{chp4:img}
+\end{figure}
+
+Figure~\ref{chp4:img} shows an example of a \verb"\boxedverbatim" section. It allows to put blocks of code within a frame. I think makes a prettier printing.
+
+\section{Summary}
+
+It is typical a good ideia to have an ending section summarizing the chapter.
+
+% Ensure that the next chapter starts in a odd page
+\cleardoublepage
+

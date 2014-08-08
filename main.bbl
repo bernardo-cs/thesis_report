@@ -1,0 +1,31 @@
+\begin{thebibliography}{}
+
+\bibitem[Merkel, 2010]{mylink}
+Merkel, S. (2010).
+\newblock http://merkel.zoneo.net/Latex/natbib.php.
+
+\bibitem[Ramalho et~al., 2010]{ramalho2010eic}
+Ramalho, R. M.~M., Tom\'{a}s, P., and Sousa, L. (2010).
+\newblock Efficient independent component analysis on a gpu.
+\newblock In {\em 10th IEEE International Conference on Computer and
+  Information Technology}, pages 1128--1133. IEEE Computer Society.
+
+\bibitem[Tom\'{a}s, 2009]{tomas2009nct}
+Tom\'{a}s, P. (2009).
+\newblock {\em Neural Code: Tunning and Assessment of Retina Models}.
+\newblock PhD thesis, IST, Universidade Técnica de Lisboa, Lisboa, Portugal.
+
+\bibitem[Tom\'{a}s et~al., 2010]{tomas2010bda}
+Tom\'{a}s, P., Ilic, A., and Sousa, L. (2010).
+\newblock {\em Biomedical Diagnostics and Clinical Technologies: Applying
+  High-Performance Cluster and Grid Computing}, chapter Massive Data
+  Classification of Neural Responses.
+\newblock IGI Global.
+
+\bibitem[Tom\'{a}s and Sousa, 2010]{tomas2010aqa}
+Tom\'{a}s, P. and Sousa, L. (2010).
+\newblock A quantitative analysis of firing rate estimators: unveiling bias
+  sources.
+\newblock {\em Neurocomputing}, (73):2944--2954.
+
+\end{thebibliography}

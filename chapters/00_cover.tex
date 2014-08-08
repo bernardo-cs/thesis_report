@@ -1,0 +1,47 @@
+\pdfbookmark[0]{Titlepage}{Title}
+% IST requires the titlepage to be written in portuguese
+% IST requires the logo to measure 2cm
+\univlogo{3cm}{2cm}{images/IST_C_CMYK_POS.eps}
+
+% OPTIONAL: the thesis logo image
+\thesislogo{2.5cm}{6cm}{images/thesis_logo.eps}
+
+\title{A IST stylesheet example for writing dissertations}
+
+\author{Pedro Tom\'as}
+\degree{Engenharia Electrot\'ecnica e de Computadores}
+% \otherdegree{Mestre}
+
+\supervisor{Doutor full name of advisor}
+% \othersupervisor{Doutor full name of co-advisor}
+
+\date{Outubro de 2014}
+
+% Only true if thesis was accepted by the jury
+\finalthesis{false}
+
+\presidentofjury{Doutor whatever full name 1}
+\vogalone{Doutor whatever full name 2}
+\vogaltwo{Doutor whatever full name 3}
+% \vogalthree{Doutor whatever full name 4}
+% \vogalfour{Doutor whatever full name 5}
+
+\maketitle
+\clearpage
+
+% On double sided pages. Second page should be white.
+% IST requires the cover to appear twice.
+\thispagestyle{empty}
+\cleardoublepage
+
+\setcounter{page}{1} \pagenumbering{roman}
+
+\baselineskip 18pt % line spacing: -12pt for single spacing
+                   %               -18pt for 1 1/2 spacing
+                   %               -24pt for double spacing
+ 
+\pdfbookmark{Acknowledgments}{Acknowledgments}
+\begin{acknowledgments}
+Remember that your parents have paid for the last 20 something years of your studies and that your advisor had to read this document.
+\end{acknowledgments}
+ 

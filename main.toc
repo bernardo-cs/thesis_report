@@ -1,0 +1,19 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objectives}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Main contributions}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Dissertation outline}{2}{section.1.4}
+\contentsline {chapter}{\numberline {2}State of the art}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Summary}{4}{section.2.1}
+\contentsline {chapter}{\numberline {3}The work}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Summary}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}Implementation}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Summary}{10}{section.4.1}
+\contentsline {chapter}{\numberline {5}Results}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testing framework}{12}{section.5.1}
+\contentsline {section}{\numberline {5.2}The results}{12}{section.5.2}
+\contentsline {section}{\numberline {5.3}Summary}{12}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusions}{13}{chapter.6}
+\contentsline {section}{\numberline {6.1}Future work}{14}{section.6.1}
+\contentsline {chapter}{\numberline {A}Appendix A}{17}{appendix.A}
+\contentsline {chapter}{\numberline {B}Appendix A}{19}{appendix.B}

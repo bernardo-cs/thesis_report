@@ -1,0 +1,57 @@
+\documentclass[defaultstyle,10pt,master,Helvetica]{thesis}
+%% Enable latin characters
+\usepackage[utf8]{inputenc}
+
+%% Better equations
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+%% Advanced tables
+\usepackage{multirow}
+\usepackage{colortbl}
+
+%% Better figures
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage[hang,small,bf]{subfigure}
+
+%% The two packages are not compatible, and you should use one of the two. Notice however that the
+\usepackage[square,numbers,sort&compress]{natbib}
+
+%% Acronyms
+\usepackage[printonlyused]{acronym}
+
+%% Set links for references and citations in document
+\usepackage{hyperref}
+\hypersetup{ a4paper=true,
+             colorlinks=false,
+             citecolor=red,
+             breaklinks=true,
+             bookmarks=true,
+             bookmarksnumbered=true,
+             bookmarksopen=true,
+             pdftitle={DOCUMENT TITLE},                 % EDIT THIS LINE
+             pdfauthor={THE AUTHOR},                    % EDIT THIS LINE
+             pdfsubject={THE SUBJECT},                  % EDIT THIS LINE
+             pdfcreator={THE PDF CREATOR - THE AUTHOR}, % EDIT THIS LINE
+             pdfkeywords={}                             % EDIT THIS LINE
+}
+
+%% Set paragraph counter to alphanumeric mode
+\renewcommand{\theparagraph}{\Alph{paragraph}~--}
+
+%% Page formatting, edit if necessary
+\input{pagesetup.tex}
+
+\begin{document}
+\input{chapters/00_cover.tex}
+\input{chapters/01_abstract.tex}
+\input{chapters/02_lists.tex}
+\input{chapters/03_introduction.tex}
+\input{chapters/04_state_of_the_art.tex}
+\input{chapters/05_the_work.tex}
+\input{chapters/06_implementation.tex}
+\input{chapters/07_results.tex}
+\input{chapters/08_conclusions.tex}
+\input{chapters/09_bibliography.tex}
+\input{chapters/10_appendix.tex}
+\end{document}
