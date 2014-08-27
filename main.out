@@ -8,23 +8,40 @@
 \BOOKMARK [1][]{toc.1}{Contents}{index.0}% 8
 \BOOKMARK [1][]{lof.1}{List of Figures}{index.0}% 9
 \BOOKMARK [1][]{lot.1}{List of Tables}{index.0}% 10
-\BOOKMARK [0][]{chapter.1}{1 Introduction}{}% 11
-\BOOKMARK [1][]{section.1.1}{1.1 Motivation}{chapter.1}% 12
-\BOOKMARK [1][]{section.1.2}{1.2 Objectives}{chapter.1}% 13
-\BOOKMARK [1][]{section.1.3}{1.3 Main contributions}{chapter.1}% 14
-\BOOKMARK [1][]{section.1.4}{1.4 Dissertation outline}{chapter.1}% 15
-\BOOKMARK [0][]{chapter.2}{2 State of the art}{}% 16
-\BOOKMARK [1][]{section.2.1}{2.1 Summary}{chapter.2}% 17
-\BOOKMARK [0][]{chapter.3}{3 The work}{}% 18
-\BOOKMARK [1][]{section.3.1}{3.1 Summary}{chapter.3}% 19
-\BOOKMARK [0][]{chapter.4}{4 Implementation}{}% 20
-\BOOKMARK [1][]{section.4.1}{4.1 Summary}{chapter.4}% 21
-\BOOKMARK [0][]{chapter.5}{5 Results}{}% 22
-\BOOKMARK [1][]{section.5.1}{5.1 Testing framework}{chapter.5}% 23
-\BOOKMARK [1][]{section.5.2}{5.2 The results}{chapter.5}% 24
-\BOOKMARK [1][]{section.5.3}{5.3 Summary}{chapter.5}% 25
-\BOOKMARK [0][]{chapter.6}{6 Conclusions}{}% 26
-\BOOKMARK [1][]{section.6.1}{6.1 Future work}{chapter.6}% 27
-\BOOKMARK [0][]{bib.0}{Bibliography}{}% 28
-\BOOKMARK [0][]{appendix.A}{A Appendix A}{}% 29
-\BOOKMARK [0][]{appendix.B}{B Appendix A}{}% 30
+\BOOKMARK [1][]{loac.1}{List of Acronyms}{index.0}% 11
+\BOOKMARK [0][]{chapter.1}{1 Introduction}{}% 12
+\BOOKMARK [1][]{section.1.1}{1.1 Motivation}{chapter.1}% 13
+\BOOKMARK [1][]{section.1.2}{1.2 Objectives}{chapter.1}% 14
+\BOOKMARK [1][]{section.1.3}{1.3 Main contributions}{chapter.1}% 15
+\BOOKMARK [1][]{section.1.4}{1.4 Dissertation outline}{chapter.1}% 16
+\BOOKMARK [0][]{chapter.2}{2 State of the art}{}% 17
+\BOOKMARK [1][]{section.2.1}{2.1 Basic Concepts}{chapter.2}% 18
+\BOOKMARK [2][]{subsection.2.1.1}{2.1.1 Document}{section.2.1}% 19
+\BOOKMARK [2][]{subsection.2.1.2}{2.1.2 The Self-Organizing Map}{section.2.1}% 20
+\BOOKMARK [1][]{section.2.2}{2.2 Related Work}{chapter.2}% 21
+\BOOKMARK [2][]{subsection.2.2.1}{2.2.1 Self-Organizing Maps}{section.2.2}% 22
+\BOOKMARK [3][]{subsubsection.2.2.1.1}{2.2.1.A The Geo-Som Approach}{subsection.2.2.1}% 23
+\BOOKMARK [3][]{subsubsection.2.2.1.2}{2.2.1.B Detecting Hidden Patterns on Twitter Usage}{subsection.2.2.1}% 24
+\BOOKMARK [2][]{subsection.2.2.2}{2.2.2 Topic Detection and Clustering}{section.2.2}% 25
+\BOOKMARK [3][]{subsubsection.2.2.2.1}{2.2.2.A Topic and Trending Detection}{subsection.2.2.2}% 26
+\BOOKMARK [2][]{subsection.2.2.3}{2.2.3 Data Mining in Twitter }{section.2.2}% 27
+\BOOKMARK [3][]{subsubsection.2.2.3.1}{2.2.3.A Enhancing the Tweet}{subsection.2.2.3}% 28
+\BOOKMARK [3][]{subsubsection.2.2.3.2}{2.2.3.B Rapidly Changing Trends}{subsection.2.2.3}% 29
+\BOOKMARK [1][]{section.2.3}{2.3 Summary}{chapter.2}% 30
+\BOOKMARK [0][]{chapter.3}{3 The work}{}% 31
+\BOOKMARK [1][]{section.3.1}{3.1 Summary}{chapter.3}% 32
+\BOOKMARK [0][]{chapter.4}{4 Implementation}{}% 33
+\BOOKMARK [1][]{section.4.1}{4.1 Summary}{chapter.4}% 34
+\BOOKMARK [0][]{chapter.5}{5 Results}{}% 35
+\BOOKMARK [1][]{section.5.1}{5.1 Evaluation Metrics}{chapter.5}% 36
+\BOOKMARK [2][]{subsection.5.1.1}{5.1.1 Testing for Precision and Recall}{section.5.1}% 37
+\BOOKMARK [2][]{subsection.5.1.2}{5.1.2 Statistically Testing the SOM}{section.5.1}% 38
+\BOOKMARK [3][]{subsubsection.5.1.2.1}{5.1.2.A Quantization Error}{subsection.5.1.2}% 39
+\BOOKMARK [3][]{subsubsection.5.1.2.2}{5.1.2.B Topology Preservation}{subsection.5.1.2}% 40
+\BOOKMARK [1][]{section.5.2}{5.2 The results}{chapter.5}% 41
+\BOOKMARK [1][]{section.5.3}{5.3 Summary}{chapter.5}% 42
+\BOOKMARK [0][]{chapter.6}{6 Conclusions}{}% 43
+\BOOKMARK [1][]{section.6.1}{6.1 Future work}{chapter.6}% 44
+\BOOKMARK [0][]{bib.0}{Bibliography}{}% 45
+\BOOKMARK [0][]{appendix.A}{A Appendix A}{}% 46
+\BOOKMARK [0][]{appendix.B}{B Appendix A}{}% 47

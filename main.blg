@@ -2,47 +2,63 @@ This is BibTeX, Version 0.99d (TeX Live 2013)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
+I couldn't open database file Sites.bib.bib
+---line 272 of file main.aux
+ : \bibdata{bibliographies/biblio.bib,bibliographies/library.bib,Sites.bib
+ :                                                                        }
+I'm skipping whatever remains of this command
 Database file #1: bibliographies/biblio.bib.bib
-Warning--there's a number but no volume in tomas2010aqa
-You've used 5 entries,
+Database file #2: bibliographies/library.bib.bib
+Warning--I didn't find a database entry for "intrusion_som"
+Warning--I didn't find a database entry for "phonetic_typewiter"
+Warning--I didn't find a database entry for "Baeza-Yates:1999:MIR:553876"
+Warning--empty journal in Bengio2013
+Warning--there's a number but no volume in Bengio2013
+Warning--empty year in Bodt
+Warning--empty journal in Bodt
+Warning--empty journal in Dozono2012
+Warning--empty journal in Liu2012b
+Warning--empty journal in McCreadie2013
+Warning--empty journal in Pagerank1998
+You've used 21 entries,
             1935 wiz_defined-function locations,
-            499 strings with 4483 characters,
-and the built_in function-call counts, 1886 in all, are:
-= -- 186
-> -- 63
-< -- 5
-+ -- 22
-- -- 20
-* -- 144
-:= -- 327
-add.period$ -- 15
-call.type$ -- 5
-change.case$ -- 32
-chr.to.int$ -- 5
-cite$ -- 6
-duplicate$ -- 81
-empty$ -- 137
-format.name$ -- 27
-if$ -- 380
+            606 strings with 7196 characters,
+and the built_in function-call counts, 8038 in all, are:
+= -- 790
+> -- 324
+< -- 15
++ -- 106
+- -- 106
+* -- 638
+:= -- 1406
+add.period$ -- 60
+call.type$ -- 21
+change.case$ -- 158
+chr.to.int$ -- 21
+cite$ -- 29
+duplicate$ -- 322
+empty$ -- 538
+format.name$ -- 137
+if$ -- 1568
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 4
-newline$ -- 27
-num.names$ -- 15
-pop$ -- 38
+missing$ -- 21
+newline$ -- 105
+num.names$ -- 63
+pop$ -- 154
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 158
 quote$ -- 0
-skip$ -- 59
+skip$ -- 264
 stack$ -- 0
-substring$ -- 125
-swap$ -- 16
-text.length$ -- 2
+substring$ -- 514
+swap$ -- 53
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 1
-while$ -- 13
+type$ -- 126
+warning$ -- 8
+while$ -- 70
 width$ -- 0
-write$ -- 66
-(There was 1 warning)
+write$ -- 255
+(There was 1 error message)

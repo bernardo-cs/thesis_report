@@ -1,18 +1,50 @@
 \fancychapter{Results}
-\section{Testing framework}
-For helping the reader first explain how did you achieve your experimental results. This may include (but is not limited to): the algorithm parameters; the computer or harware platform performing the operations; the comparative algorithms, frameworks or platforms parameters.
 
-\input{tables/table_example.tex}
+\section{Evaluation Metrics} 
+\label{sec:evaluation_metrics}
+Evaluation of the topic detection on Tweets will be made in two distinct ways. The first way will focus on  binary classification using the precision and recall metrics, and will be described in Subsection~\ref{sub:testing_for_precision_and_recall}. The second way will focus on statistically testing the SOM learning process and the computed trained network. This testing process will be described in Subsection~\ref{sub:cluster_quality_testing}. 
 
-For a table example see the file \verb"table_example.tex". It will print table~\ref{table:table1}. Always remember that, unlike with figures, the caption should appear above the table (not below). Also, always remember that the command \verb"\label" should always appear after the command \verb"\caption". If you place it before the caption, the reference will not appear correctly.
+\subsection{Testing for Precision and Recall} 
+\label{sub:testing_for_precision_and_recall}
+Precision and Recall are both ways to measure the rate of right guesses made by the trained SOM network, and are defined in the following way:
+\begin{itemize}
+  \item \textbf{Precision:} Fraction of retrieved instances that where relevant 
+    \begin{equation}
+      precision = \frac{|{relevant\;documents}\cap{retrieved\;documents}|}{{retrieved\;documents}}
+    \end{equation} 
+  \item \textbf{Recall:} Fraction of relevant instances that where retrieved
+   \begin{equation}
+      recall = \frac{|{relevant\;documents}\cap{retrieved\;documents}|}{{relevant\;documents}} 
+    \end{equation} 
+\end{itemize}
+
+In order to calculate Precision and Recall we need to have the \emph{relevant documents} and the \emph{retrieved documents}. The \emph{relevant documents} are rather hard to determine because they need to be categorized by humans, which is a tedious task. Until the writing of this document, only one free dataset categorized by hand was found\footnote{http://www.sananalytics.com/lab/twitter-sentiment/}, but it is categorized in sentiments and not by topics which makes it irrelevant for this project. If no dataset is found until the end of this project, a small dataset might be created in order to measure precision and recall.
+
+\subsection{Statistically Testing the SOM} 
+\label{sub:cluster_quality_testing}
+SOM training is always subject to some variability due to multiple causes, like the sensitivity of initial conditions, convergence to local minima and sampling variability, as stated by ~\citet{Bodt}. This subsection will present statistical tools to measure the quality of the SOM, by measuring its quantization error and topology preservation.
+
+\subsubsection{Quantization Error} 
+\label{ssub:quantization_error}
+The SOM Quantization Error is the mean of all Euclidean distances between the observed data points and their corresponding winning neuron. This value might vary depending on the initialization neurons or the order of the input data fed into the SOM while the training is occurring. When applied to an individual input data, represents how well a neuron is representing input data. Since the SOM Quantization Error represents the mean of all quantization errors from all the input data, generally, the lower the error is the best the SOM was trained.
+\\
+No general formula exists to minimize quantization error\cite{Bodt} . What is generally done is just to change the number and values of the starting neurons and the order of the input data in order to train multiple SOMs. In the end the SOM with the lowest quantization error is chosen.
+In this project since multiple approaches to the SOM algorithm and data representation will be tested, as described in Section~\ref{ssub:default_som_approach_},and the ones having the lower quantization error will be selected for the prototype.
+
+\subsubsection{Topology Preservation} 
+\label{ssub:topology_preservation}
+The Self-Organizing Map performs a mapping from the n-dimensional input space into the two dimensional output space and where resides one the most fascinating characteristics, which is that the output map tries to preserve the topology from the input space. This grants the SOM algorithm a way to visualize high-dimensional data that other neural networks or clustering algorithms don't have. Even though this is true, sometimes during training it is not possible to preserve the topology of the network.
+Thus topology preservation can be measured through the Topographic error~~\citet{Kiviluoto1996} which is the proportion of all data vectors for which first and second BMUs \footnote{unit that is closest to the winning neuron. BMU Best fitting unit } are not adjacent units.
+In this project the Topographic Error will be calculated for all SOM implementations and VSM usages in order to understand if the representation of the SOM output space is well defined.
+
 
 \section{The results}
-There is usual a future work section as well
-As usual you should finish your thesis with the experimental results.
+Usualy a future work section is presented here.
+Finish your thesis with the experimental results.
 
 \section{Summary}
 
-It is typical a good ideia to have an ending section summarizing the chapter.
+An ending section summarizing the chapter is typical a good idead.
 
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage

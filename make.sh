@@ -1,0 +1,10 @@
+pdflatex main.tex
+bibtex main.tex
+pdflatex main.tex
+pdflatex main.tex
+#latex main.tex
+#bibtex main.aux
+#latex main.tex
+#latex main.tex 
+#dvips main.dvi
+#ps2pdf main.ps

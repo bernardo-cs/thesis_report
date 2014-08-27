@@ -1,3 +1,7 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Testing framework}{\reset@font\mtcSfont 12}{section.5.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}The results}{\reset@font\mtcSfont 12}{section.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Summary}{\reset@font\mtcSfont 12}{section.5.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Evaluation Metrics}{\reset@font\mtcSfont 20}{section.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.1}Testing for Precision and Recall}{\reset@font\mtcSSfont 20}{subsection.5.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.2}Statistically Testing the SOM}{\reset@font\mtcSSfont 20}{subsection.5.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.1.2.A}Quantization Error}{\reset@font\mtcSSSfont 20}{subsubsection.5.1.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.1.2.B}Topology Preservation}{\reset@font\mtcSSSfont 21}{subsubsection.5.1.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}The results}{\reset@font\mtcSfont 21}{section.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Summary}{\reset@font\mtcSfont 21}{section.5.3}}

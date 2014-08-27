@@ -29,8 +29,12 @@
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % List of acronyms
-% \pdfbookmark[1]{List of Acronyms}{loac}
-% \input{acronim.tex}
+\makeglossaries
+\pdfbookmark[1]{List of Acronyms}{loac}
+\markboth{List of Acronyms}{List of Acronyms}
+\chapter*{List of Acronyms}
+\input{acronim.tex}
+\cleardoublepage
 
 % Change pagination from Roman to Arabic.
 \setcounter{page}{1} \pagenumbering{arabic}

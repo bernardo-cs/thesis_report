@@ -1,1 +1,13 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Summary}{\reset@font\mtcSfont 4}{section.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Basic Concepts}{\reset@font\mtcSfont 6}{section.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.1}Document}{\reset@font\mtcSSfont 6}{subsection.2.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.2}The Self-Organizing Map}{\reset@font\mtcSSfont 8}{subsection.2.1.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Related Work}{\reset@font\mtcSfont 10}{section.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Self-Organizing Maps}{\reset@font\mtcSSfont 10}{subsection.2.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.A}The Geo-Som Approach}{\reset@font\mtcSSSfont 10}{subsubsection.2.2.1.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.1.B}Detecting Hidden Patterns on Twitter Usage}{\reset@font\mtcSSSfont 10}{subsubsection.2.2.1.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Topic Detection and Clustering}{\reset@font\mtcSSfont 12}{subsection.2.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.2.A}Topic and Trending Detection}{\reset@font\mtcSSSfont 12}{subsubsection.2.2.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Data Mining in Twitter }{\reset@font\mtcSSfont 12}{subsection.2.2.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.3.A}Enhancing the Tweet}{\reset@font\mtcSSSfont 13}{subsubsection.2.2.3.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.3.B}Rapidly Changing Trends}{\reset@font\mtcSSSfont 14}{subsubsection.2.2.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Summary}{\reset@font\mtcSfont 14}{section.2.3}}

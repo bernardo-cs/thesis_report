@@ -1,31 +1,118 @@
 \begin{thebibliography}{}
 
-\bibitem[Merkel, 2010]{mylink}
-Merkel, S. (2010).
-\newblock http://merkel.zoneo.net/Latex/natbib.php.
+\bibitem[Asur and Huberman, 2010]{Asur2010}
+Asur, S. and Huberman, B. (2010).
+\newblock {Predicting the future with social media}.
+\newblock {\em \ldots Agent Technology (WI-IAT), 2010 IEEE \ldots}.
 
-\bibitem[Ramalho et~al., 2010]{ramalho2010eic}
-Ramalho, R. M.~M., Tom\'{a}s, P., and Sousa, L. (2010).
-\newblock Efficient independent component analysis on a gpu.
-\newblock In {\em 10th IEEE International Conference on Computer and
-  Information Technology}, pages 1128--1133. IEEE Computer Society.
+\bibitem[Ba\c{c}\~{a}o et~al., 2005]{Bacao2005}
+Ba\c{c}\~{a}o, F., Lobo, V., and Painho, M. (2005).
+\newblock {The self-organizing map, the Geo-SOM, and relevant variants for
+  geosciences}.
+\newblock {\em Computers \& Geosciences}, 31(2):155--163.
 
-\bibitem[Tom\'{a}s, 2009]{tomas2009nct}
-Tom\'{a}s, P. (2009).
-\newblock {\em Neural Code: Tunning and Assessment of Retina Models}.
-\newblock PhD thesis, IST, Universidade Técnica de Lisboa, Lisboa, Portugal.
+\bibitem[Bengio et~al., 2013]{Bengio2013}
+Bengio, Y., Courville, A., and Vincent, P. (2013).
+\newblock {Representation learning: A review and new perspectives}.
+\newblock (1993):1--34.
 
-\bibitem[Tom\'{a}s et~al., 2010]{tomas2010bda}
-Tom\'{a}s, P., Ilic, A., and Sousa, L. (2010).
-\newblock {\em Biomedical Diagnostics and Clinical Technologies: Applying
-  High-Performance Cluster and Grid Computing}, chapter Massive Data
-  Classification of Neural Responses.
-\newblock IGI Global.
+\bibitem[Blei et~al., 2003]{Blei2003}
+Blei, D., Ng, A., and Jordan, M. (2003).
+\newblock {Latent dirichlet allocation}.
+\newblock {\em the Journal of machine Learning research}, 3:993--1022.
 
-\bibitem[Tom\'{a}s and Sousa, 2010]{tomas2010aqa}
-Tom\'{a}s, P. and Sousa, L. (2010).
-\newblock A quantitative analysis of firing rate estimators: unveiling bias
-  sources.
-\newblock {\em Neurocomputing}, (73):2944--2954.
+\bibitem[Bodt et~al., ]{Bodt}
+Bodt, E.~D., Cottrell, M., and Verleysen, M.
+\newblock {Statistical tools to assess the reliability of self-organizing maps
+  Statistical tools to assess the reliability of self-organizing maps}.
+\newblock pages 1--27.
+
+\bibitem[Cataldi et~al., 2010]{Cataldi2010}
+Cataldi, M., Caro, L.~D., and Schifanella, C. (2010).
+\newblock {Emerging topic detection on Twitter based on temporal and social
+  terms evaluation}.
+\newblock {\em Proceedings of the Tenth \ldots}, pages 1--10.
+
+\bibitem[Cheong and Lee, 2010]{Cheong2010}
+Cheong, M. and Lee, V. (2010).
+\newblock {A Study on Detecting Patterns in Twitter Intra-topic User and
+  Message Clustering}.
+\newblock {\em 2010 20th International Conference on Pattern Recognition},
+  pages 3125--3128.
+
+\bibitem[Dozono, 2012]{Dozono2012}
+Dozono, H. (2012).
+\newblock {Application of Self Organizing Maps to Multi Modal Adaptive
+  Authentication System Using Behavior Biometrics}.
+
+\bibitem[Jansen and Zhang, 2009]{Jansen2009}
+Jansen, B. and Zhang, M. (2009).
+\newblock {Twitter power: Tweets as electronic word of mouth}.
+\newblock {\em Journal of the American \ldots}, 60(11):2169--2188.
+
+\bibitem[Kang, 2003]{Kang2003}
+Kang, S.-S. (2003).
+\newblock {Keyword-based document clustering}.
+\newblock {\em Proceedings of the sixth international workshop on Information
+  retrieval with Asian languages -}, 11:132--137.
+
+\bibitem[Kiviluoto, 1996]{Kiviluoto1996}
+Kiviluoto, K. (1996).
+\newblock {Topology Preservation in Self-Organizing Maps}.
+\newblock {\em Neural Networks, 1996., IEEE International \ldots}.
+
+\bibitem[Kohonen, 1990]{Kohonen1990}
+Kohonen, T. (1990).
+\newblock {The self-organizing map}.
+\newblock {\em Proceedings of the IEEE}.
+
+\bibitem[Le et~al., 2011]{Le2011}
+Le, Q., Ranzato, M., Monga, R., and Devin, M. (2011).
+\newblock {Building high-level features using large scale unsupervised
+  learning}.
+\newblock {\em arXiv preprint arXiv: \ldots}.
+
+\bibitem[Lin and Mishne, 2012]{Lin2012}
+Lin, J. and Mishne, G. (2012).
+\newblock {A Study of" Churn" in Tweets and Real-Time Search Queries (Extended
+  Version)}.
+\newblock {\em arXiv preprint arXiv:1205.6855}.
+
+\bibitem[Liu et~al., 2012]{Liu2012b}
+Liu, Y., Liu, M., and Wang, X. (2012).
+\newblock {Application of Self-Organizing Maps in Text Clustering: A Review}.
+
+\bibitem[McCreadie and Macdonald, 2013]{McCreadie2013}
+McCreadie, R. and Macdonald, C. (2013).
+\newblock {Relevance in microblogs: enhancing tweet retrieval using hyperlinked
+  documents}.
+
+\bibitem[Melville et~al., 2009]{Melville2009}
+Melville, P., Sindhwani, V., and Lawrence, R. (2009).
+\newblock {Social media analytics: Channeling the power of the blogosphere for
+  marketing insight}.
+\newblock {\em Proc. of the WIN}, pages 2--6.
+
+\bibitem[Pagerank et~al., 1998]{Pagerank1998}
+Pagerank, T., Ranking, C., and Order, B. (1998).
+\newblock {1 Introduction and Motivation 2 A Ranking for Every Page on the
+  Web}.
+\newblock pages 1--17.
+
+\bibitem[Springorum et~al., 1998]{Springorum1998}
+Springorum, S., im~Walde, S., and Utt, J. (1998).
+\newblock {Detecting Polysemy in Hard and Soft Cluster Analyses of German
+  Preposition Vector Spaces}.
+\newblock {\em aclweb.org}.
+
+\bibitem[Tao et~al., 2012]{Tao2012}
+Tao, K., Abel, F., Hauff, C., and Houben, G. (2012).
+\newblock {What makes a tweet relevant for a topic?}
+\newblock {\em Making Sense of Microposts (\# \ldots}, pages 49--56.
+
+\bibitem[Weng et~al., 2010]{Weng2010}
+Weng, J., Lim, E., Jiang, J., and He, Q. (2010).
+\newblock {Twitterrank: finding topic-sensitive influential twitterers}.
+\newblock {\em \ldots conference on Web search and data \ldots}.
 
 \end{thebibliography}

@@ -1,17 +1,18 @@
 \addvspace {10\p@ }
 \contentsline {xchapter}{Introduction}{1}{chapter.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{State of the art}{3}{chapter.2}
+\contentsline {xchapter}{State of the art}{5}{chapter.2}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Twitter Signals}}{11}{table.2.1}
+\contentsline {table}{\numberline {2.2}{\ignorespaces \nobreakspace {}\citet {Tao2012} resumed results}}{13}{table.2.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{The work}{5}{chapter.3}
+\contentsline {xchapter}{The work}{15}{chapter.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation}{9}{chapter.4}
+\contentsline {xchapter}{Implementation}{17}{chapter.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Results}{11}{chapter.5}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Example table}}{12}{table.5.1}
+\contentsline {xchapter}{Results}{19}{chapter.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusions}{13}{chapter.6}
+\contentsline {xchapter}{Conclusions}{23}{chapter.6}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Appendix A}{17}{appendix.A}
+\contentsline {xchapter}{Appendix A}{27}{appendix.A}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Appendix A}{19}{appendix.B}
+\contentsline {xchapter}{Appendix A}{29}{appendix.B}
