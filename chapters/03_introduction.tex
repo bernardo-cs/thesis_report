@@ -17,21 +17,21 @@ Even though a lot of solutions have arisen in order to automate real time search
 \end{itemize}
 This means that when an event happen, people immediately come to Twitter in order to know what is happening in a determined place in real time. Twitter solves this issue by monitoring which queries are currently popular in real time, using a Storm topology \footnote{http://storm-project.net/} and after the queries are identified, they are sent to a Thrift API \footnote{http://thrift.apache.org/} that dispatches the query to Amazon's Mechanical Turk \footnote{https://www.mturk.com/mturk/} service where real people will be asked a variety of questions about the query.
 
-Social Media Analytics is another raising topic which draws from Social Network Analysis, Machine Learning, Data Mining, Information Retrieval (IR), and Natural Language Processing (NLP). As stated by Melville et al. in ~\cite{Melville2009} 32\% of the 200 million bloggers world wide blog about opinions on products and brands, 71\% of the 625 million active Internet users actually read blogs and more importantly that 78\% of respondents put their trust in the opinion of other consumers where only only 57\% of consumers trust advertising in traditional media and even worst only 34\% of consumers put their trust in such advertising. This kind of data drives companies to Social Media Analytics in a way to know what people are saying on the web about their companies and products. This new worry has brought to life a lot of new startups like Sumal\footnote{https://sumall.com/} or ThoughtBuzz\footnote{http://www.thoughtbuzz.net/} but also solutions from the old players like IBM \footnote{http://www-01.ibm.com/software/analytics/solutions/customer-analytics/social-media-analytics/} and SAS \footnote{http://www.sas.com/software/customer-intelligence/social-media-analytics.html}
+Social Media Analytics is another raising topic which draws from Social Network Analysis, Machine Learning, Data Mining, Information Retrieval (IR), and Natural Language Processing (NLP). As stated by Melville et al. in ~\cite{Melville2009} 32\% of the 200 million active bloggers, write about opinions on products and brands. Where 71\% of 625 million Internet users read blogs, 78\% of respondents put their trust in the opinion of other consumers. In comparison, traditional advertising is only trusted by 57\% of consumers.
+This kind of data drives companies to Social Media Analytics in a way to know what people are saying on the web about their companies and products. This new worry has brought to life a lot of new startups like Sumal\footnote{https://sumall.com/} or ThoughtBuzz\footnote{http://www.thoughtbuzz.net/} but also solutions from the old players like IBM \footnote{http://www-01.ibm.com/software/analytics/solutions/customer-analytics/social-media-analytics/} and SAS \footnote{http://www.sas.com/software/customer-intelligence/social-media-analytics.html}
 
 Its also important to notice that in the last few years Data Science/Analysis has been a trending topic, mostly due to the fact that big dot-com companies have been making lots of money through exploiting user specific information in order to deliver ads and sell products. No wonder that if you look that in the top 10 ebooks sold by O'Reilly throughout 2013, four are about data science \footnote{http://shop.oreilly.com/category/deals/best\-of\-oreilly\-dotd.do?code=DEAL\&cmp=tw\-na\-books\-videos\-info\-authornote\_best\_of\_2013}.
 
 In this project we will focus on using an unsupervised learning technique based on neural networks named Self-Organizing Maps ~\cite{Kohonen1990} in order to detect topics in Twitter posts, by using the Social Network users as base neurons for clustering. After the network is trained, it will be possible to categorize tweets in real time. This approach will be better described in subsection ~\ref{sub:objectives}.
 
-This document is organized as follows. First will be dedicated to explain some basics concepts like Document CLustering and specifically Self-Organizing Maps in Section ~\ref{sec:basic_concepts}.  Further in, Section ~\ref{sec:related_work} will be dedicated to the state of the art solutions related not only to topic detection but also to twitter data analysis and Self-Organizing Maps.In Section ~\ref{sec:architecture} Architecture of the purposed solution and  at Section ~\ref{sec:evaluation_metrics} it will be discussed how to evaluate results achieved. Finally we will this report by referencing some possible future work and with a brief conclusion at Section ~\ref{sec:coclusions_future_work}.
  
 %TODO Check if Im Answering these questions
-\begin{enumerate}
- \item what is the background of your work?
- \item how do your work fit in todays knowledge? Have you done something that does not exist in the market? What are the differences? What is missing in nowadays products and solutions?
- \item is your thesis made as part of a larger project? If so, describe it.
- \item is your thesis usefull for some work environment? If so, describe it.
-\end{enumerate}
+%\begin{enumerate}
+ %\item what is the background of your work?
+ %\item how do your work fit in todays knowledge? Have you done something that does not exist in the market? What are the differences? What is missing in nowadays products and solutions?
+ %\item is your thesis made as part of a larger project? If so, describe it.
+ %\item is your thesis usefull for some work environment? If so, describe it.
+%\end{enumerate}
 
 \section{Motivation}
 
@@ -45,15 +45,21 @@ The objective of this project is clear: finding topics on Tweets by analyzing th
 
 After building the dataset, it will be needed to train the Self-Organizing map neural network in order to be able to have the network ready for clustering classification of each future tweet that will be added to it. After the SOM training it will be necessary to categorize the clusters in order to know which topic they belong to. When this step ha ended it will be possibly to get new tweets categorized on the moment they enter the network without further delay.
 
-Finally it will be presented a website where a user will be able to login with his twitter account and see all of his tweets being categorization in the moment they are clustered. After all the user tweets are clustered there will a graphical presentation of the user twitter usage where it will be possible to see multiple statistical information such as the the topics a user is more interested in and his own twitter Self-Organizing map network of topics with his friends, the wire-frames of the website can be seen in the attachments Section ~\ref{sec:attachments} in Figure ~\ref{fig:wireframes}.
+Finally it will be presented a website where a user will be able to login with his twitter account and see all of his tweets being categorization in the moment they are clustered. After all the user tweets are clustered there will a graphical presentation of the user twitter usage where it will be possible to see multiple statistical information such as the topics a user is more interested in and his own twitter Self-Organizing map network of topics with his friends, the wire-frames of the website can be seen in the attachments Section ~\ref{sec:attachments} in Figure ~\ref{fig:wireframes}.
  
 
 \section{Main contributions}
-%TODO Explain all the open source lybraries that Ive published
+\begin{itemize}
+  \item enhance topic discovery on data with small text corpus and high social significance.
+  \item create a framework to easily edit multiple parts of a SOM algorithm, by passing high order functions as configuration.
+  \item highly customizable infinite tweeter crawler that preserves the social network.  
+\end{itemize}
+ %TODO Explain all the open source lybraries that Ive published
 Do not forget this one. Notice that the objectives is what you have proposed to do. Main contributions are the innovations of your work, or, in other cases, what your work is really good at. If you submitted/published an article in a peer-reviewed conference or journal, do not forget to state here.
 
 \section{Dissertation outline}
 %TODO Write the outline
+%This document is organized as follows. First will be dedicated to explain some basics concepts like Document Clustering and specifically Self-Organizing Maps in Section ~\ref{sec:basic_concepts}.  Further in, Section ~\ref{sec:related_work} will be dedicated to the state of the art solutions related not only to topic detection but also to twitter data analysis and Self-Organizing Maps. In Section ~\ref{sec:architecture} Architecture of the purposed solution and  at Section ~\ref{sec:evaluation_metrics} it will be discussed how to evaluate results achieved. Finally we will this report by referencing some possible future work and with a brief conclusion at Section ~\ref{sec:coclusions_future_work}.
 Explain how did you organized your thesis.
 
 \cleardoublepage 

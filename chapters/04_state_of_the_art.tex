@@ -3,13 +3,13 @@
 \section{Basic Concepts} 
 \label{sec:basic_concepts}
 
-In this Section we will start by generally describing what Clustering is and how it works then we will outline how Self-Organizing maps ~\cite{Kohonen1990} function, which is the Document Clustering algorithm used on this project.
+In this Section we will start by generally describing what Clustering is and how it works then we will outline how Self-Organizing maps~\cite{Kohonen1990} function, which is the Document Clustering algorithm used on this project.
 
 \subsection{Document}
 \label{sub:clustering}
 Document clustering is an optimal division of documents into categories without prior knowledge of the data that is being organized, based only on the similarity between them. Due to the fact that no prior knowledge of the data has to be known Document Clustering is labeled as Unsupervised Machine Learning.
 
-Yuan-Chao Liu et Al ~\cite{Liu2012b} asserted that Document Clustering can be used in a variety of Computer Science fields, such as:
+~\citet{Liu2012b} asserted that Document Clustering can be used in a variety of Computer Science fields, such as:
 \begin{itemize}
   \item Natural Language Preprocessing.
   \item Automatic Summarization.
@@ -19,18 +19,18 @@ Yuan-Chao Liu et Al ~\cite{Liu2012b} asserted that Document Clustering can be us
 
 There are two main types of Document Clustering, Hard Clustering and Soft Clustering. In Hard Clustering one document can only belong to one cluster, while in Soft Clustering one document can belong to multiple clusters. 
 
-In regard to document categorization ~\citet{Springorum1998} performed clustering with SOMs ~\citep{Kohonen1990} while identifying polysemous German Propositions. They used regular SOMs to create multiple clusters and used Centroid-Based or Preposition-based softening to create Soft Clusters from the Hard Clusters.
+In regard to document categorization~\citet{Springorum1998} performed clustering with SOMs~\citep{Kohonen1990} while identifying polysemous German Propositions. They used regular SOMs to create multiple clusters and used Centroid-Based or Preposition-based softening to create Soft Clusters from the Hard Clusters.
 
 The clustering process usually works as described in ~\ref{fig:1_Text_Clustering_Main_Framwork}
 \begin{figure}
   \begin{center}
     \includegraphics[width=12cm]{images/1_Text_Clustering_Main_Framwork.png}
   \end{center}
-  \caption{ Text Clustering Main Framework from ~\citet{Dozono2012} }
+  \caption{ Text Clustering Main Framework from~\citet{Dozono2012} }
   \label{fig:1_Text_Clustering_Main_Framwork}
 \end{figure}
 In the first, step a data set must be provided in order to cluster the documents. 
-The second step is where non relevant words are removed from the documents. ~\citet{Kang2003} proves that improves clustering. Another way to extract keywords is to differentiate text features by analyzing the document corpora. For example if the dataset is composed from HTML or XML documents it is possible to identify more relevant features due to the characteristics of the markup.
+The second step is where non relevant words are removed from the documents, which greatly improves clustering quality~\cite{Kang2003}. Another way to extract keywords is to differentiate text features by analyzing the document corpora. For example if the dataset is composed from HTML or XML documents it is possible to identify more relevant features due to the characteristics of the document syntaxe.
 The fourth step is characterized by converting the keywords of each document into vectors, the most common model used for this task is VSM (Vector Space Model). In VSM, each vector dimension means one detected keyword and each document is represented by the vector of keywords in the feature space. This process an is described in Figure ~\ref{fig:2_svm}.
 
 \begin{figure}
@@ -42,7 +42,7 @@ The fourth step is characterized by converting the keywords of each document int
 \end{figure}
 
 
-There many clustering algorithms. K-means works by randomly selecting k documents as the cluster centroids, then assigning each document to the nearest centroid, and finally recalculate the the centroid with new added documents. 
+There many clustering algorithms. K-means works by randomly selecting k documents as the cluster centroids, then assigning each document to the nearest centroid, and finally recalculate the centroid with new added documents. 
 
 \subsection{The Self-Organizing Map} 
 \label{sub:the_self_organizing_map}
@@ -51,7 +51,7 @@ The Self-organinzing map, or SOM, is a kind of recurrent artificial neural netwo
 
 As \citet{Bacao2005} describes, the basic idea behind SOM is to map the data patterns into an n-dimensional grid of neurons or units. That grid is also know as the output space, as opposed to the initial space also called input space, where the input patterns are. Both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
 
-SOMs work similar to the way that is thought that the human brain works, by having a set of neurons that through learning experience specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible. Nearby neurons will be organized by similarity which will cause that similar patterns will activate similar areas of the SOM.
+SOMs work similar to the way that is thought that the human brain works. By having a set of neurons that through learning experience specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity which will cause that similar patterns will activate similar areas of the SOM.
 With a topology preserving mapping, SOM organizes the information spatially where similar concepts are mapped to adjacent areas. The topology is preserved in a sense that, as far as possible, neighborhoods are preserved through the mapping process.
 Neurons are displayed in an N dimensional grid, generally rectangular, but other structures are possible, such as hexagonal or octagonal.  The grid of neurons, also called output space, can be divided in neighborhoods, where neurons responsible for the same kind of input reside.
 In SOM, neurons will have the same amount of coefficients as the input patterns and can be represented as vectors through the VSM model described earlier in Section ~\ref{sub:clustering}.
@@ -87,7 +87,7 @@ After the algorithm converges, the prediction phase starts. On the prediction ph
 
 In order to visually interpret the result of the SOM U-matrices may be used as stated by ~\citep{Bacao2005}. The U-matrix is a representation of the SOM in which distances, in the input space between neurons is represented using a gray scale.
 
-The advantages of using SOM is data noise immunity, easy to visualize the data, and parallel processing.
+The advantages of using SOM is data noise immunity, easy to visualize the data, and parallel processing~\cite{Liu2012b}.
 
 \section{Related Work}
 \label{sec:related_work}
@@ -96,50 +96,68 @@ This Section provides insight of work done in multiple research areas that are r
 
 \subsection{Self-Organizing Maps} 
 \label{sub:self_organizing_maps}
-Self-Organizing maps are used in a wide are of applications, from authentication systems ~\cite{Dozono2012} through network intrusion detection ~\cite{intrusion_som} and speech recognition and analysis ~\cite{phonetic_typewiter}.
+Self-Organizing maps are used in a wide are of applications, from authentication systems~\cite{Dozono2012} through network intrusion detection ~\cite{intrusion_som} and speech recognition and analysis~\cite{phonetic_typewiter}.
 
 \subsubsection{The Geo-Som Approach} 
 \label{ssub:types_of_soms}
-The Geo-SOM ~\citet{Bacao2005} applies the first column of geography “Everything is related to everything else, but near things are more related than distant things." to the SOM algorithm, where the winning neuron is chosen by in a radius k defined by the geo-coordinates of the data. In this way the Geo-som forces units that are close in the input space to be close in the output space. The representation of the Geo-som can be seen in Figure ~\ref{fig:geo_som}.
+The Geo-SOM~\citet{Bacao2005} applies the first column of geography “Everything is related to everything else, but near things are more related than distant things." to the SOM algorithm, where the winning neuron is chosen in a radius defined by the geo-coordinates of the data, forcing units that are close in the input space to be close in the output space. The representation of the Geo-som can be seen in Figure ~\ref{fig:geo_som}.
 
 \begin{figure}[tb]
   \begin{center}
     \includegraphics[]{images/6_geo-som.png}
   \end{center}
-  \caption{Geo-SOM structure, from ~\citet{Bacao2005}}
+  \caption{Geo-SOM structure, from~\citet{Bacao2005}}
   \label{fig:geo_som}
 \end{figure}
 
 \subsubsection{Detecting Hidden Patterns on Twitter Usage} 
 \label{ssub:detecting_hidden_patterns_on_twitter_usage}
-Cheon and Lee ~\citep{Cheong2010} analyzed hidden patterns created buy the natural usage of twitter by its users. In its study they started by collecting data from the twitter API of different kinds of topics like "2009 Iran Election" and "iPhone 3.0 OS launch". They made multi level signal extraction not only from information directly present on the tweet, but also by cross referencing with other social website and with the twitter user profile information. The signals retrieved from the social network can be seen in Table ~\ref{tab:twitter_signals}.
+Cheon and Lee~\citep{Cheong2010} analyzed hidden patterns created the natural usage of twitter by its users. In its study they started by collecting data from the twitter API of different kinds of topics like "2009 Iran Election" and "iPhone 3.0 OS launch". They made multi level signal extraction not only from information directly present on the tweet, but also by cross referencing with other social website and with the twitter user profile information. The signals retrieved from the social network can be seen in Table ~\ref{tab:twitter_signals}.
 
 \begin{table}[H]
   \caption{Twitter Signals}
   \label{tab:twitter_signals}
   \begin{center}
-    \begin{tabular}{|l|l|l|}
-    \hline
-
-    \hline
-    \textbf{Twitt Corpus} & \textbf{Twitter Profile} & \textbf{External Sources} \\
-    \hline
-       Tweet Size & Gender & Other Social Network Accounts\\
-    \hline
-       Replies & Number of customizations & Type of website\\
-    \hline
-       Re-tweets & Friends to followers ratio & \\
-    \hline
-       Hashtags & frequency of posts & \\
-    \hline
-      \specialcell{Presence of URIs and \\ Type of linked content}
-        & Account Age
-        & \\
-    \hline
-       Type of Device & Country & \\
-    \hline
-       Tweet Location &  & \\
-    \hline
+    \begin{tabular}{|l|}
+      \hline
+      \textbf{Twitt Corpus}  \\
+      \hline
+      Tweet Size \\
+      \hline
+      Replies \\
+      \hline
+      Re-tweets \\
+      \hline
+      Hashtags  \\
+      \hline
+      \specialcell{Presence of URIs and \\ Type of linked content} \\
+      \hline
+      Type of Device   \\
+      \hline
+      Tweet Location  \\
+      \hline                 
+      \hline                 
+      \textbf{Twitter Profile} \\ 
+      \hline
+      Account Age   \\
+      \hline
+      Gender     \\
+      \hline
+      Country \\    
+      \hline
+      frequency of posts \\
+      \hline
+      Friends to followers ratio \\ 
+      \hline
+      Number of  customizations \\   
+      \hline
+      \hline
+      \textbf{External Sources} \\
+      \hline
+      Other Social Network Accounts   \\
+      \hline
+      Type of website\\ 
+      \hline
     \end{tabular}
   \end{center}
 \end{table}
@@ -153,14 +171,14 @@ In conclusion it was possible to detect Twitter usage patterns and specifically 
 
 \subsection{Topic Detection and Clustering} 
 \label{sub:topic_detection_on_twitter}
-There have been many topic detection techniques. Many of them rely on the TF IDF~\cite{Baeza-Yates:1999:MIR:553876} (term frequency – inverse document frequency) which is not particularly adequate for topic detection on Twitter due to the fact that tweets are very small, composed by typos or slang words and might be written in multiple languages, sometimes at the same time. In this subsection we will take a look at multiple methods of topic detection in general and specifically on the Twitter social network.
+There have been many topic detection techniques. Many of them rely on the TF ID~\cite{Baeza-Yates:1999:MIR:553876} (term frequency – inverse document frequency) which is not particularly adequate for topic detection on Twitter due to the fact that tweets are very small, composed by typos or slang words and might be written in multiple languages, sometimes at the same time. In this subsection we will take a look at multiple methods of topic detection in general and specifically on the Twitter social network.
 
 \subsubsection{Topic and Trending Detection} 
 \label{ssub:real_time_topic_and_trending_detection}
 Due to the rapid adaptation of people to always be on-line, through the usage of cellphones on the move, desktops at work and even theTV at home, the increase of user generated content has increased tremendously in latest years. In 2006 35\% of on-line adults and 57\% of teenagers created content on the Internet \footnote{ Data source: http://www.pewinternet.org/Presentations/2006/UserGenerated-Content.aspx}, which in "Internet Years" was ages ago.
 With amount of content increasing, new real-time and scalable algorithms are needed in order to make sense of all this data.
-~\citet{Cataldi2010} propose a new technique for emerging topic detection that permits real-time retrieval of the most emergent topics expressed by a community on Twitter. Their work applies the PageRank ~\cite{Pagerank1998} algorithm to the users follower/followee relationship in order to find the most influential user on the network, and then calculates the most trending topics by relating, social influence, word co-occurrence and time frame. In the end, an interface was created where it would be possible to navigate hot topics in a given time frame. Topic labeling was not automatic and was implicit by the time frame of an event, if two highly social events would occur in the same time frame with word relations the results could be interpreted as the same, for example if a political candidate would win the elections at the same of an important sports club would win a specific cup, the word \emph{win} could be trending at the same time for two different topics and due to high temporal dependency they could be interpreted as the same topic.
-~\citet{Weng2010} also used the PageRank algorithm in order to find the most influential twitter users on a certain topic, but uses a different approach where they represent each twitter user as a bag of words comprising of all the tweets that they have posted. Afterwards it uses Latent Dirichlet Allocation ~\cite{Blei2003} in order to find the topics each user is interested in. In the end it was possible to prove that follower/followee relation on twitter was not just casual, but that people actually follow other people in which they have some resemblance or common interest. This concept is called homophily and will be further explored by this project.
+~\citet{Cataldi2010} propose a new technique for emerging topic detection that permits real-time retrieval of the most emergent topics expressed by a community on Twitter. Their work applies the PageRank~\cite{Pagerank1998} algorithm to the users follower/followee relationship in order to find the most influential user on the network, and then calculates the most trending topics by relating, social influence, word co-occurrence and time frame. In the end, an interface was created where it would be possible to navigate hot topics in a given time frame. Topic labeling was not automatic and was implicit by the time frame of an event, if two highly social events would occur in the same time frame with word relations the results could be interpreted as the same, for example if a political candidate would win the elections at the same of an important sports club would win a specific cup, the word \emph{win} could be trending at the same time for two different topics and due to high temporal dependency they could be interpreted as the same topic.
+~\citet{Weng2010} also used the PageRank algorithm in order to find the most influential twitter users on a certain topic, but uses a different approach where they represent each twitter user as a bag of words comprising of all the tweets that they have posted. Afterwards it uses Latent Dirichlet Allocation~\cite{Blei2003} in order to find the topics each user is interested in. In the end it was possible to prove that follower/followee relation on twitter was not just casual, but that people actually follow other people in which they have some resemblance or common interest. This concept is called homophily and will be further explored by this project.
 
 \subsection{Data Mining in Twitter } 
 \label{sub:data_mining_in_twitter_}
@@ -216,11 +234,11 @@ Tweet retrieval and analysis is a double edged problem. On one side the tweet is
 
 ~\citet{McCreadie2013} also approached the issue of having very little content on tweets in order to categorize a tweet, and tried to solve it by applying the content of linked URIs into the tweet body in order to improve precision and recall. The best fitting approach was using Field-Based weighting where for each tweet a new document is created which contains two fields; the terms in the tweet and the terms in the linked document. 
 Afterwards a learning to rank algorithm called PL2F is used against the dataset from Microblog2011 in order to find the best weighting that should be applied to the tweet corpus and the URI referenced page. 
-With this trained model they where able to improve precision in an order of 0.9. 
+With this trained model they where able to improve precision in an order of 0.9, over only analyzing the text contained in the tweets. 
 
 \subsubsection{Rapidly Changing Trends} 
 \label{ssub:real_time_}
-Due to the real time nature of Twitter, using typical retrieval model that relies on term frequency models like BM25 or language modeling cannot be applied, as stated by ~\citet{Lin2012}. The study of topic perdurance on the social network proved that it is presented in bursts of queries and mentions of a topic. The typical usage of twitter for search is not the same of Google. When user are searching in twitter they want to find out what is happening right know meaning that classification techniques based on past events cannot respond this kind problem. As stated by ~\citet{Lin2012} this problem has not yet been solved at Twitter (or anywhere else at the time of writing this report), and issues a new kind of data analysis approach that was not taken into consideration in the past. 
+Due to the real time nature of Twitter, using typical retrieval model that relies on term frequency models like BM25 or language modeling cannot be applied, as stated by~\citet{Lin2012}. The study of topic perdurance on the social network proved that it is presented in bursts of queries and mentions of a topic. The typical usage of twitter for search is not the same of Google. When user are searching in twitter they want to find out what is happening right know meaning that classification techniques based on past events cannot respond this kind problem. As stated by~\citet{Lin2012} this problem has not yet been solved at Twitter (or anywhere else at the time of writing this report), and issues a new kind of data analysis approach that was not taken into consideration in the past. 
 This effect of rapidly changing topics and queries based on real time events was named "Churn", and can be clearly seen in Figure ~\ref{fig:churn}.
 
   \begin{figure}[tb]
@@ -229,7 +247,7 @@ This effect of rapidly changing topics and queries based on real time events was
       \includegraphics[width=13cm]{images/7_churn.png}
     }
     \end{center}
-    \caption{The Churn effect: Frequencies of queries related to Steve Jobs death over a 12 hour period in 5-minute intervals, normalized to the total number of queries in the interval. At its peak, the query “steve jobs” reaches 0.15 (15\% of the query stream); Graph taken from ~\cite{Lin2012}}
+    \caption{The Churn effect: Frequencies of queries related to Steve Jobs death over a 12 hour period in 5-minute intervals, normalized to the total number of queries in the interval. At its peak, the query “steve jobs” reaches 0.15 (15\% of the query stream); Graph taken from~\cite{Lin2012}}
     \label{fig:churn}
   \end{figure}
 
