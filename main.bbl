@@ -1,9 +1,10 @@
 \begin{thebibliography}{}
 
-\bibitem[Asur and Huberman, 2010]{Asur2010}
-Asur, S. and Huberman, B. (2010).
+\bibitem[{Asur, Sitaram and Huberman}, 2010]{Asur2010}
+{Asur, Sitaram and Huberman}, B.~A. (2010).
 \newblock {Predicting the future with social media}.
-\newblock {\em \ldots Agent Technology (WI-IAT), 2010 IEEE \ldots}.
+\newblock {\em Proceedings of the 2010 IEEE/WIC/ACM International Conference on
+  Web Intelligence and Intelligent Agent Technology}, 01:492--499.
 
 \bibitem[Ba\c{c}\~{a}o et~al., 2005]{Bacao2005}
 Ba\c{c}\~{a}o, F., Lobo, V., and Painho, M. (2005).
@@ -11,27 +12,28 @@ Ba\c{c}\~{a}o, F., Lobo, V., and Painho, M. (2005).
   geosciences}.
 \newblock {\em Computers \& Geosciences}, 31(2):155--163.
 
-\bibitem[Bengio et~al., 2013]{Bengio2013}
-Bengio, Y., Courville, A., and Vincent, P. (2013).
-\newblock {Representation learning: A review and new perspectives}.
-\newblock (1993):1--34.
+\bibitem[Baeza-Yates and Ribeiro-Neto, 1999]{Baeza-Yates:1999:MIR:553876}
+Baeza-Yates, R.~A. and Ribeiro-Neto, B. (1999).
+\newblock {\em Modern Information Retrieval}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA.
 
 \bibitem[Blei et~al., 2003]{Blei2003}
 Blei, D., Ng, A., and Jordan, M. (2003).
 \newblock {Latent dirichlet allocation}.
 \newblock {\em the Journal of machine Learning research}, 3:993--1022.
 
-\bibitem[Bodt et~al., ]{Bodt}
-Bodt, E.~D., Cottrell, M., and Verleysen, M.
-\newblock {Statistical tools to assess the reliability of self-organizing maps
-  Statistical tools to assess the reliability of self-organizing maps}.
-\newblock pages 1--27.
+\bibitem[Bodt et~al., 2005]{Bodt}
+Bodt, E.~D., Cottrell, M., and Verleysen, M. (2005).
+\newblock {Statistical tools to assess the reliability of self-organizing
+  maps}.
+\newblock {\em Neural networks}, 15(8-9):967--978.
 
 \bibitem[Cataldi et~al., 2010]{Cataldi2010}
-Cataldi, M., Caro, L.~D., and Schifanella, C. (2010).
-\newblock {Emerging topic detection on Twitter based on temporal and social
-  terms evaluation}.
-\newblock {\em Proceedings of the Tenth \ldots}, pages 1--10.
+Cataldi, M., Di~Caro, L., and Schifanella, C. (2010).
+\newblock Emerging topic detection on twitter based on temporal and social
+  terms evaluation.
+\newblock In {\em Proceedings of the Tenth International Workshop on Multimedia
+  Data Mining}, MDMKDD '10, pages 4:1--4:10, New York, NY, USA. ACM.
 
 \bibitem[Cheong and Lee, 2010]{Cheong2010}
 Cheong, M. and Lee, V. (2010).
@@ -44,11 +46,12 @@ Cheong, M. and Lee, V. (2010).
 Dozono, H. (2012).
 \newblock {Application of Self Organizing Maps to Multi Modal Adaptive
   Authentication System Using Behavior Biometrics}.
+\newblock {\em Applications of Self-Organizing Maps}, pages 120--141.
 
-\bibitem[Jansen and Zhang, 2009]{Jansen2009}
-Jansen, B. and Zhang, M. (2009).
-\newblock {Twitter power: Tweets as electronic word of mouth}.
-\newblock {\em Journal of the American \ldots}, 60(11):2169--2188.
+\bibitem[Jansen et~al., 2009]{Jansen2009}
+Jansen, B.~J., Zhang, M., Sobel, K., and Chowdury, A. (2009).
+\newblock Twitter power: Tweets as electronic word of mouth.
+\newblock {\em J. Am. Soc. Inf. Sci. Technol.}, 60(11):2169--2188.
 
 \bibitem[Kang, 2003]{Kang2003}
 Kang, S.-S. (2003).
@@ -61,16 +64,21 @@ Kiviluoto, K. (1996).
 \newblock {Topology Preservation in Self-Organizing Maps}.
 \newblock {\em Neural Networks, 1996., IEEE International \ldots}.
 
+\bibitem[Kohonen, 1988]{phonetic_typewiter}
+Kohonen, T. (1988).
+\newblock The 'neural' phonetic typewriter.
+\newblock {\em Computer}, 21(3):11--22.
+
 \bibitem[Kohonen, 1990]{Kohonen1990}
 Kohonen, T. (1990).
 \newblock {The self-organizing map}.
 \newblock {\em Proceedings of the IEEE}.
 
-\bibitem[Le et~al., 2011]{Le2011}
-Le, Q., Ranzato, M., Monga, R., and Devin, M. (2011).
-\newblock {Building high-level features using large scale unsupervised
-  learning}.
-\newblock {\em arXiv preprint arXiv: \ldots}.
+\bibitem[Le et~al., 2012]{Le2011}
+Le, Q.~V., Ranzato, M., Monga, R., Devin, M., Corrado, G., Chen, K., Dean, J.,
+  and Ng, A.~Y. (2012).
+\newblock Building high-level features using large scale unsupervised learning.
+\newblock In {\em ICML}. icml.cc / Omnipress.
 
 \bibitem[Lin and Mishne, 2012]{Lin2012}
 Lin, J. and Mishne, G. (2012).
@@ -81,11 +89,15 @@ Lin, J. and Mishne, G. (2012).
 \bibitem[Liu et~al., 2012]{Liu2012b}
 Liu, Y., Liu, M., and Wang, X. (2012).
 \newblock {Application of Self-Organizing Maps in Text Clustering: A Review}.
+\newblock {\em Applications of Self-Organizing Maps}, pages 205--219.
 
 \bibitem[McCreadie and Macdonald, 2013]{McCreadie2013}
 McCreadie, R. and Macdonald, C. (2013).
-\newblock {Relevance in microblogs: enhancing tweet retrieval using hyperlinked
-  documents}.
+\newblock Relevance in microblogs: Enhancing tweet retrieval using hyperlinked
+  documents.
+\newblock In {\em Proceedings of the 10th Conference on Open Research Areas in
+  Information Retrieval}, OAIR '13, pages 189--196, Paris, France, France. LE
+  CENTRE DE HAUTES ETUDES INTERNATIONALES D'INFORMATIQUE DOCUMENTAIRE.
 
 \bibitem[Melville et~al., 2009]{Melville2009}
 Melville, P., Sindhwani, V., and Lawrence, R. (2009).
@@ -93,11 +105,16 @@ Melville, P., Sindhwani, V., and Lawrence, R. (2009).
   marketing insight}.
 \newblock {\em Proc. of the WIN}, pages 2--6.
 
-\bibitem[Pagerank et~al., 1998]{Pagerank1998}
-Pagerank, T., Ranking, C., and Order, B. (1998).
-\newblock {1 Introduction and Motivation 2 A Ranking for Every Page on the
-  Web}.
-\newblock pages 1--17.
+\bibitem[Page et~al., 1999]{Pagerank1998}
+Page, L., Brin, S., Motwani, R., and Winograd, T. (1999).
+\newblock The pagerank citation ranking: Bringing order to the web.
+\newblock Technical Report 1999-66, Stanford InfoLab.
+\newblock Previous number = SIDL-WP-1999-0120.
+
+\bibitem[Samarjeet~Borah, 2013]{intrusion_som}
+Samarjeet~Borah, A.~C. (2013).
+\newblock Intrusion detection system using self organizing map (som): A review.
+\newblock {\em SCIENCE PARK}, 1(2).
 
 \bibitem[Springorum et~al., 1998]{Springorum1998}
 Springorum, S., im~Walde, S., and Utt, J. (1998).
@@ -106,13 +123,15 @@ Springorum, S., im~Walde, S., and Utt, J. (1998).
 \newblock {\em aclweb.org}.
 
 \bibitem[Tao et~al., 2012]{Tao2012}
-Tao, K., Abel, F., Hauff, C., and Houben, G. (2012).
-\newblock {What makes a tweet relevant for a topic?}
-\newblock {\em Making Sense of Microposts (\# \ldots}, pages 49--56.
+Tao, K., Abel, F., Hauff, C., and Houben, G.-J. (2012).
+\newblock What makes a tweet relevant for a topic?
+\newblock In Rowe, M., Stankovic, M., and Dadzie, A.-S., editors, {\em \#MSM},
+  volume 838 of {\em CEUR Workshop Proceedings}, pages 49--56. CEUR-WS.org.
 
 \bibitem[Weng et~al., 2010]{Weng2010}
-Weng, J., Lim, E., Jiang, J., and He, Q. (2010).
-\newblock {Twitterrank: finding topic-sensitive influential twitterers}.
-\newblock {\em \ldots conference on Web search and data \ldots}.
+Weng, J., Lim, E.-P., Jiang, J., and He, Q. (2010).
+\newblock Twitterrank: Finding topic-sensitive influential twitterers.
+\newblock In {\em Proceedings of the Third ACM International Conference on Web
+  Search and Data Mining}, WSDM '10, pages 261--270, New York, NY, USA. ACM.
 
 \end{thebibliography}

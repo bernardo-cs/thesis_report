@@ -2,63 +2,53 @@ This is BibTeX, Version 0.99d (TeX Live 2013)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
-I couldn't open database file Sites.bib.bib
----line 272 of file main.aux
- : \bibdata{bibliographies/biblio.bib,bibliographies/library.bib,Sites.bib
- :                                                                        }
-I'm skipping whatever remains of this command
-Database file #1: bibliographies/biblio.bib.bib
-Database file #2: bibliographies/library.bib.bib
-Warning--I didn't find a database entry for "intrusion_som"
-Warning--I didn't find a database entry for "phonetic_typewiter"
-Warning--I didn't find a database entry for "Baeza-Yates:1999:MIR:553876"
-Warning--empty journal in Bengio2013
-Warning--there's a number but no volume in Bengio2013
-Warning--empty year in Bodt
-Warning--empty journal in Bodt
-Warning--empty journal in Dozono2012
-Warning--empty journal in Liu2012b
-Warning--empty journal in McCreadie2013
-Warning--empty journal in Pagerank1998
-You've used 21 entries,
+Database file #1: bibliographies/library.bib
+Database file #2: bibliographies/sites.bib
+A bad cross reference---entry "Tao2012"
+refers to entry "conf/msm/2012", which doesn't exist
+A bad cross reference---entry "Le2011"
+refers to entry "conf/icml/2012", which doesn't exist
+Warning--I didn't find a database entry for "conf/msm/2012"
+Warning--I didn't find a database entry for "conf/icml/2012"
+You've used 23 entries,
             1935 wiz_defined-function locations,
-            606 strings with 7196 characters,
-and the built_in function-call counts, 8038 in all, are:
-= -- 790
-> -- 324
-< -- 15
-+ -- 106
-- -- 106
-* -- 638
-:= -- 1406
-add.period$ -- 60
-call.type$ -- 21
-change.case$ -- 158
-chr.to.int$ -- 21
-cite$ -- 29
-duplicate$ -- 322
-empty$ -- 538
-format.name$ -- 137
-if$ -- 1568
+            639 strings with 8077 characters,
+and the built_in function-call counts, 9812 in all, are:
+= -- 991
+> -- 373
+< -- 21
++ -- 127
+- -- 123
+* -- 781
+:= -- 1656
+add.period$ -- 75
+call.type$ -- 23
+change.case$ -- 174
+chr.to.int$ -- 23
+cite$ -- 23
+duplicate$ -- 404
+empty$ -- 685
+format.name$ -- 154
+if$ -- 1983
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 105
-num.names$ -- 63
+missing$ -- 23
+newline$ -- 119
+num.names$ -- 71
 pop$ -- 154
 preamble$ -- 1
-purify$ -- 158
+purify$ -- 175
 quote$ -- 0
-skip$ -- 264
+skip$ -- 327
 stack$ -- 0
-substring$ -- 514
-swap$ -- 53
-text.length$ -- 6
+substring$ -- 693
+swap$ -- 93
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 126
-warning$ -- 8
-while$ -- 70
+type$ -- 136
+warning$ -- 0
+while$ -- 83
 width$ -- 0
-write$ -- 255
-(There was 1 error message)
+write$ -- 310
+(There were 2 error messages)

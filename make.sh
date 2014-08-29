@@ -1,7 +1,7 @@
-pdflatex main.tex
-bibtex main.tex
-pdflatex main.tex
-pdflatex main.tex
+pdflatex main
+bibtex main
+pdflatex main
+pdflatex main
 #latex main.tex
 #bibtex main.aux
 #latex main.tex
