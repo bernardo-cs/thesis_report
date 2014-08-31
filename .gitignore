@@ -167,3 +167,7 @@ sympy-plots-for-*.tex/
 *.tdo
 # xindy
 *.xdy
+# mintoc
+*.mlf*
+*.mlt*
+*.mtc*
