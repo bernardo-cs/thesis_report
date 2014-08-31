@@ -1,0 +1,10 @@
+\begin{algorithm}[H]
+  \KwData{Input patterns $X = \{  \overrightarrow{x_1}$,\dots,$\overrightarrow{x_N}$ \} }
+  \KwResult{Trainned map and clustered input patterns}
+  \For{ $t = 1 \; to \; t_{\textrm{$max$}}$ }{
+    Randomly draw an input pattern, $ \overrightarrow{x_d} $ \;
+    $p =  \arg{ min_i \{ \|  \overrightarrow{x_d} - \overrightarrow{w_i} \|  \}}  $ \;
+    $\overrightarrow{w_i} = \overrightarrow{w_i} + \epsilon(t) \cdot h_ip(t) \cdot ( \overrightarrow{x_d} - \overrightarrow{w_i} ),  \forall{i}$
+  }
+  \caption{How to write algorithms}
+\end{algorithm}
