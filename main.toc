@@ -26,7 +26,6 @@
 \contentsline {subsection}{\numberline {6.2.1}Quantization Error}{22}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Topology Preservation}{23}{subsection.6.2.2}
 \contentsline {section}{\numberline {6.3}Conclusions}{23}{section.6.3}
-\contentsline {chapter}{\numberline {7}Conclusions}{25}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future work}{26}{section.7.1}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{25}{chapter.7}
 \contentsline {chapter}{\numberline {A}Appendix A}{29}{appendix.A}
 \contentsline {chapter}{\numberline {B}Appendix A}{31}{appendix.B}
