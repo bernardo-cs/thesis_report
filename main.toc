@@ -8,12 +8,12 @@
 \contentsline {section}{\numberline {2.2}The Self-Organizing Map}{8}{section.2.2}
 \contentsline {chapter}{\numberline {3}State of the art}{10}{chapter.3}
 \contentsline {section}{\numberline {3.1}Self-Organizing Maps}{11}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}The Geo-Som Approach}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}The Geo-Som}{11}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Detecting Hidden Patterns on Twitter Usage}{11}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Topic Detection and Clustering}{13}{section.3.2}
 \contentsline {subsubsection}{\numberline {3.2.0.A}Topic and Trending Detection}{13}{subsubsection.3.2.0.1}
-\contentsline {section}{\numberline {3.3}Data Mining in Twitter }{14}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Enhancing the Tweet}{14}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.3}Twitter Data Mining}{14}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Tweets Hidden Data}{14}{subsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.1.A}Rapidly Changing Trends}{15}{subsubsection.3.3.1.1}
 \contentsline {section}{\numberline {3.4}Summary}{15}{section.3.4}
 \contentsline {chapter}{\numberline {4}The work}{17}{chapter.4}
@@ -27,5 +27,5 @@
 \contentsline {subsection}{\numberline {6.2.2}Topology Preservation}{23}{subsection.6.2.2}
 \contentsline {section}{\numberline {6.3}Conclusions}{23}{section.6.3}
 \contentsline {chapter}{\numberline {7}Conclusions and Future Work}{25}{chapter.7}
-\contentsline {chapter}{\numberline {A}Appendix A}{29}{appendix.A}
-\contentsline {chapter}{\numberline {B}Appendix A}{31}{appendix.B}
+\contentsline {chapter}{\numberline {A}Appendix A}{27}{appendix.A}
+\contentsline {chapter}{\numberline {B}Appendix A}{29}{appendix.B}

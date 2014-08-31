@@ -1,9 +1,9 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Self-Organizing Maps}{\reset@font\mtcSfont 11}{section.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.1}The Geo-Som Approach}{\reset@font\mtcSSfont 11}{subsection.3.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.2}Detecting Hidden Patterns on Twitter Usage}{\reset@font\mtcSSfont 11}{subsection.3.1.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Topic Detection and Clustering}{\reset@font\mtcSfont 13}{section.3.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.0.A}Topic and Trending Detection}{\reset@font\mtcSSSfont 13}{subsubsection.3.2.0.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Data Mining in Twitter }{\reset@font\mtcSfont 14}{section.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.1}Enhancing the Tweet}{\reset@font\mtcSSfont 14}{subsection.3.3.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.3.1.A}Rapidly Changing Trends}{\reset@font\mtcSSSfont 15}{subsubsection.3.3.1.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Summary}{\reset@font\mtcSfont 15}{section.3.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Self-Organizing Maps}{\reset@font\mtcSfont 12}{section.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.1}The Geo-Som}{\reset@font\mtcSSfont 12}{subsection.3.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.2}Detecting Hidden Patterns on Twitter Usage}{\reset@font\mtcSSfont 12}{subsection.3.1.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Topic Detection and Clustering}{\reset@font\mtcSfont 14}{section.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.0.A}Topic and Trending Detection}{\reset@font\mtcSSSfont 14}{subsubsection.3.2.0.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Twitter Data Mining}{\reset@font\mtcSfont 15}{section.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.1}Tweets Hidden Data}{\reset@font\mtcSSfont 15}{subsection.3.3.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.3.1.A}Rapidly Changing Trends}{\reset@font\mtcSSSfont 16}{subsubsection.3.3.1.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Summary}{\reset@font\mtcSfont 16}{section.3.4}}

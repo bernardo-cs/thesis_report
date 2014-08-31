@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.6.4)  31 AUG 2014 16:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.6.4)  31 AUG 2014 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
+**main
 (./main.tex
 LaTeX2e <2011/06/27>
 Babel <3.9f> and hyphenation patterns for 78 languages loaded.
@@ -1032,7 +1032,7 @@ Package epstopdf Info: Source file: <images/IST_C_CMYK_POS.eps>
 converted-to.pdf images/IST_C_CMYK_POS.eps>
 (epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
-<images/IST_C_CMYK_POS-eps-converted-to.pdf, id=174, 674.52pt x 156.585pt>
+<images/IST_C_CMYK_POS-eps-converted-to.pdf, id=70, 674.52pt x 156.585pt>
 File: images/IST_C_CMYK_POS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/IST_C_CMYK_POS-eps-converted-to.pdf>
@@ -1098,130 +1098,23 @@ l.29 \clearpage
 ]
 Package minitoc Info: I0024
 (minitoc)             PREPARING MINITOCS FROM main.toc on input line 35.
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc1.
-\openout3 = `main.mtc1'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc2.
-\openout3 = `main.mtc2'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc3.
-\openout3 = `main.mtc3'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc4.
-\openout3 = `main.mtc4'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc5.
-\openout3 = `main.mtc5'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc6.
-\openout3 = `main.mtc6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc7.
-\openout3 = `main.mtc7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc8.
-\openout3 = `main.mtc8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mtc9.
-\openout3 = `main.mtc9'.
-
 Package minitoc Info: I0034
 (minitoc)             PREPARING MINILOFS FROM main.lof on input line 36.
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf1.
-\openout3 = `main.mlf1'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf2.
-\openout3 = `main.mlf2'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf3.
-\openout3 = `main.mlf3'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf4.
-\openout3 = `main.mlf4'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf5.
-\openout3 = `main.mlf5'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf6.
-\openout3 = `main.mlf6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf7.
-\openout3 = `main.mlf7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf8.
-\openout3 = `main.mlf8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlf9.
-\openout3 = `main.mlf9'.
-
 Package minitoc Info: I0037
 (minitoc)             PREPARING MINILOTS FROM main.lot on input line 37.
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt1.
-\openout3 = `main.mlt1'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt2.
-\openout3 = `main.mlt2'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt3.
-\openout3 = `main.mlt3'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt4.
-\openout3 = `main.mlt4'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt5.
-\openout3 = `main.mlt5'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt6.
-\openout3 = `main.mlt6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt7.
-\openout3 = `main.mlt7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt8.
-\openout3 = `main.mlt8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing main.mlt9.
-\openout3 = `main.mlt9'.
-
-) (./chapters/c_lists.tex (./main.toc [7
-
-])
+) (./chapters/c_lists.tex (./main.toc)
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
- [8] (./main.lof)
+ [7
+
+] [8
+
+] (./main.lof)
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
 [9
-
 
 ] [10
 
@@ -1281,10 +1174,31 @@ l.2  W
 [1
 
 ]
+
+Package natbib Warning: Citation `Jansen2009' on page 2 undefined on input line
+ 3.
+
+
+Package natbib Warning: Citation `Melville2009' on page 2 undefined on input li
+ne 3.
+
+
+Package natbib Warning: Citation `Asur2010' on page 2 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `Asur2010' on page 2 undefined on input line 6
+.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 9--9
 [][][]\OT1/phv/m/n/8 http://www.forbes.com/sites/anthonykosner/2013/12/29/why-i
 s-machine-learning-cs-229-the-most-popular-course-at-
  []
+
+
+Package natbib Warning: Citation `Le2011' on page 2 undefined on input line 11.
+
 
 LaTeX Font Info:    Try loading font information for OMS+phv on input line 15.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsphv.fd
@@ -1298,10 +1212,19 @@ been already used, duplicate ignored
                    \relax 
 l.19 
       [2]
+
+Package natbib Warning: Citation `Melville2009' on page 3 undefined on input li
+ne 20.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 23--23
 [][][]\OT1/phv/m/n/8 http://shop.oreilly.com/category/deals/best-of-oreilly-dot
 d.do?code=DEAL&cmp=tw-na-books-videos-info-
  []
+
+
+Package natbib Warning: Citation `Kohonen1990' on page 3 undefined on input lin
+e 25.
 
 
 LaTeX Warning: Reference `sub:objectives' on page 3 undefined on input line 25.
@@ -1328,60 +1251,115 @@ Chapter 2.
 
 
 ]
-Overfull \hbox (5.91298pt too wide) in paragraph at lines 21--22
-[]\OT1/phv/m/n/10 In re-gard to doc-u-ment cat-e-go-riza-tion Springo-rum et al
-. [][][] per-formed clus-ter-ing with SOMs [[]]
- []
+
+Package natbib Warning: Citation `Kohonen1990' on page 6 undefined on input lin
+e 5.
 
 
-<images/1_Text_Clustering_Main_Framwork.png, id=381, 872.25874pt x 486.81876pt>
+Package natbib Warning: Citation `Liu2012b' on page 6 undefined on input line 1
+1.
+
+
+Package natbib Warning: Citation `Springorum1998' on page 6 undefined on input 
+line 21.
+
+
+Package natbib Warning: Citation `Kohonen1990' on page 6 undefined on input lin
+e 21.
+
+
+LaTeX Warning: Reference `fig:1_Text_Clustering_Main_Framwork' on page 6 undefi
+ned on input line 23.
+
+
+<images/1_Text_Clustering_Main_Framwork.png, id=200, 872.25874pt x 486.81876pt>
 File: images/1_Text_Clustering_Main_Framwork.png Graphic file (type png)
 <use images/1_Text_Clustering_Main_Framwork.png>
 Package pdftex.def Info: images/1_Text_Clustering_Main_Framwork.png used on inp
 ut line 26.
 (pdftex.def)             Requested size: 341.43306pt x 190.55681pt.
 
-<images/2_svm.jpg, id=385, 249.93375pt x 241.90375pt>
+
+Package natbib Warning: Citation `Dozono2012' on page 6 undefined on input line
+ 28.
+
+
+Package natbib Warning: Citation `Kang2003' on page 6 undefined on input line 3
+2.
+
+
+LaTeX Warning: Reference `fig:2_svm' on page 6 undefined on input line 33.
+
+<images/2_svm.jpg, id=201, 249.93375pt x 241.90375pt>
 File: images/2_svm.jpg Graphic file (type jpg)
  <use images/2_svm.jpg>
 Package pdftex.def Info: images/2_svm.jpg used on input line 37.
 (pdftex.def)             Requested size: 142.26378pt x 137.69832pt.
 
-[6] [7pdfTeX warning (ext4): destination with the same identifier (name{figure.
-2.1}) has been already used, duplicate ignored
+(./algorithms/SOM.tex [6] [7pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.2.1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.50 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-.2}) has been already used, duplicate ignored
+l.1 
+    pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+2}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.50 
-      <./images/1_Text_Clustering_Main_Framwork.png> <./images/2_svm.jpg>]
+l.1 
+     <./images/1_Text_Clustering_Main_Framwork.png> <./images/2_svm.jpg>])
+
+Package natbib Warning: Citation `Bacao2005' on page 8 undefined on input line 
+51.
+
+
+LaTeX Warning: Reference `fig:5_neighbours_converge' on page 8 undefined on inp
+ut line 51.
+
 
 LaTeX Warning: Reference `sub:clustering' on page 8 undefined on input line 56.
 
 
-[8] <images/4_wining_neuron_converge.jpg, id=406, 364.36125pt x 363.3575pt>
+
+Package natbib Warning: Citation `Bacao2005' on page 8 undefined on input line 
+58.
+
+
+LaTeX Warning: Reference `fig:4_wining_neuron_converge' on page 8 undefined on 
+input line 65.
+
+
+LaTeX Warning: Reference `fig:5_neighbours_converge' on page 8 undefined on inp
+ut line 66.
+
+<images/4_wining_neuron_converge.jpg, id=212, 364.36125pt x 363.3575pt>
 File: images/4_wining_neuron_converge.jpg Graphic file (type jpg)
 
 <use images/4_wining_neuron_converge.jpg>
 Package pdftex.def Info: images/4_wining_neuron_converge.jpg used on input line
  71.
 (pdftex.def)             Requested size: 142.26378pt x 141.86963pt.
-
-<images/5_neighbours_converge.jpg, id=407, 618.31pt x 362.35374pt>
+ [8]
+<images/5_neighbours_converge.jpg, id=217, 618.31pt x 362.35374pt>
 File: images/5_neighbours_converge.jpg Graphic file (type jpg)
 
 <use images/5_neighbours_converge.jpg>
 Package pdftex.def Info: images/5_neighbours_converge.jpg used on input line 79
 .
 (pdftex.def)             Requested size: 341.43306pt x 200.09688pt.
-) (./chapters/03_state_of_the_art.tex
-[9pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}
-) has been already used, duplicate ignored
+
+
+Package natbib Warning: Citation `Bacao2005' on page 9 undefined on input line 
+87.
+
+
+Package natbib Warning: Citation `Liu2012b' on page 9 undefined on input line 8
+9.
+
+) (./chapters/03_state_of_the_art.tex [9pdfTeX warning (ext4): destination with
+ the same identifier (name{figure.2.3}) has been already used, duplicate ignore
+d
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
@@ -1410,14 +1388,46 @@ ut line 5.
 LaTeX Warning: Reference `sub:topic_detection_on_twitter' on page 11 undefined 
 on input line 5.
 
-<images/6_geo-som.png, id=429, 410.53375pt x 193.72375pt>
+
+Package natbib Warning: Citation `Dozono2012' on page 11 undefined on input lin
+e 9.
+
+
+Package natbib Warning: Citation `intrusion_som' on page 11 undefined on input 
+line 9.
+
+
+Package natbib Warning: Citation `phonetic_typewiter' on page 11 undefined on i
+nput line 9.
+
+
+Package natbib Warning: Citation `Bacao2005' on page 11 undefined on input line
+ 13.
+
+
+LaTeX Warning: Reference `fig:geo_som' on page 11 undefined on input line 13.
+
+<images/6_geo-som.png, id=239, 410.53375pt x 193.72375pt>
 File: images/6_geo-som.png Graphic file (type png)
 
 <use images/6_geo-som.png>
 Package pdftex.def Info: images/6_geo-som.png used on input line 17.
 (pdftex.def)             Requested size: 410.53275pt x 193.72327pt.
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-1}) has been already used, duplicate ignored
+
+
+Package natbib Warning: Citation `Bacao2005' on page 11 undefined on input line
+ 19.
+
+
+Package natbib Warning: Citation `Cheong2010' on page 11 undefined on input lin
+e 25.
+
+
+LaTeX Warning: Reference `tab:twitter_signals' on page 11 undefined on input li
+ne 25.
+
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
+}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
@@ -1433,23 +1443,84 @@ Underfull \vbox (badness 5970) has occurred while \output is active []
 l.81 
      ]
 
+Package natbib Warning: Citation `Baeza-Yates:1999:MIR:553876' on page 13 undef
+ined on input line 84.
+
+
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 86.
 
-[13] [14pdfTeX warning (ext4): destination with the same identifier (name{table
-.3.2}) has been already used, duplicate ignored
+
+Package natbib Warning: Citation `Cataldi2010' on page 13 undefined on input li
+ne 90.
+
+
+Package natbib Warning: Citation `Pagerank1998' on page 13 undefined on input l
+ine 90.
+
+
+Package natbib Warning: Citation `Weng2010' on page 13 undefined on input line 
+91.
+
+
+Package natbib Warning: Citation `Blei2003' on page 13 undefined on input line 
+91.
+
+
+Underfull \vbox (badness 1546) has occurred while \output is active []
+
+ [13]
+
+Package natbib Warning: Citation `Tao2012' on page 14 undefined on input line 1
+00.
+
+
+LaTeX Warning: Reference `tab:tao_table' on page 14 undefined on input line 100
+.
+
+
+Package natbib Warning: Citation `Tao2012' on page 14 undefined on input line 1
+03.
+
+
+Package natbib Warning: Citation `McCreadie2013' on page 14 undefined on input 
+line 145.
+
+[14pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}
+) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
 l.148 
-      ] <images/7_churn.png, id=476, 744.7825pt x 276.03125pt>
+      ]
+
+Package natbib Warning: Citation `Lin2012' on page 15 undefined on input line 1
+51.
+
+
+Package natbib Warning: Citation `Lin2012' on page 15 undefined on input line 1
+51.
+
+
+LaTeX Warning: Reference `fig:churn' on page 15 undefined on input line 152.
+
+<images/7_churn.png, id=269, 744.7825pt x 276.03125pt>
 File: images/7_churn.png Graphic file (type png)
 
 <use images/7_churn.png>
 Package pdftex.def Info: images/7_churn.png used on input line 158.
 (pdftex.def)             Requested size: 369.88582pt x 137.08865pt.
- [15pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-2}) has been already used, duplicate ignored
+
+
+Package natbib Warning: Citation `Lin2012' on page 15 undefined on input line 1
+60.
+
+
+Package natbib Warning: Citation `Lin2012' on page 15 undefined on input line 1
+60.
+
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
+}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
@@ -1479,6 +1550,9 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 19--20
 [][][] 
  []
 
+
+LaTeX Warning: Reference `chp4:img' on page 20 undefined on input line 24.
+
 [20pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1
 }) has been already used, duplicate ignored
 
@@ -1504,10 +1578,21 @@ LaTeX Warning: Reference `sub:cluster_quality_testing' on page 22 undefined on
 input line 5.
 
 
+Package natbib Warning: Citation `Bodt' on page 22 undefined on input line 25.
+
+
+Package natbib Warning: Citation `Bodt' on page 22 undefined on input line 31.
+
+
 LaTeX Warning: Reference `ssub:default_som_approach_' on page 22 undefined on i
 nput line 32.
 
-[22] [23] [24
+[22]
+
+Package natbib Warning: Citation `Kiviluoto1996' on page 23 undefined on input 
+line 38.
+
+[23] [24
 
 ]) (./chapters/07_conclusions.tex
 Chapter 7.
@@ -1515,25 +1600,23 @@ Package minitoc Info: I0006
 (minitoc)             main.mtc7 is empty on input line 1.
 [25
 
-] [26]) (./main.bbl [27
-
-
-]) [28] (./chapters/10_appendix.tex
+] [26]) (./main.bbl) (./chapters/10_appendix.tex
 Appendix A.
 Package minitoc Info: I0006
 (minitoc)             main.mtc8 is empty on input line 5.
-[29
+[27
 
 
-] [30
+
+] [28
 
 ]
 Appendix B.
 Package minitoc Info: I0006
 (minitoc)             main.mtc9 is empty on input line 11.
-[31
+[29
 
-] [32
+] [30
 
 ])
 Package minitoc Info: I0009
@@ -1563,30 +1646,42 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                in the main.log file.
 
 
+Package natbib Warning: There were undefined citations.
+
+
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
-[33]
+[31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AD58AEA32304FA80AEE67D46F80AE8EF;2620.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 9D0FCB94F64E73A4E77BA2C51ADAD683;852
+(rerunfilecheck)             After:  5AA25FD2A896D6AAFBAA59B8445BF3BB;2606.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14000 strings out of 493315
- 196344 string characters out of 6137905
- 356796 words of memory out of 5000000
- 16700 multiletter control sequences out of 15000+600000
+ 13906 strings out of 493315
+ 194649 string characters out of 6137905
+ 351378 words of memory out of 5000000
+ 16628 multiletter control sequences out of 15000+600000
  41626 words of font info for 88 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 46i,16n,48p,1439b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,16n,43p,1435b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
@@ -1596,10 +1691,10 @@ e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/
 2013/texmf-dist/fonts/type1/urw/bookman/ubkd8a.pfb></usr/local/texlive/2013/tex
 mf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2013/texmf-dist
 /fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (49 pages, 397346 bytes).
+Output written on main.pdf (47 pages, 381933 bytes).
 PDF statistics:
- 644 PDF objects out of 1000 (max. 8388607)
- 571 compressed objects within 6 object streams
- 145 named destinations out of 1000 (max. 500000)
- 380 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 429 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

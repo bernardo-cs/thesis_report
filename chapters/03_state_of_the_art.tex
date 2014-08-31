@@ -8,7 +8,7 @@ This Section provides insight of work done in multiple research areas that are r
 \label{sec:self_organizing_maps}
 Self-Organizing maps are used in a wide are of applications, from authentication systems~\cite{Dozono2012} through network intrusion detection ~\cite{intrusion_som} and speech recognition and analysis~\cite{phonetic_typewiter}.
 
-\subsection{The Geo-Som Approach} 
+\subsection{The Geo-Som} 
 \label{sub:types_of_soms}
 The Geo-SOM~\citet{Bacao2005} applies the first column of geography “Everything is related to everything else, but near things are more related than distant things." to the SOM algorithm, where the winning neuron is chosen in a radius defined by the geo-coordinates of the data, forcing units that are close in the input space to be close in the output space. The representation of the Geo-som can be seen in Figure ~\ref{fig:geo_som}.
 
@@ -90,17 +90,17 @@ With amount of content increasing, new real-time and scalable algorithms are nee
 ~\citet{Cataldi2010} propose a new technique for emerging topic detection that permits real-time retrieval of the most emergent topics expressed by a community on Twitter. Their work applies the PageRank~\cite{Pagerank1998} algorithm to the users follower/followee relationship in order to find the most influential user on the network, and then calculates the most trending topics by relating, social influence, word co-occurrence and time frame. In the end, an interface was created where it would be possible to navigate hot topics in a given time frame. Topic labeling was not automatic and was implicit by the time frame of an event, if two highly social events would occur in the same time frame with word relations the results could be interpreted as the same, for example if a political candidate would win the elections at the same of an important sports club would win a specific cup, the word \emph{win} could be trending at the same time for two different topics and due to high temporal dependency they could be interpreted as the same topic.
 ~\citet{Weng2010} also used the PageRank algorithm in order to find the most influential twitter users on a certain topic, but uses a different approach where they represent each twitter user as a bag of words comprising of all the tweets that they have posted. Afterwards it uses Latent Dirichlet Allocation~\cite{Blei2003} in order to find the topics each user is interested in. In the end it was possible to prove that follower/followee relation on twitter was not just casual, but that people actually follow other people in which they have some resemblance or common interest. This concept is called homophily and will be further explored by this project.
 
-\section{Data Mining in Twitter } 
+\section{Twitter Data Mining} 
 \label{sec:data_mining_in_twitter_}
 In this subsection, we will focus on work done on the Twitter social network in order to leverage insights on how the public data available from the website can correlated within itself and with outside sources. 
 
-\subsection{Enhancing the Tweet} 
+\subsection{Tweets Hidden Data} 
 \label{sub:the_tweet}
 Tweet retrieval and analysis is a double edged problem. On one side the tweet is really small which makes it almost impossible to retrieve any actual sense from it. On the other hand the amount of tweets generated per day is around 140 million \footnote{https://blog.twitter.com/2011/numbers} wich means that it is very hard to a deep analyses of the semantics and content of individual tweets, and that, only the more appropriate signals should be evaluated.
 ~\citet{Tao2012} evaluated how the multiple signals that could be retrieved directly or indirectly from the tweet corpus could mean that a tweet is relevant for a determined topic. In his work, Tao presents premises that seem intuitively true and proves they actually are relevant through a comparison of multiple precision and recall values. Its results on feature comparison where summarized in Table ~\ref{tab:tao_table}, the first column consists of all the made hypothesis categorized by type, and the second column tells if the data used actually influenced in precision and recall results. Tau also compared result of topic characteristics, concluding that distinction between local and global events as well as temporal persistence proved to not be relevant on relevance prediction.
 
 \begin{table}[tb]
-  \caption{~\citet{Tao2012} resumed results}
+  \caption{~\citet{Tao2012} tweet characteristics hypotesis versus influence}
   \label{tab:tao_table}
   \begin{tabularx}{\textwidth}{|X|l|}
   \hline

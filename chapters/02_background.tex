@@ -47,7 +47,7 @@ There many clustering algorithms. K-means works by randomly selecting k document
 \label{sec:the_self_organizing_map}
 
 The Self-organinzing map, or SOM, is a kind of recurrent artificial neural network that has the desired property of topology preservation which mimics the way the cortex of highly developed animals brains work.
-
+\input{./algorithms/SOM.tex}
 As \citet{Bacao2005} describes, the basic idea behind SOM is to map the data patterns into an n-dimensional grid of neurons or units. That grid is also know as the output space, as opposed to the initial space also called input space, where the input patterns are. Both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
 
 SOMs work similar to the way that is thought that the human brain works. By having a set of neurons that through learning experience specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity which will cause that similar patterns will activate similar areas of the SOM.
