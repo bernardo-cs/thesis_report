@@ -46,9 +46,9 @@ There many clustering algorithms. K-means works by randomly selecting k document
 \section{The Self-Organizing Map} 
 \label{sec:the_self_organizing_map}
 
-The Self-organinzing map, or SOM, is a kind of recurrent artificial neural network that has the desired property of topology preservation which mimics the way the cortex of highly developed animals brains work.
-\input{./algorithms/SOM.tex}
-As \citet{Bacao2005} describes, the basic idea behind SOM is to map the data patterns into an n-dimensional grid of neurons or units. That grid is also know as the output space, as opposed to the initial space also called input space, where the input patterns are. Both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
+\ac{SOM} is a two layer, recurrent \ac{ANN} that has the desired property of topology preservation which mimics the way the cortex of highly developed animals brains work. \ac{SOM} allows cluster visualization of multi-dimensional data, like methods such as \ac{MDS} by \citet{KruskalWish1978} and \ac{PCA} by \citet[]{Hotelling_1933} .  
+
+As \citet{Bacao2005} describes, the basic idea behind SOM is to map the data patterns into an n-dimensional grid of neurons or units. That grid is also know as the output space, as opposed to the initial space also called input space, where the input patterns reside. Both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
 
 SOMs work similar to the way that is thought that the human brain works. By having a set of neurons that through learning experience specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity which will cause that similar patterns will activate similar areas of the SOM.
 With a topology preserving mapping, SOM organizes the information spatially where similar concepts are mapped to adjacent areas. The topology is preserved in a sense that, as far as possible, neighborhoods are preserved through the mapping process.
@@ -57,14 +57,19 @@ In SOM, neurons will have the same amount of coefficients as the input patterns 
 
 Before describing the algorithm it is important to define two key aspects of the SOM, the learning rate and quantization error. The learning rate is a function that will be decreased in order to converge to zero, it will be applied to winning neurons and their neighbors in order for them to move toward the corresponding input pattern. Quantization Error is the distance between a given input pattern and the associated winning neuron, it describes how well neurons represent the input pattern. The radius of the neighborhood around the winner neuron is particularly relevant to the topology of the SOM, deeply affecting the unfolding of the output space as stated by \citep{Bacao2005}.
 \par
-The learning phase is characterized by the training algorithm, which works the following way:
+
+\input{./algorithms/som.tex}
+
+The learning phase is characterized by the training algorithm~\ref{alg:som}, which works the following way:
 \begin{itemize}
   \item Neurons can be initialized randomly or it is possible to select a specific initialization.
-  \item Given an input pattern, calculate the distance between the input pattern and every neuron on the network.
+  \item Given an input pattern, calculate the distance between the input pattern and every neuron on the network. The euclidian distance~\ref{eq:eucl_dist} is generally used.
   \item The winning neuron will be the closest neuron to the input pattern.
   \item The neuron will move towards the data pattern at a given learning rate, in order to improve his representation as can be seen in Figure~\ref{fig:4_wining_neuron_converge}.
   \item Neighbor neurons will also improve their representation in order to keep the network progressively organized as can be seen in Figure~\ref{fig:5_neighbours_converge}.
 \end{itemize}
+
+\input{./equations/eucl_dist.tex}
 
 \begin{figure}
   \begin{center}
@@ -82,7 +87,10 @@ The learning phase is characterized by the training algorithm, which works the f
   \label{fig:5_neighbours_converge}
 \end{figure}
 
-After the algorithm converges, the prediction phase starts. On the prediction phase new input patterns can be quickly assigned to the SOM, without need to apply the learning rate to the winning neuron and his neighbors. Thus it very easy and fast to classify new data now.
+In order for the algorithm to converge, the learning rate and the radius of the neighbourhood need to decrease at a given rate. Generally the exponential decay~\ref{eq:exp_decay} is a good function to decrease both \ac{SOM} characteristics between desired values.
+The prediction phase starts after convergence. On the prediction phase new input patterns can be quickly assigned to the SOM, without need to apply the learning rate to the winning neuron and his neighbors. Thus it very easy and fast to classify new data now.
+
+\input{./equations/exp_decay.tex}
 
 In order to visually interpret the result of the SOM U-matrices may be used as stated by ~\citep{Bacao2005}. The U-matrix is a representation of the SOM in which distances, in the input space between neurons is represented using a gray scale.
 

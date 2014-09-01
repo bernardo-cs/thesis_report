@@ -1,6 +1,7 @@
 % Self Organinzing Map algorithm in latex, needs package algorithm2e
 
 \begin{algorithm}[H]
+  \label{alg:som}
   \DontPrintSemicolon
   \KwData{Input patterns $X = \{  \overrightarrow{x_1}$,\dots,$\overrightarrow{x_N}$ \} }
   \KwResult{Trainned map and clustered input patterns}
@@ -13,5 +14,4 @@
     $\epsilon(t) = \epsilon_0( \epsilon_f / \epsilon_0 )^{t/t_{max}}$ \;}  
   \caption{Self-Organizing Map \cite[]{Kohonen1990} }
 \end{algorithm}
-
 
