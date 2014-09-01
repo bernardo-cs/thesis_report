@@ -27,7 +27,12 @@
 \usepackage[acronym]{glossaries}
 
 %% Pseudo-code algorithms
-\usepackage[]{algorithm2e}
+\usepackage{setspace}
+\usepackage[ruled,vlined]{algorithm2e}
+
+%%Increase algorithms line spacing
+\usepackage{etoolbox}
+\AtBeginEnvironment{algorithm}{\setstretch{1.35}}
 
 %% Set links for references and citations in document
 \usepackage{hyperref}
