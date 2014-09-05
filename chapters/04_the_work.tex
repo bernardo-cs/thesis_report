@@ -1,12 +1,20 @@
-\fancychapter{The work}
+\fancychapter{Analysis}
+Explain the timeline of the work done on this project. When reading this section, the reader will understand how all the chapters of this thesis fit together. 
+Its like a introduction where the next four chapters are interconnected.
 
-%TODO Nao posso posso aproveitar a architectura porque nao tem na a ver..
-\begin{itemize}
-  \item work on the inesc dataset
-  \item work done on the crawller 
-  \item work done on RubySOM 
-  \item alterations on RubySOM to create Social version of SOM 
-\end{itemize}
+\fancychapter{Clustering Tweets with Self-Organizing Maps}
+Work done on the INESC twitter dataset with SOMs.
+SOM implementations used, what where their strong points and weaknesses
+SVM Dimension reduction and text treatment: compare multiple aproaches to reduce the svm size of tweets without losing relevant information
+
+\fancychapter{Crawling Twitter for Social Relations}
+Explain the limitations of the INESC tweet dataset: crawlled by hashtag, social connections can only be obtained through connections to the twitter API, a lot of the tweets had no active users etc. 
+
+\fancychapter{SOM Framework}
+Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
+
+\fancychapter{Homophilic SOM}
+Describe the alterations made to the default SOM algorithm in order to increase the homophilic (love of the same) relevance while cathegorizing socially connected data.
 
 %% Sub multiple figures
 %
@@ -42,8 +50,6 @@
 %\end{subequations}
 %where $\mathbf{X}$ and $\mathbf{Y}$ are column vectors (you should always present the meaning of each parameter). The \textbf{AMS} packages allow to use the command \verb"\eqref" to cite equations such as \eqref{chp3:eq1},  \eqref{chp3:eq2:a},\eqref{chp3:eq2:b} or \eqref{chp3:eq2} (see source code).
 
-\section{Summary}
-An ending section summarizing the chapter is typically a good idea.
 
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
