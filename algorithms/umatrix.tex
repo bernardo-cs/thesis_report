@@ -1,0 +1,14 @@
+%TODO: Umatrix algorithm
+\begin{algorithm}[H]
+  \label{alg:umatrix}
+  \DontPrintSemicolon
+  \KwData{Input patterns $X = \{  \overrightarrow{x_1}$,\dots,$\overrightarrow{x_N}$ \}, Trainned neurons $W = \{  \overrightarrow{w_1}$,\dots,$\overrightarrow{w_N}$ \} }
+  \KwResult{U-Matrix}
+  \For{ $t = 1 \; to \; N$ }{
+    Randomly draw an input pattern, $ \overrightarrow{x_d} $  \;
+    $p =  \arg{ min_i \{ \|  \overrightarrow{x_d} - \overrightarrow{w_i} \|  \}}  $  \;
+    $\overrightarrow{w_i} = \overrightarrow{w_i} + \epsilon(t) \cdot h_ip(t) \cdot ( \overrightarrow{x_d} - \overrightarrow{w_i} ),  \forall{i}$ \;
+    $\sigma(t) = \sigma_0( \sigma_f / \sigma_0 )^{t/t_{max}}$  \;
+    $\epsilon(t) = \epsilon_0( \epsilon_f / \epsilon_0 )^{t/t_{max}}$ \;}  
+  \caption{U-Matrix }
+\end{algorithm}

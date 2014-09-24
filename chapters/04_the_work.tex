@@ -1,13 +1,31 @@
-\fancychapter{Analysis}
-Explain the timeline of the work done on this project. When reading this section, the reader will understand how all the chapters of this thesis fit together. 
-Its like a introduction where the next four chapters are interconnected.
-
 \fancychapter{Clustering Tweets with Self-Organizing Maps}
+
+Tweets cathegorization with \ac{SOMs} requires a dataset to work on. Due to sistematic API restrictions, which where implemented in order to protect Twitter business model, gathering a dataset that directly maps to the social network is a great chalenge by itself. 
+In order to cathegorize tweets with \ac{SOMs} first we used a dataset provided by INESC-ID. The dataset had almost 1TB of data in \ac{JSON} format.
+Each tweet is comprised of multiple paramters. Figure~\ref{fig:json_tweet} shows how a tweet is represented in \ac{JSON} format. Inside the tweet there is also information about the user whom created the tweet, shown in Figure~\ref{fig:json_tweet_user} and enteties shown in Figure~\ref{fig:tweet_enteties}.
+As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emited the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
+
+\input{./images/json.tex}
+\input{./images/tweet_json_enteties.tex}
+\input{./images/user_info.tex}
+
+In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed due to the fact that most of them where minified in order to fit in less that 140 characters. Also, all tweets that where not identified as being in english where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
+%TODO find how many tweets have en user, and are not in english
+%     count amount of different words with\without en filter and bloom filters
+%     test whatlanguage to see if it is good to ientify language on tweets
+%     size reduction
+\input{./images/tweet_csv.tex}
+Identifying tweets that where not in the english language was done through the usage of Ruby library called whatlanguage~\footnote{https://github.com/peterc/whatlanguage}, which tries to identify one language through Bloom Filters. Inside the tweet there is a field which identifies the user language, we found that x is not acurate. Removing tweets that weren't in the english language reduced the amount of different words in x and therefor will reduce the dimensional size of the \ac{SOM}.
+The initial dataset features is described table x
+ .
+\input{./tables/inesc_dataset.tex}
+
 Work done on the INESC twitter dataset with SOMs.
 SOM implementations used, what where their strong points and weaknesses
 SVM Dimension reduction and text treatment: compare multiple aproaches to reduce the svm size of tweets without losing relevant information
 
 \fancychapter{Crawling Twitter for Social Relations}
+\label{chap:crawling_twitter}
 Explain the limitations of the INESC tweet dataset: crawlled by hashtag, social connections can only be obtained through connections to the twitter API, a lot of the tweets had no active users etc. 
 
 \fancychapter{SOM Framework}
