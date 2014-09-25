@@ -62,18 +62,8 @@ Before describing the algorithm it is important to define two key aspects of the
 \par
 
 \input{./algorithms/som.tex}
+
 \input{./algorithms/umatrix.tex}
-
-The learning phase is characterized by the training algorithm~\ref{alg:som}, which works the following way:
-\begin{itemize}
-  \item Neurons can be initialized randomly or it is possible to select a specific initialization.
-  \item Given an input pattern, calculate the distance between the input pattern and every neuron on the network. The euclidian distance~\ref{eq:eucl_dist} is generally used.
-  \item The winning neuron will be the closest neuron to the input pattern.
-  \item The neuron will move towards the data pattern at a given learning rate, in order to improve his representation as can be seen in Figure~\ref{fig:4_wining_neuron_converge}.
-  \item Neighbor neurons will also improve their representation in order to keep the network progressively organized as can be seen in Figure~\ref{fig:5_neighbours_converge}.
-\end{itemize}
-
-\input{./equations/eucl_dist.tex}
 
 \begin{figure}
   \begin{center}
@@ -91,7 +81,6 @@ The learning phase is characterized by the training algorithm~\ref{alg:som}, whi
   \label{fig:5_neighbours_converge}
 \end{figure}
 
-In order for the algorithm to converge, the learning rate and the radius of the neighbourhood need to decrease at a given rate. Generally the exponential decay is used.
 The prediction phase can start after the model is learned. On the prediction phase new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. Due to the fact that the input pattern will be assigned to the cluster that the nearest neuron is mapping. Thus it very easy and fast to classify new data now.
 
 %\input{./equations/exp_decay.tex}
