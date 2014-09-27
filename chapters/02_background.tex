@@ -81,11 +81,21 @@ Before describing the algorithm it is important to define two key aspects of the
   \label{fig:5_neighbours_converge}
 \end{figure}
 
-The prediction phase can start after the model is learned. On the prediction phase new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. Due to the fact that the input pattern will be assigned to the cluster that the nearest neuron is mapping. Thus it very easy and fast to classify new data now.
-
-%\input{./equations/exp_decay.tex}
+The prediction phase can start after the model is learned. On the prediction phase new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. Due to the fact that the input pattern will be assigned to the cluster that the nearest neuron is mapping. Thus it very easy and fast to classify new data now. As stated by ~\citet{Liu2012b} the advantages of using \ac{SOM} is data noise immunity, easy to visualize data, and parallel processing.
 
 In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method may be used~\citep{Bacao2005}. The \ac{U-Matrix} is a representation of the \ac{SOM} in which distances, in the input space between neurons is represented using a gray scale.
 
-The advantages of using \ac{SOM} is data noise immunity, easy to visualize the data, and parallel processing~\cite{Liu2012b}.
+Computing a U-Matrix is done by the Algorithm~\ref{alg:umatrix}.Essentially, each neuron is responsible for representing a cluster of input patterns. The better a neuron represents an input patter, the smaller the distance between them both. Therefor, the better a neuron represents a group of input patterns, the smaller the average distance between himself and all the input patterns it represents. 
+For representation purposes, after all the averages are computed a lighter color is assigned to the lower average, and the darkest color to the highest, and all the values in between must have a color proportional to its own value in reference to the edge values. An example of an \ac{U-Matrix} can be seen in Figure~\ref{chp3:img2} 
+
+\begin{figure}[htpb]
+  \centering
+  \subfigure[SOM ouputspace trained with random RGB vectors]{\includegraphics[scale=2]{./images/som.pdf}\label{chp3:img1}}
+  \hspace*{0.5cm}
+  \subfigure[U-Matrix representing how well each neuron maps to input patterns it represents]{\includegraphics[scale=2]{./images/umatrix.pdf}\label{chp3:img2}}\\
+  \caption{U-Matrix and SOM output space, computed by training the SOM during 400 epochs, with 1500 random input patterns representing an RGB color.}
+  \label{fig:umatrix_and_ouputspace}
+\end{figure}
+
+
  

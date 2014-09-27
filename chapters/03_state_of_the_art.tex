@@ -8,13 +8,15 @@ Self-Organizing maps are used in a wide are of applications, from authentication
 
 \subsection{The Geo-Som} 
 \label{sub:types_of_soms}
-The Geo-SOM, by~\citet{Bacao2005}, applies the first law of geography “Everything is related to everything else, but near things are more related than distant things." to the SOM algorithm. In this case, the winning neuron is chosen in a radius defined by the geographic-coordinates of the data, forcing units that are close geographically to be close in the output space. The representation of the Geo-som can be seen in Figure ~\ref{fig:geo_som}.
-
+The Geo-SOM, by~\citet{Bacao2005}, applies the first law of geography “Everything is related to everything else, but near things are more related than distant things." to the \ac{SOM} algorithm. In this case, the winning neuron is chosen in a radius defined by the geographic-coordinates of the data, forcing units that are close geographically to be close in the output space. 
+The algorithm works by defining a variable $k$ which is used as a "geographical tolerance" that forces the winning neuron to be geographically near the input pattern. When $k=0$ the \ac{BMU} is forced to be unit geographically closest to the input data, whilst when $k$ increases, the tolerance for other data geographically further is tolerated. $k$ is a geographic radius applied in the output space, when the radius exceeds the size of the output space every unit is eligible to be the winning neuron and therefor we have a regular SOM.
+The selection of the \ac{BMU} is done in two steps. First geographic neurons inside the tolerance $k$ with the input data as a center are selected, only after that comparisons are made with the rest of data present in the input data. The representation of the Geo-SOM can be seen in Figure~\ref{fig:geo_som}, where the units considered for the best match are defined by a sort of geographic radius defined by $k$, whilst the original \ac{SOM} the \ac{BMU} could have been any of the units presented on the figure.
+The Geo-SOM approach to the alteration of the default \ac{SOM} algorithm is specially interesting due to the fact that this thesis objective is also to give relevance to data patterns that are not located in the same space as the trained data. In a way what we are trying to achieve is similar to the work by~\citet{Bacao2005} but changing the geographic relevance in data by a social relevance.
 \begin{figure}[tb]
   \begin{center}
     \includegraphics[]{images/6_geo-som.png}
   \end{center}
-  \caption{Geo-SOM structure, from~\citet{Bacao2005}}
+  \caption{Geo-SOM structure, where the units considered to be the \ac{BMU}are constrained by the geographic coordinates of the data, from~\citet{Bacao2005}}
   \label{fig:geo_som}
 \end{figure}
 
@@ -69,25 +71,24 @@ Cheon and Lee~\citep{Cheong2010} analyzed hidden patterns in the usage of twitte
     \end{tabular}
   \end{center}
 \end{table}
-
+                                                                                                          \textcolor{red}{Parece me interessante descrever quais as caracteristicas diferenciadoras dos clusters.}
 By applying a \ac{SOM}, they could find 4 demographical clusters during the Iran 2009 Election. The first cluster was characterized by young web-based Iranians, with twitter accounts not older than 3 months with a high frequency of replies. The second cluster was mainly compound of web users from Iran accounts older that 3 months. The third cluster had Iranian users with mobile clients with large texts clearly trying to raise awareness. The fourth and final cluster represented the users around the world trying to raise awareness about the issue by sharing tweets with URIs.
 Looking at their analysis about the topic "2009 Iranian Election" it is clear to see that it was possible to describe the type of users represented in the social network and the way they interact with it.
 
-On the iPhone 3.0 OS launch it was possible to find three main clusters. The first columnster was characterized by male users, accounts older than 90 days, coming from countries where the iPhone is marketed, with high adoption of social media clearly representing the target market of the iPhone or its customers. The second cluster had new accounts with higher rate of followers to followees, high frequency of posts per day, presence of URI linking to technology blogs or websites, no country or gender specified meaning that this cluster was clearly composed by news aggregators and technological news websites. Inside the second cluster there was a sub-cluster of Japanese users which represents the high rate of iPhone adoption in Japan. Finally the third cluster was clearly spammer accounts that where eventually deleted after a couple of months, characterized by popular social connections, posting more than 50 tweets a day with external URIs and the accounts where not older than a day or so.
+On the iPhone 3.0 OS launch it was possible to find three main clusters. The first cluster was characterized by male users, accounts older than 90 days, coming from countries where the iPhone is marketed, with high adoption of social media clearly representing the target market of the iPhone or its customers. The second cluster had new accounts with higher rate of followers to followees, high frequency of posts per day, presence of URI linking to technology blogs or websites, no country or gender specified meaning that this cluster was clearly composed by news aggregators and technological news websites. Inside the second cluster there was a sub-cluster of Japanese users which represents the high rate of iPhone adoption in Japan. Finally the third cluster was clearly spammer accounts that where eventually deleted after a couple of months, characterized by popular social connections, posting more than 50 tweets a day with external URIs and the accounts where not older than a day or so.
 
 In conclusion it was possible to detect Twitter usage patterns and specifically detect spammers before they where banned from the social network. 
 
 \section{Topic Detection and Tracking with Clustering} 
 \label{sec:topic_detection_on_twitter}
 
-"\ac{TDT} research begins with a constantly arriving stream of text from newswire and from automatic speech-to-text systems that are monitoring selected television, radio, Web broadcast news shows. Roughly speaking, the goal of \ac{TDT} is to break the text down into individual news stories, to monitor the stories for the events that have not been seen before, and to gather stories into groups that each discuss a single news topic"~\cite{allan2002topic}
+~\citet{allan2002topic} defined as: "\ac{TDT} research begins with a constantly arriving stream of text from newswire and from automatic speech-to-text systems that are monitoring selected television, radio, Web broadcast news shows. Roughly speaking, the goal of \ac{TDT} is to break the text down into individual news stories, to monitor the stories for the events that have not been seen before, and to gather stories into groups that each discuss a single news topic"
 
+Nowadays due to the rapid adaptation of people to always be on-line, through the usage of cellphones on the move, desktops at work and even theTV at home, the increase of user generated content has increased tremendously in latest years. In 2006 35\% of on-line adults and 57\% of teenagers created content on the Internet \footnote{ Data source: http://www.pewinternet.org/Presentations/2006/UserGenerated-Content.aspx}, which in "Internet Years" was ages ago. The challenge of \ac{TDT} is evermore focused on online generated documents and in new forms to be able to track and categorize all the information that is continuously being generated.
 There have been proposed many \ac{TDT} techniques. Many of them rely on the \ac{TF-IDF}~\cite{Baeza-Yates:1999:MIR:553876} is not particularly adequate for topic detection on Twitter, due to the fact that tweets are very small, often with by typos or slang words and might be written in multiple languages, sometimes on the same tweet. In this subsection we will take a look at multiple methods of topic detection in general and specifically on the Twitter social network.
 
-\subsubsection{Topic and Trending Detection} 
+\subsection{Topic and Trending Detection} 
 \label{sub:real_time_topic_and_trending_detection}
-%REMOVEDBYPAVEL
-%Due to the rapid adaptation of people to always be on-line, through the usage of cellphones on the move, desktops at work and even theTV at home, the increase of user generated content has increased tremendously in latest years. In 2006 35\% of on-line adults and 57\% of teenagers created content on the Internet \footnote{ Data source: http://www.pewinternet.org/Presentations/2006/UserGenerated-Content.aspx}, which in "Internet Years" was ages ago.
 %With amount of content increasing, new real-time and scalable algorithms are needed in order to make sense of all this data.
 ~\citet{Cataldi2010} propose a new technique for emerging topic detection that permits real-time retrieval of the most emergent topics expressed by a community on Twitter. Their work applies the PageRank algorithm~\cite{Pagerank1998} to the users follower/followee relationship in order to find the most influential users on the network. It then calculates the most trending topics by relating, social influence, word co-occurrence and time frame. In the end, an interface was created where it would be possible to navigate hot topics in a given time frame. Topic labeling was not automatic and was implicit by the time frame of an event.
 %REMOVEDBYPAVEL
@@ -151,20 +152,32 @@ For this reason \citet{Tao2012} evaluated how the multiple signals that could be
 Afterwards a learning to rank algorithm called PL2F~\cite{macdonald2006} is used against the dataset from Microblog2011 in order to find the best weighting. 
 With this model they where able to improve precision in an order of 0.9, over only analyzing the text contained in the tweets. 
 
-\subsubsection{Rapidly Changing Trends} 
-\label{sub:real_time_}
-Due to the real time nature of Twitter, using typical retrieval model that relies on term frequency models like Okapi BM25 or language modeling cannot be applied, as stated by~\citet{Lin2012}. The study of topic endurance on the social network proved that topics are presented in bursts of queries and mentions. In addition the typical usage of twitter for search is not the same of Google. When user are searching in twitter they want to find out what is happening right now meaning that classification techniques based on past events cannot respond this kind problem. As stated by~\citet{Lin2012} this problem has not yet been solved at Twitter (or anywhere else at the time of writing this report), and issues a new kind of data analysis approach that was not taken into consideration in the past. 
-This effect of rapidly changing topics and queries based on real time events was named "Churn", and can be clearly seen in Figure ~\ref{fig:churn}.
+\subsection{Tweeter Natural Language Processing}
+\label{sub:tweeter_natural_language_processing}
+Using standart \ac{NLP} tools on tweets has been extremely unreliable, due to the fact that microbloging text tends to be full of abbreviations, emojis, smiles and abbreviations. Recently ~\citet{owoputi13improvedparth} publish an \ac{NLP} library specific for twitter. As shown in Figure~\ref{fig:nlp} ARK Tweet \ac{NLP} can. The tagger was built using maximum entropy Markov model where a tag is assigned to a word based on the entire tweet text, and the tag assigned to the word to its left. ~\citet{owoputi13improvedparth} states that the tagger has a 93.2\% accuracy. 
+By using \ac{NLP} tools, it is possible to reduce the dimension of \ac{SVM} space by only choosing words that are relevant like common nouns, hashtags and proper nouns. This will not only will yield better results by removing tweets that have no content whatsoever and therefor cannot be categorized, but will also increase performance of training due to the reduced dimensions due to the use of less words.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.6\linewidth]{./images/nlp.pdf}
+  \caption{Tweet automatically tagged with ARK Tweet NLP. ! stands for interjection, while V stands for verbs and D for determiner. The full table of tags can be found in~\cite{owoputi13improvedparth}.}
+  \label{fig:nlp}
+\end{figure}
 
-  \begin{figure}[tb]
-    \begin{center}
+\subsection{Rapidly Changing Trends} 
+\label{sub:real_time_}
+Due to the real time nature of Twitter, using typical retrieval model that relies on term frequency models like Okapi BM25 or language modeling cannot be applied, as stated by~\citet{Lin2012}. The study of topic endurance on the social network proved that topics are presented in bursts of queries and mentions. In addition the typical usage of twitter for search is not the same of Google. When user are searching in twitter they want to find out what is happening right now, meaning that classification techniques based on past events cannot respond this kind problem. As stated by~\citet{Lin2012} this problem has not yet been solved at Twitter (or anywhere else at the time of writing this report), and issues a new kind of data analysis approach that was not taken into consideration in the past. 
+This effect of rapidly changing topics and queries based on real time events was named "Churn", and can be clearly seen in Figure ~\ref{fig:churn}.
+By including social features into clustering algorithms we think that it will be possible to discover new clusters of topics that have greater significance to the users of social networks. Also part of the churn effect might even be reduced due to the fact that the information that is closer to a user will be considered more relevant than just the words that comprise the data.  
+
+\begin{figure}[tb]
+  \begin{center}
     \noindent\makebox[\textwidth]{
       \includegraphics[width=13cm]{images/7_churn.png}
     }
-    \end{center}
-    \caption{The Churn effect: Frequencies of queries related to Steve Jobs death over a 12 hour period in 5-minute intervals, normalized to the total number of queries in the interval. At its peak, the query “steve jobs” reaches 0.15 (15\% of the query stream); Graph taken from~\cite{Lin2012}}
-    \label{fig:churn}
-  \end{figure}
+  \end{center}
+  \caption{The Churn effect: Frequencies of queries related to Steve Jobs death over a 12 hour period in 5-minute intervals, normalized to the total number of queries in the interval. At its peak, the query “steve jobs” reaches 0.15 (15\% of the query stream); Graph taken from~\cite{Lin2012}}
+  \label{fig:churn}
+\end{figure}
 
 
 \section{Summary}
