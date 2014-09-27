@@ -19,9 +19,6 @@ Social Media Analytics is another raising topic that draws from Social Network A
 This kind of data drives companies to Social Media Analytics as a way to know what people are saying on the web about their companies and products. This new worry has brought to life a lot of new startups like Sumal\footnote{https://sumall.com/} or ThoughtBuzz\footnote{http://www.thoughtbuzz.net/}, but also solutions from the old players like IBM\footnote{http://www-01.ibm.com/software/analytics/solutions/customer-analytics/social-media-analytics/} and SAS\footnote{http://www.sas.com/software/customer-intelligence/social-media-analytics.html}
 
 Its also important to notice that in the last few years Data Science/Analysis has been a trending topic, mostly due to the fact that big dot-com companies have been having high revenues by exploiting user specific information in order to deliver ads and sell products. Not surprisingly that if you look that in the top 10 ebooks sold by O'Reilly throughout 2013, four are about data science \footnote{http://shop.oreilly.com/category/deals/best\-of\-oreilly\-dotd.do?code=DEAL\&cmp=tw\-na\-books\-videos\-info\-authornote\_best\_of\_2013}.
-
-In this project we will focus on using an unsupervised learning technique based on neural networks named Self-Organizing Maps ~\cite{Kohonen1990} in order to detect topics in Twitter posts, by using the Social Network users as base neurons for clustering. After the network is trained, it will be possible to categorize tweets in real time. This approach will be better described in subsection ~\ref{sub:objectives}.
-
  
 %TODO Check if Im Answering these questions
 %\begin{enumerate}
@@ -32,11 +29,13 @@ In this project we will focus on using an unsupervised learning technique based 
 %\end{enumerate}
 
 \section{Motivation}
+Clustering analysis has been widely used throughout the times, from its first occurrence in England, where John Snow was able to map a wider amount of people infected with cholera to a well in the center of London. Nowadays the applications are endless, and fields where it is applied are quite vast.
 
-%TODO I dont have motivation
+Specifically, with a greater amount of people describing their lives and events around them on social media, it is increasingly more challenging to categorize this data, due to its sparsity and volume. 
+
+But, data generated on social networks, have more information than simply the text written, on a tweet, or a photo published on Facebook. Data generated in social network is connected by entities, and these entities tend to be closer to other entities with the same kind of interests~\cite{McPherson2001}. In this thesis we will explore how a clustering algorithm can be altered in order to add social relevance to its feed data. By focusing  on using an unsupervised learning technique based on neural networks named Self-Organizing Maps~\cite{Kohonen1990} in order to detect topics in Twitter posts, by using the Social Network users as base neurons for clustering. After the network is trained, it will be possible to categorize tweets in real time. 
 
 \section{Objectives}
-
 The main objective of this project is to find topics on tweets by contextualizing the social network involving the person that authored the tweet in the clustering process.
 
 We start by building a dataset, in order to train the \ac{SOM}, that will later classify each future tweet that arrives on the network without further delay.
