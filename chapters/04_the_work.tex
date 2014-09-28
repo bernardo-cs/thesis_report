@@ -2,7 +2,9 @@
 
 Tweets cathegorization with \ac{SOMs} requires a dataset to work on. Due to sistematic API restrictions, which where implemented in order to protect Twitter business model, gathering a dataset that directly maps to the social network is a great chalenge by itself. 
 In order to cathegorize tweets with \ac{SOMs} first we used a dataset provided by INESC-ID. The dataset had almost 1TB of data in \ac{JSON} format.
+
 Each tweet is comprised of multiple paramters. Figure~\ref{fig:json_tweet} shows how a tweet is represented in \ac{JSON} format. Inside the tweet there is also information about the user whom created the tweet, shown in Figure~\ref{fig:json_tweet_user} and enteties shown in Figure~\ref{fig:tweet_enteties}.
+
 As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emited the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
 
 \input{./images/json.tex}
@@ -16,6 +18,7 @@ In order to better understand the dataset at hand, all the \ac{JSON} files where
 %     size reduction
 \input{./images/tweet_csv.tex}
 Identifying tweets that where not in the english language was done through the usage of Ruby library called whatlanguage~\footnote{https://github.com/peterc/whatlanguage}, which tries to identify one language through Bloom Filters. Inside the tweet there is a field which identifies the user language, we found that x is not acurate. Removing tweets that weren't in the english language reduced the amount of different words in x and therefor will reduce the dimensional size of the \ac{SOM}.
+
 The initial dataset features is described table x
  .
 \input{./tables/inesc_dataset.tex}
@@ -32,43 +35,14 @@ Explain the limitations of the INESC tweet dataset: crawlled by hashtag, social 
 Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
 
 \fancychapter{Homophilic SOM}
-Describe the alterations made to the default SOM algorithm in order to increase the homophilic (love of the same) relevance while cathegorizing socially connected data.
+The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
 
-%% Sub multiple figures
-%
-%\begin{figure}[t]
-%\centering
-%\subfigure[caption for subfigure a]{\includegraphics[scale=0.65]{images/img1.eps}\label{chp3:img1}}
-%\hspace*{0.5cm}
-%\subfigure[caption for subfigure b]{\includegraphics[scale=0.65]{images/img2.eps}\label{chp3:img2}}\\
-%\caption{A figure example.}
-%\label{fig:rmain figure}
-%\end{figure}
-%See the source code to see how to reference each of the subfigures \ref{chp3:img1} or \ref{chp3:img2}, or the main figure \ref{fig:rmain figure}.
+In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
 
-%% how to add formulas
-%There are several ways to define formulas (see the \textit{Short Math Guide for LaTeX} included in the package). The typical method is to use (see source code): 
-%\begin{equation}
-%a= b + c
-%\end{equation}
-%or
-%\begin{align}
-%c &= d \cdot e \nonumber\\
-%d &= \mathbf{X}^{\mathsf{T}} \mathbf{Y}+ \gamma e^{2\pi}
-%\label{chp3:eq1} 
-%\end{align}
-%or
-%\begin{subequations}
-%\begin{align}
-%c &= d \cdot e \label{chp3:eq2:a} \\
-%d &= \mathbf{X}^{\mathsf{T}} \mathbf{Y} + \gamma e^{2\pi}
-%\label{chp3:eq2:b} 
-%\end{align}
-%\label{chp3:eq2} 
-%\end{subequations}
-%where $\mathbf{X}$ and $\mathbf{Y}$ are column vectors (you should always present the meaning of each parameter). The \textbf{AMS} packages allow to use the command \verb"\eqref" to cite equations such as \eqref{chp3:eq1},  \eqref{chp3:eq2:a},\eqref{chp3:eq2:b} or \eqref{chp3:eq2} (see source code).
-
-
+\chapter{Changes in the output space}
+\label{cha:changes_in_the_output_space}
+The outputs space is the zone on the \ac{SOM} algorithm where the neurons reside. It works like a cortex where neurons are scattered in a geometric fashion, generally a square. The output space is generally initialized with random values, with a relatively high learning rate, and also a relatively high number of epochs. The algorithm is made this way in order to be able to identify any type of data that can be represented as vectors.
+First we will try to change the output space to better resemblance the social network.
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
  

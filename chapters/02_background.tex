@@ -1,12 +1,12 @@
 \fancychapter{Background}
 
-In this Section we will start by generally describing what Clustering is and how it works. We will then outline how Self-Organizing maps~\cite{Kohonen1990} function, which is the Document Clustering algorithm used on this thesis.
+In this section, we will start by generally describing what clustering is and how it works. We will then outline how ~\ac{SOM}~\cite{Kohonen1990} perform, which is the document clustering algorithm used on this thesis.
 
 \section{Document Clustering}
 \label{sec:clustering}
-Document clustering is an optimal division of documents into categories without prior knowledge of the data that is being organized, based only on the similarity between them. Due to the fact that no prior knowledge of the data has to be known, Document Clustering is labeled as Unsupervised Machine Learning~\cite{hinton1999unsupervised}.
+Document clustering is an optimal division of documents into categories without prior knowledge of the data that is being organized, based only on the similarity between them. Due to the fact that no prior knowledge of the data has to be known, document clustering is labeled as Unsupervised \ac{ML}~\cite{hinton1999unsupervised}.
 
-~\citet{Liu2012b} asserted that Document Clustering can be used in a variety of Computer Science fields, such as:
+~\citet{Liu2012b} asserted that document clustering can be used in a variety of Computer Science fields, such as:
 \begin{itemize}
   \item Natural Language Preprocessing.
   \item Automatic Summarization.
@@ -14,12 +14,13 @@ Document clustering is an optimal division of documents into categories without 
   \item Improving text classification results.
 \end{itemize}
 
-There are two main types of Document Clustering: Hard Clustering and Soft Clustering. In Hard Clustering one document can only belong to one cluster, while in Soft Clustering one document can belong to multiple clusters. 
+There are two main types of document clustering: hard clustering and soft clustering. In hard clustering, one document can only belong to one cluster, while in soft clustering one document can belong to multiple clusters. 
 
 %REMOVEDBYPAVEL
 %In regard to document categorization~\citet{Springorum1998} performed clustering with SOMs~\citep{Kohonen1990} while identifying polysemous German Propositions. They used regular SOMs to create multiple clusters and used Centroid-Based or Preposition-based softening to create Soft Clusters from the Hard Clusters.
 
-The clustering process usually works as described in Figure~\ref{fig:1_Text_Clustering_Main_Framwork}
+The clustering process usually works as described in Figure~\ref{fig:1_Text_Clustering_Main_Framwork}. In the first step, a data set must be provided with the documents to be clustered. The second step is where non relevant words are removed from the documents, to improve clustering quality~\cite{Kang2003}. 
+
 \begin{figure}
   \begin{center}
     \includegraphics[width=12cm]{images/1_Text_Clustering_Main_Framwork.png}
@@ -27,13 +28,13 @@ The clustering process usually works as described in Figure~\ref{fig:1_Text_Clus
   \caption{ Text clustering main framework~\cite{Dozono2012} }
   \label{fig:1_Text_Clustering_Main_Framwork}
 \end{figure}
-In the first, step a data set must be provided with the documents, to be clustered. The second step is where non relevant words are removed from the documents, to improve clustering quality~\cite{Kang2003}. 
+
 %REMOVEDBYPAVEL
 %Another way to extract keywords is to differentiate text features by analyzing the document corpora. For example if the dataset is composed from HTML or XML documents it is possible to identify more relevant features due to the characteristics of the document syntaxe.
-The third step is characterized by converting the keywords of each document into vectors. The most common model used for this task is \ac{VSM}. In \ac{VSM}, each vector dimension represents one detected keyword and each document is represented by the vector of keywords in the feature space. This process is ilustrated in Figure~\ref{fig:2_svm} and works in the following way:
+The third step is characterized by converting the keywords of each document into vectors. The most common model used for this task is \ac{VSM}. In \ac{VSM}, each vector dimension represents one detected keyword and each document is represented by the vector of keywords in the feature space. This process is illustrated in Figure~\ref{fig:2_svm} and works in the following way:
 \begin{itemize}
-  \item First step: string tokenization, and token selection. In this case stop words and repeated words will be removed.
-  \item Second step: string to \ac{VSM} convertion. Each diferent word will correspond to a position in the array, and its value will correspond to the number of ocurrences. 
+  \item \textbf{First step:} string tokenization, and token selection. In this case, stop words and repeated words will be removed.
+  \item \textbf{Second step:} string to \ac{VSM} conversion. Each different word will correspond to a position in the array, and its value will correspond to the number of occurrences. 
 \end{itemize}
 
 \begin{figure}
@@ -44,21 +45,21 @@ The third step is characterized by converting the keywords of each document into
   \label{fig:2_svm}
 \end{figure}
 
-There are many clustering algorithms. In the following section we will describe the particullar case of the \ac{SOM}, the solution used in our work.
+There are many clustering algorithms. In the following section we will describe the particullar case of the \ac{SOM} algorithm, the solution used in our work.
 
 \section{The Self-Organizing Map} 
 \label{sec:the_self_organizing_map}
 
-\ac{SOM} are a two layer, recurrent \ac{ANN} that has the desired property of topology preservation, thus mimiking the way the cortex of highly developed animals brains work. \ac{SOM} allow cluster visualization of multi-dimensional data, similar to methods such as \ac{MDS}~\cite{KruskalWish1978} and \ac{PCA}~\cite{Hotelling_1933} .  
+\ac{SOM} are a two layer recurrent \ac{ANN} that has the desired property of topology preservation, thus mimicking the way the cortex of highly developed animals brains work. \ac{SOM} allow cluster visualization of multi-dimensional data, similar to methods such as \ac{MDS}~\cite{KruskalWish1978} and \ac{PCA}~\cite{Hotelling_1933} .  
 
-As \citet{Bacao2005} describes, the basic idea behind SOM is to map the data patterns into an n-dimensional grid of neurons, or units. That grid is also know as the output space, as opposed to the initial space, called input space, where the input patterns reside. An ilustration of both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
+\citet{Bacao2005} described the basic idea behind \ac{SOM} as a mapping between input data patterns into a n-dimensional grid of neurons, or units. That grid is also know as the output space, as opposed to the initial space --- input space --- where the input patterns reside. An illustration of both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
 
-SOMs work similarly to the way that is thought that the human brain works. By having a set of neurons that, through learning experience, specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity, which will cause similar patterns to activate similar areas of the \ac{SOM}.
-With this topology preserving mapping, the SOM organizes information spatially, where similar concepts are mapped to adjacent areas. The topology is preserved in a sense that, as far as possible, neighborhoods are preserved throughout the mapping process.
-Output neurons are displayed in an N dimensional grid, generally rectangular, but other structures are possible, such as hexagonal or octagonal.  The grid of neurons in the output space, can be divided in neighborhoods, where neurons responsible for the same kind of input reside.
-In SOM, neurons will have the same amount of coefficients as the input patterns and can be represented as vectors.
+SOMs work in a similar way as is thought the human brain works. Analogously to the human brain, SOMs also have a set of neurons that, through learning experience, specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity, which will cause similar patterns to activate similar areas of the \ac{SOM}.
+With this topology preserving mapping, the \ac{SOM} organizes information spatially, where similar concepts are mapped to adjacent areas. The topology is preserved in a sense that, as far as possible, neighborhoods are preserved throughout the mapping process.
+Output neurons are displayed in an N dimensional grid, generally rectangular, but other structures are possible, such as hexagonal or octagonal.  The grid of neurons, in the output space, can be divided in neighborhoods --- where neurons responsible for the same kind of input reside.
+In \ac{SOM}, neurons will have the same amount of coefficients as the input patterns and can be represented as vectors.
 
-Before describing the algorithm it is important to define two key aspects of the SOM, the learning rate and the quantization error. The learning rate is a function that will be decreased to converge to zero. It will be applied to winning neurons and their neighbors in order for them to move toward the corresponding input pattern in progressively smaller steps. Quantization Error is the distance between a given input pattern and the associated winning neuron, it describes how well neurons represent the input pattern. The radius of the neighborhood around the winner neuron is also particularly relevant to the topology of the SOM, deeply affecting the unfolding of the output space as stated by \citep{Bacao2005}.
+Before describing the algorithm, it is important to define two key aspects of the \ac{SOM}: the learning rate and the quantization error. The learning rate is a function that will be decreased to converge to zero. It will be applied to winning neurons and their neighbors in order for them to move toward the corresponding input pattern in progressively smaller steps. Quantization error is the distance between a given input pattern and the associated winning neuron. It describes how well neurons represent the input pattern. The radius of the neighborhood around the winning neuron is also particularly relevant to the topology of the \ac{SOM}, deeply affecting the unfolding of the output space as stated by~\citet{Bacao2005}.
 \par
 
 \input{./algorithms/som.tex}
@@ -81,12 +82,12 @@ Before describing the algorithm it is important to define two key aspects of the
   \label{fig:5_neighbours_converge}
 \end{figure}
 
-The prediction phase can start after the model is learned. On the prediction phase new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. Due to the fact that the input pattern will be assigned to the cluster that has nearest neuron is mapping. Thus it very easy and fast to classify new data now. As stated by ~\citet{Liu2012b} the advantages of using \ac{SOM} is data noise immunity, easy to visualize data, and parallel processing.
+The prediction phase can start after the model is learned. On the prediction phase, new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. Due to the fact that the input pattern will be assigned to the cluster that is mapped by the nearest neuron. Thus, it is very easy and fast to classify new data now. As stated by ~\citet{Liu2012b}, the advantages of using \ac{SOM} are: data noise immunity, easy to visualize data, and parallel processing.
 
-In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method may be used~\citep{Bacao2005}. The \ac{U-Matrix} is a representation of the \ac{SOM}, in which, the average topological error between a neuron and all the input patterns he represents is displayed in a colour scale proportional to the maximum and minumum values obtained in the \ac{SOM}. 
+In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method may be used~\citep{Bacao2005}. The \ac{U-Matrix} is a representation of the \ac{SOM}, in which, the average topological error between a neuron and all the input patterns he represents is displayed in a color scale proportional to the maximum and minimum values obtained in the \ac{SOM}. 
 
 Computing a U-Matrix is done by the Algorithm~\ref{alg:umatrix}. Essentially, each neuron is responsible for representing a cluster of input patterns. The better a neuron represents an input patter and the smaller the distance between them both. Therefor, the better a neuron represents a group of input patterns, the smaller the average distance between himself and all the input patterns it represents. 
-For representation purposes, after all the averages are computed a lighter color is assigned to the lower average, and the darkest color to the highest, and all the values in between must have a color proportional to its own value in reference to the edge values. An example of an \ac{U-Matrix} can be seen in Figure~\ref{chp3:img2} 
+For representation purposes, after all the averages are computed a lighter color is assigned to the lower average, and the darkest color to the highest. Thus, all the values in between must have a color proportional to its own value, in reference to the edge values. An example of an \ac{U-Matrix} can be seen in Figure~\ref{chp3:img2}.
 
 \begin{figure}[htpb]
   \centering

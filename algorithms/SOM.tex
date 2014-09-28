@@ -17,15 +17,15 @@
   \end{algorithm}
 \end{figure}
 
-The learning phase is characterized by the Agorithm~\ref{alg:som}, which works the following way:
+The learning phase is characterized by the Algorithm~\ref{alg:som}, which works the following way:
 \begin{itemize}
-  \item On line~\ref{som:one} neuron closer to the input pattern is selected. The euclidian distance (Eq.~\ref{eq:eucl_dist}) is generally used.
+  \item \textbf{On line~\ref{som:one}:} neuron closer to the input pattern is selected. The euclidian distance (Eq.~\ref{eq:eucl_dist}) is generally used.
     \input{./equations/eucl_dist.tex}
-  \item On line~\ref{som:two} the winning neuron $(p)$ previously selected on line~\ref{som:one} is updated, in order to better represent the inputt pattern. This process is represented on Figure~\ref{fig:4_wining_neuron_converge}. Also, all other neurons inside a specific radius will also be updated, this process is described in Figure~\ref{fig:5_neighbours_converge}. Each neuron is updated with a different rate of influence determined by how far away it is from the winning neuron, which is defined by the neighborhood influence function $h_ip(t)$ the Gaussian (Eq.~\ref{eq:gaussian}) is often used. 
+  \item \textbf{On line~\ref{som:two}:} the winning neuron $(p)$ previously selected on line~\ref{som:one} is updated, in order to better represent the inputt pattern --- this process is represented on Figure~\ref{fig:4_wining_neuron_converge}. Also, all other neurons inside a specific radius will also be updated --- this process is described in Figure~\ref{fig:5_neighbours_converge}. Each neuron is updated with a different rate of influence determined by how far away it is from the winning neuron, which is defined by the neighborhood influence function $h_ip(t)$, the Gaussian (Eq.~\ref{eq:gaussian}) is often used. 
     \input{./equations/gaussian.tex}
-  \item On line~\ref{som:three} the size of the radius will be updated.
-  \item On line~\ref{som:four} the learning rate is updated.
-  \item On line~\ref{som:fifth} the number of iterations is incremented.
-  \item In order for the algorithm to converge, the learning rate and the radius of the neighbourhood need to decrease at a given rate. Generally exponential decay is used.
+  \item \textbf{On line~\ref{som:three}:} the size of the radius will be updated.
+  \item \textbf{On line~\ref{som:four}:} the learning rate is updated.
+  \item \textbf{On line~\ref{som:fifth}:} the number of iterations is incremented.
 \end{itemize}
  
+In order for the algorithm to converge, the learning rate and the radius of the neighborhood need to decrease at a given rate. Generally exponential decay is used.
