@@ -39,10 +39,35 @@ The default \ac{SOM} algorithm has no idea whatsoever of the social connections 
 
 In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
 
-\chapter{Changes in the output space}
-\label{cha:changes_in_the_output_space}
+{\color{red} insert homophilic som algorith here}
+
+\chapter{Algorithm changes}
+\label{cha:algorithm_changes}
+
+\subsection{Output Space}
+\label{sub:output_space}
 The outputs space is the zone on the \ac{SOM} algorithm where the neurons reside. It works like a cortex where neurons are scattered in a geometric fashion, generally a square. The output space is generally initialized with random values, with a relatively high learning rate, and also a relatively high number of epochs. The algorithm is made this way in order to be able to identify any type of data that can be represented as vectors.
-First we will try to change the output space to better resemblance the social network.
-% Ensure that the next chapter starts in a odd page
-\cleardoublepage
- 
+
+First we will try to change the output space to better resemblance the social network. In order to do this, the squared grid that defines the output space was changed by the social network connections, and the neurons, are represented by a social network user. This changes are applied in the following way:
+\begin{itemize}
+  \item Each neuron is comprised of the text from all the tweets that he authored.
+  \item Each neuron has a unique id, and stores the ids of his followers and followees that are present in the output space.
+  \item During the learning phase, the radius will be defined as the maximum number of hops separating the winning neuron and followers/followees of followers/followees. 
+  \item Each neuron will cache followers/followees of a follower/followee to a specified depth level, for performance purposes. 
+\end{itemize}
+
+{\color{red} insert image of the output space with social features vrs tipical output space}
+
+\subsection{Learning Phase}
+\label{sub:learning_phase}
+Like in the default \ac{SOM} the learning phase is where the output space is trainned in order to organize the input data into clusters. Since this algorithm is specific to cathegorize tweets using social network features, the learning rate, radius and number of epochs used can be greatly reduced in order for the algorithm to converge. The learning phase operates in the following way:
+
+\begin{itemize}
+  \item The distance between the input pattern and all the neurons is calculated. The neuron closest to the input pattern is considered the winning neuron.
+  \item When the winning neuron is selected, he and his social neighbors within k hops, update their representations in the input space and move closer to the input patter. The Gaussian function (Func~\ref{eq:gaussian}) is also used in here in order for the neighbors that are closer to the input pattern be significantly more influenced by the input pattern, while the neurons further away are less influenced. 
+    \item 
+    
+  
+\end{itemize}
+
+{\color{red} Link to the learning phase in the algorithm on the main chapter, add images of the trainning model }

@@ -86,7 +86,7 @@ In conclusion, it was possible to detect Twitter usage patterns, and specificall
 \label{sub:websom}
 \citet{honkelawebsom} developed a new approach to automatically order arbitrary, free from textual, document collections, using two different SOMs. The first \ac{SOM} is called word category map and its used to find words that have similar meaning, while the second \ac{SOM}, called document map, is the one actually used to cluster the documents. 
 
-The WEBSOM was not based on keywords and boolean expressions, instead, words with the same meaning are encoded in a word category map (Fig~\ref{chp3:img3}), where placement and frequency in documents is taken into account. This way it is possible to remove words with similar meaning, greatly reducing the \ac{VSM} size and thus making it possible to train the document map in a scalable way.
+The WEBSOM was not based on keywords and boolean expressions, instead, words with the same meaning are encoded in a word category map (Fig~\ref{chp3:img3}), where placement and frequency in documents is taken into account. This way it is possible to remove words with similar meaning --- greatly reducing the \ac{VSM} size  making it possible to train the document map in a scalable way.
                                                                                                           
 \begin{figure}[htpb]
   \centering
@@ -189,7 +189,7 @@ Due to the real time nature of Twitter, using typical retrieval model, that reli
 
 This effect of rapidly changing topics and queries based on real time events was named "Churn", and can be clearly seen in Figure ~\ref{fig:churn}.
 
-By including social features into clustering algorithms, it might be possible to discover new clusters of topics that have greater significance to the users of social networks.
+By including social features into clustering algorithms, it might be possible to discover interesting rising topics to a specific specific user, by categorizing them through a trained \ac{SOM}.
 
 \begin{figure}[tb]
   \begin{center}
