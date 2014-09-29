@@ -34,15 +34,15 @@ Explain the limitations of the INESC tweet dataset: crawlled by hashtag, social 
 \fancychapter{SOM Framework}
 Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
 
-\fancychapter{Homophilic SOM}
+\fancychapter{Clustering Social Connected Data}
 The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
 
 In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
 
 {\color{red} insert homophilic som algorith here}
 
-\chapter{Algorithm changes}
-\label{cha:algorithm_changes}
+\section{Homophilic SOM Definition}
+\label{sec:algorithm_changes}
 
 \subsection{Output Space}
 \label{sub:output_space}
@@ -60,14 +60,29 @@ First we will try to change the output space to better resemblance the social ne
 
 \subsection{Learning Phase}
 \label{sub:learning_phase}
-Like in the default \ac{SOM} the learning phase is where the output space is trainned in order to organize the input data into clusters. Since this algorithm is specific to cathegorize tweets using social network features, the learning rate, radius and number of epochs used can be greatly reduced in order for the algorithm to converge. The learning phase operates in the following way:
+Like in the default \ac{SOM} the learning phase is where the output space is trained in order to organize the input data into clusters. Since this algorithm is specific to categorize tweets using social network features, the learning rate, radius and number of epochs used can be greatly reduced in order for the algorithm to converge. The learning phase operates in the following way:
 
 \begin{itemize}
   \item The distance between the input pattern and all the neurons is calculated. The neuron closest to the input pattern is considered the winning neuron.
-  \item When the winning neuron is selected, he and his social neighbors within k hops, update their representations in the input space and move closer to the input patter. The Gaussian function (Func~\ref{eq:gaussian}) is also used in here in order for the neighbors that are closer to the input pattern be significantly more influenced by the input pattern, while the neurons further away are less influenced. 
-    \item 
-    
-  
+  \item When the winning neuron is selected, he and his social neighbors within k hops, update their representations in the input space, and move closer to the input patter. The Gaussian function (Func.~\ref{eq:gaussian}) is also used in here in order for the neighbors that are closer to the input pattern be significantly more influenced by the input pattern, while the neurons further away are less influenced. 
+  \item This process is repeated for a predefined number of epochs. While the number of epochs increases, the learning rate, and number of hops that defines the neighborhood decreases in order for the algorithm to converge.
 \end{itemize}
 
-{\color{red} Link to the learning phase in the algorithm on the main chapter, add images of the trainning model }
+Just like the default \ac{SOM} algorithm, after the map is trained, input patterns can be fast assign to the nearest neuron since the neuron positions in the output space are no longer updated.
+
+{\color{red} Link to the learning phase in the algorithm on the main chapter, add images of the training model }
+
+\section{Social Clusters}
+\label{sec:hmophilic_som_clusters}
+{\color{red} resume what is written in this chapter }
+
+\subsection{Training}
+\label{sub:dataset}
+In order to train the Homophilic SOM, we used the crawler defined in Section~\ref{sec:data_mining_in_twitter_}. The dataset had the following characteristics:
+{\color{red} add table with number of users, tweets, tags, on the dataset}
+{\color{red} show amount of time it took to train the SOM}
+{\color{red} show umatrixes of the trainne }
+{\color{red} compare clusters/time and umatrixes of the default SOM and the Homophilic SOM}
+{\color{red} show the tweets in some clusters }
+
+
