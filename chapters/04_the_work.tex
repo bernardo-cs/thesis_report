@@ -1,32 +1,70 @@
 \fancychapter{Clustering Tweets with Self-Organizing Maps}
 \label{ch:clustering_tweets}
 
-Tweets cathegorization with \ac{SOMs} requires a dataset to work on. Due to sistematic API restrictions, which where implemented in order to protect Twitter business model, gathering a dataset that directly maps to the social network is a great chalenge by itself. 
+Tweets categorization with \ac{SOMs} requires a dataset to work on. Due to systematic API restrictions, which where implemented in order to protect Twitter business model, gathering a dataset that directly maps to the social network is a great challenge by itself. 
 In order to categorize tweets with \ac{SOMs} first we used a dataset provided by INESC-ID. The dataset had almost 1TB of data in \ac{JSON} format.
 
-Each tweet is comprised of multiple paramters. Figure~\ref{fig:json_tweet} shows how a tweet is represented in \ac{JSON} format. Inside the tweet there is also information about the user whom created the tweet, shown in Figure~\ref{fig:json_tweet_user} and enteties shown in Figure~\ref{fig:tweet_enteties}.
+\section{Dataset Characteristics}
+\label{sec:dataset_characteristics}
 
-As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emited the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
+Each tweet is comprised of multiple parameters. Figure~\ref{fig:json_tweet} shows how a tweet is represented in \ac{JSON} format. Inside the tweet there is also information about the user whom created the tweet, shown in Figure~\ref{fig:json_tweet_user} and entities shown in Figure~\ref{fig:tweet_enteties}.
+
+As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emitted the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
 
 \input{./images/json.tex}
-\input{./images/tweet_json_enteties.tex}
-\input{./images/user_info.tex}
+%\input{./images/tweet_json_enteties.tex}
+%\input{./images/user_info.tex}
 
-In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed due to the fact that most of them where minified in order to fit in less that 140 characters. Also, all tweets that where not identified as being in english where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
-%TODO find how many tweets have en user, and are not in english
-%     count amount of different words with\without en filter and bloom filters
-%     test whatlanguage to see if it is good to ientify language on tweets
-%     size reduction
+In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed --- since most of them where minified in order to fit in less that 140 characters, without translating the minified URL, not a lot of information can be gathered. Also, all tweets that where not identified as being in English where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
+
 \input{./images/tweet_csv.tex}
-Identifying tweets that where not in the english language was done through the usage of Ruby library called whatlanguage~\footnote{https://github.com/peterc/whatlanguage}, which tries to identify one language through Bloom Filters. Inside the tweet there is a field which identifies the user language, we found that x is not acurate. Removing tweets that weren't in the english language reduced the amount of different words in x and therefor will reduce the dimensional size of the \ac{SOM}.
-
-The initial dataset features is described table x
- .
+{\color{red} Add table with dataset characteristics }
 \input{./tables/inesc_dataset.tex}
+
+\section{Initial SOM training}
+\label{sec:ininitial_som_trainning}
+
+{\color{red} Describe naive approach to SOM training in R }
+{\color{red} Describe amount of weird words }
+
+\subsection{Reducing SOM vector size}
+\label{sub:reducing_som_vector_size}
+
+\subsubsection{Identify Tweets language}
+\label{ssub:identify_tweets_lang}
+
+Identifying tweets that where not in the English language was done through the usage of Ruby library called whatlanguage~\footnote{https://github.com/peterc/whatlanguage}, which tries to identify one language through Bloom Filters. Inside the tweet there is a field which identifies the user language, we found that x is not acurate. Removing tweets that weren't in the english language reduced the amount of different words in x and therefor will reduce the dimensional size of the \ac{SOM}.
+
+{\color{red}  The initial dataset features is described table x}
+ .
+\subsubsection{Text Manipulation for VSM reduction}
+\label{ssub:Text Manipulation for SVM reduction}
+{\color{red} all the text techniques used }
+{\color{red} show amount of words reduction with the introduction of a new technique and the amount of time that it takes to be applied }
 
 Work done on the INESC twitter dataset with SOMs.
 SOM implementations used, what where their strong points and weaknesses
-SVM Dimension reduction and text treatment: compare multiple aproaches to reduce the svm size of tweets without losing relevant information
+
+\subsubsection{Clustering with Word Selection }
+\label{ssub:Word Selection for Clustering}
+{\color{red} Results of SOMs using selected words based on occurrence after applying SVM reduction }
+{\color{red} Results where pretty bad }
+
+\subsection{Intermediate Conclusions}
+\label{sub:intermediate_conclusions}
+{\color{red} Only these methods are not enough to cluster tweets }
+
+\subsection{Clustering with NLP selected words}
+\label{sub:clustering_with_nlp_selected_words}
+{\color{red} results of som using arktweet NLP }
+{\color{red} types of tags selected }
+{\color{red} show tweets that had no representation }
+{\color{red} review clusters and results }
+
+
+\section{Conclusions}
+\label{sec:conclusions}
+
 
 \fancychapter{Crawling Twitter for Social Relations}
 \label{chap:crawling_twitter}
@@ -91,12 +129,71 @@ Due to the features described above, it is possible to train a \ac{SOM} to ident
   \item Create 1500 input patterns with size 3 and random values between 0 and 255. 
   \item Tell the SOM to print its state at the end of each epoch.
 \end{itemize}
-{\color{red} show the initial state of the som with random colors, its U-Matrix and the topological error in the beginning of the training, half and finished}
-{\color{red} also, show the input patterns assigned to the cluster with less topological error, and maximum topological error }
+The machine used for training had the hardware specifications outlined in table \ref{tab:mac_test}
+
+\input{./tables/mac.tex}
+
+A summary of the training is specified in Table~\ref{tab:som_colours}
+\input{./tables/som_colours.tex}
+
+\begin{figure}[h]
+  \includegraphics[scale=0.6]{./plots/som/topological_error.pdf}
+  \label{fig:top_error}
+  \caption{Changes in topological error throughout the SOM training, lrate stands for learning rate, and radius for radius applied to the winning neuron}
+\end{figure}
+
+\begin{figure}[h]
+  \centerline{\includegraphics[scale=0.6]{./plots/som/average_distance.pdf}}
+  \label{fig:avg_dist}
+  \caption{Changes in the average distance between neurons, throughout the SOM training}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/1_som.pdf}\label{chp3:onesom}}
+  \hspace*{0.5cm}
+  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/1_umatrix.pdf}\label{chp3:onematrix}}
+  \hspace*{0.5cm}
+  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/1_quantmatrix.pdf}\label{chp3:onetopmat}}
+  \hspace*{0.5cm}
+  \caption{ SOM state after first epoch of training. Its learning rate is at 0.598, and radius at 8.  }
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/2_som.pdf}\label{chp3:onesom}}
+  \hspace*{0.5cm}
+  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/2_umatrix.pdf}\label{chp3:onematrix}}
+  \hspace*{0.5cm}
+  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/2_quantmatrix.pdf}\label{chp3:onetopmat}}
+  \hspace*{0.5cm}
+  \caption{ SOM state after second epoch of training. Its learning rate is at 0.22, and radius at 3.  }
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/3_som.pdf}\label{chp3:onesom}}
+  \hspace*{0.5cm}
+  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/3_umatrix.pdf}\label{chp3:onematrix}}
+  \hspace*{0.5cm}
+  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/3_quantmatrix.pdf}\label{chp3:onetopmat}}
+  \hspace*{0.5cm}
+  \caption{ SOM state after third epoch of training. Its learning rate is at 0.081, and radius at 1.  }
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./images/som_trainned.pdf}
+  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of trainning  }
+  \label{fig:./images/som_trainned}
+\end{figure}
 
 \subsection{Benchmarking}
 \label{sub:benchmarking}
-{\color{red} Show graphics of the som framework running with diferent learning rates, output spaec size, input space vectors, etc.. }
+{\color{red} Show graphics of the som framework running with different learning rates, output spaec size, input space vectors, etc.. }
 
 
 %Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
