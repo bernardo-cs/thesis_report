@@ -1,5 +1,21 @@
 \fancychapter{Evaluation Metrics}
 
+\section{Dataset Characteristics}
+\label{sec:dataset_characteristics}
+
+Each tweet is comprised of multiple parameters. Figure~\ref{fig:json_tweet} shows how a tweet is represented in \ac{JSON} format. Inside the tweet there is also information about the user whom created the tweet, shown in Figure~\ref{fig:json_tweet_user} and entities shown in Figure~\ref{fig:tweet_enteties}.
+
+As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emitted the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
+
+\input{./images/json.tex}
+
+In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed --- since most of them where minified in order to fit in less that 140 characters, without translating the minified URL, not a lot of information can be gathered. Also, all tweets that where not identified as being in English where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
+
+\input{./images/tweet_csv.tex}
+{\color{red} Add table with dataset characteristics }
+\input{./tables/inesc_dataset.tex}
+ 
+
 
 \section{Conclusions}
 
