@@ -98,5 +98,14 @@ For representation purposes, after all the averages are computed a lighter color
   \label{fig:umatrix_and_ouputspace}
 \end{figure}
 
+\subsection{Quantization Error} 
+\label{sub:quantization_error}
+SOM training is always subject to some variability due to multiple causes, like the sensitivity of initial conditions, convergence to local minima and sampling variability, as stated by~\citet{Bodt}. This subsection will present statistical tools to measure the quality of the SOM, by measuring its quantization error. 
 
- 
+%and topology preservation.
+
+The SOM Quantization Error is the mean of all Euclidean distances between the observed data points and their corresponding winning neuron. This value might vary depending on the initialization neurons or the order of the input data fed into the SOM while the training is occurring. When applied to an individual input data, represents how well a neuron is representing input data. Since the SOM Quantization Error represents the mean of all quantization errors from all the input data, generally, the lower the error is the best the SOM was trained.
+\\
+No general formula exists to minimize quantization error~\cite{Bodt} . What is generally done is just to change the number and values of the starting neurons and the order of the input data in order to train multiple SOMs. In the end the SOM with the lowest quantization error is chosen.
+In this project since multiple approaches to the SOM algorithm and data representation will be tested, as described in Section~\ref{ssub:default_som_approach_},and the ones having the lower quantization error will be selected for the prototype.
+
