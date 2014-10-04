@@ -1,136 +1,27 @@
-\fancychapter{Clustering Tweets with Self-Organizing Maps}
+\fancychapter{Clustering Tweets with Self Organizing Maps}
 \label{ch:clustering_tweets}
 
+\section{Adapting the SOM to the Social Web}
+\label{sec:adapting_the_som_to_the_social_web}
+
+{\color{red} transform tweets in binary matrix's and train them }
 Tweets categorization with \ac{SOMs} requires a dataset to work on. Due to systematic API restrictions, which where implemented in order to protect Twitter business model, gathering a dataset that directly maps to the social network is a great challenge by itself. 
 In order to categorize tweets with \ac{SOMs} first we used a dataset provided by INESC-ID. The dataset had almost 1TB of data in \ac{JSON} format.
 
-\fancychapter{Crawling Twitter for Social Relations}
-\label{chap:crawling_twitter}
-The INESC twitter dataset, was a good dataset to start analyzing the complexity of clustering tweets. On Chapter \ref{ch:clustering_tweets} we deeply analyzed the characteristics of the INESC twitter dataset, and concluded that it was not optimal to the problem we are trying to solve since it doesn't have the social connections between the authors of the tweets. This problem could be solved in any of the following ways:
-\begin{itemize}
-  \item \textbf{First aproach: } For each tweet, fetch the user information including the users he is connected to.
-  \item \textbf{Second aproach: } Create our own crawler, where the social connections, tweets and users are saved.
-\end{itemize}
+\section{Crawling Twitter for Social Relations}
+\label{sec:crawling_twitter}
+The INESC twitter dataset, was a good dataset to start analyzing the complexity of clustering tweets. On Chapter \ref{ch:clustering_tweets} we deeply analyzed the characteristics of the INESC twitter dataset, and concluded that it was not optimal to the problem we are trying to solve since it doesn't have the social connections between the authors of the tweets.
 
-As described in {\color{red} add reference to the amount of users that no longer exists that will be somewhere on a table where the daset is resumed } there is an x\% of users that are not accessible or have terminated their account. This complicates the process of crawling due to twitter API limits, since every time we try to download information from a non existing user we: a) don't receive any data, and b) just burned an API request --- we could ask for maximum of 100 users per request, we can only make 15 requests per 15 minute window --- . Another problem is that, as soon as we got the available users and actually issued new requests to get a user list of followers, we are limited to only 15 requests per 15 minute window. Finally the average date of publication of the tweets is about {\color{red} verify average date }, getting the actual followers of a user might not even reflect the tweet he made a couple of years a go --- specially with all the Justin Beaber obsession present in the dataset {\color{red} ref more common words }.
+\section{SOM Framework}
+{\color{red} Resume this section }
 
-Due to all these reasons we decided to create our own crawler and download our own slice of twitter.
-
-\section{Twitter Crawler}
-\label{sec:twitter_crawler}
-When designing the twitter crawler, we took into consideration that it had to be extremely resilient in order to be able to be left alone, crawling the twitter, until told to stop. Also if anything happened to the machine where the crawler was running it would be necessary to return to some previous crawling state, with minimum data loss. Algorithm {\color{red} I NEED TO WRITE THIS ALGORITHM } shows the crawler algorithm, which works in the following way:
-
-\begin{itemize}
-  \item \textbf{Step 1:} Choose some seed users to start crawling or deserialize a serialized version of the crawler if available.
-  \item \textbf{Step 2:} For each seed user get all of his followers, and add them to an array if they haven't yet been crawled.
-  \item \textbf{Step 3:} Repeat step one with random users taken from the array on step 2, until API limit is reached.
-  \item \textbf{Step 4:} When API limit is reached, print the state of the crawled network, serialize the current state, and wait 15 minutes until it is possible to resume crawling. 
-\end{itemize}
-
-\subsection{Crawler Performance}
-\label{sub:crawler_performance}
-{\color{red} show number of tweets per second, number user per second, and users reached per second. }
-{\color{red} compare the with the theoretical maximum }
-{\color{red} compare size of the serialized social network with the amount of tweets and users it is getting  }
-{\color{red} compare time taken to deserialize with amount of tweets crawled }
-{\color{red} compare time to serialize with amount of tweets crawled }
-
-%Explain the limitations of the INESC tweet dataset: crawlled by hashtag, social connections can only be obtained through connections to the twitter API, a lot of the tweets had no active users etc. 
-
-\fancychapter{SOM Framework}
-{\color{red} Resume this chapter }
-
-\section{Motivation}
+\subsection{Motivation}
 \label{sec:motivation}
 When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process. I found that the number of \ac{SOM} libraries was not very extense. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their how implementation of the \ac{SOM} algorithm. I've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
 
 The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features, for example Geo-SOM was described in Subsection~\ref{sub:types_of_soms}, the Growing Hierarchical SOM~\cite[]{1058070}, the time adaptive SOM~\cite[]{1187438}, the Ontological SOM~\cite[]{5446427}, and the list goes on\dots  
 
 In order to create the homophilic SOM, described in Section~\ref{sec:algorithm_changes} we first created a SOM framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
-
-\section{Implementation}
-\label{sec:implementation}
-The \ac{SOM} framework was developed in the Ruby programing language \footnote{https://www.ruby-lang.org/en/} due to the desired characteristic of allowing great levels of introspection and being an almost pure object oriented programing language. Due to this characteristics making modifications to core parts of the algorithm is fairly easy.
-
-{\color{red} Descrevo a organizacao do codigo classes, etc? }
-
-The \ac{SOM} Framework was developed in a test driven fashion, having 100\% of its public methods tested and documented for expected behavior. These characteristics, associated with the fact that was published under an open source license, makes it available for other researchers to implement their own SOM variants.
-
-By default, the base SOM algorithm is implemented as described by the Algorithm~\ref{alg:som} in Section \ref{sec:the_self_organizing_map}. 
-\subsection{Clustering Color Vectors}
-\label{sub:main_features}
-Out of the box, the \ac{SOM} Framework implements a squared output space, where all residing neurons are manipulated as arrays. It is possible ate any given moment of the training to export the output space to \ac{JSON}, \ac{CSV} or to visualize its current \ac{U-Matrix}. Also during training a progress bar is displayed in order to know how much time will be needed for the training to end.
-
-Due to the features described above, it is possible to train a \ac{SOM} to identify random colors --- RGB vectors --- while printing the results. In order to do this we will start by:
-\begin{itemize}
-  \item Initializing a SOM object with an output space size of 15 by 15 neurons, which will yield a total of 255 neurons --- and directly maps to the maximum number of clusters --- and 700 epochs.
-  \item Create 1500 input patterns with size 3 and random values between 0 and 255. 
-  \item Tell the SOM to print its state at the end of each epoch.
-\end{itemize}
-The machine used for training had the hardware specifications outlined in table \ref{tab:mac_test}
-
-\input{./tables/mac.tex}
-
-A summary of the training is specified in Table~\ref{tab:som_colours}
-\input{./tables/som_colours.tex}
-
-\begin{figure}[h]
-  \includegraphics[scale=0.6]{./plots/som/topological_error.pdf}
-  \label{fig:top_error}
-  \caption{Changes in topological error throughout the SOM training, lrate stands for learning rate, and radius for radius applied to the winning neuron}
-\end{figure}
-
-\begin{figure}[h]
-  \centerline{\includegraphics[scale=0.6]{./plots/som/average_distance.pdf}}
-  \label{fig:avg_dist}
-  \caption{Changes in the average distance between neurons, throughout the SOM training}
-\end{figure}
-
-\begin{figure}[htpb]
-  \centering
-  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/1_som.pdf}\label{chp3:onesom}}
-  \hspace*{0.5cm}
-  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/1_umatrix.pdf}\label{chp3:onematrix}}
-  \hspace*{0.5cm}
-  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/1_quantmatrix.pdf}\label{chp3:onetopmat}}
-  \hspace*{0.5cm}
-  \caption{ SOM state after first epoch of training. Its learning rate is at 0.598, and radius at 8.  }
-  \label{fig:}
-\end{figure}
-
-\begin{figure}[htpb]
-  \centering
-  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/2_som.pdf}\label{chp3:onesom}}
-  \hspace*{0.5cm}
-  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/2_umatrix.pdf}\label{chp3:onematrix}}
-  \hspace*{0.5cm}
-  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/2_quantmatrix.pdf}\label{chp3:onetopmat}}
-  \hspace*{0.5cm}
-  \caption{ SOM state after second epoch of training. Its learning rate is at 0.22, and radius at 3.  }
-  \label{fig:}
-\end{figure}
-
-\begin{figure}[htpb]
-  \centering
-  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/3_som.pdf}\label{chp3:onesom}}
-  \hspace*{0.5cm}
-  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/3_umatrix.pdf}\label{chp3:onematrix}}
-  \hspace*{0.5cm}
-  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/3_quantmatrix.pdf}\label{chp3:onetopmat}}
-  \hspace*{0.5cm}
-  \caption{ SOM state after third epoch of training. Its learning rate is at 0.081, and radius at 1.  }
-  \label{fig:}
-\end{figure}
-
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=0.8\linewidth]{./images/som_trainned.pdf}
-  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of trainning  }
-  \label{fig:./images/som_trainned}
-\end{figure}
-
-\subsection{Benchmarking}
-\label{sub:benchmarking}
 
 
 %Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
