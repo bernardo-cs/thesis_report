@@ -193,7 +193,6 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 \subsection{Benchmarking}
 \label{sub:benchmarking}
-{\color{red} Show graphics of the som framework running with different learning rates, output spaec size, input space vectors, etc.. }
 
 
 %Explain what got me to create my own ruby library: everybody is making their own SOM algorithms ( ex.: websom, hsom etc ). Most implementations want to get as close to the metal as possible in order to deliver faster trainings, which makes the lybraries hard to modify. SOM framework is an modular implementation of the SOM algorithm in an higher level programing language which makes it easier to construct and test new SOM algorithms.
@@ -213,6 +212,14 @@ In order to better categorize socially connected data, we propose some alteratio
 The outputs space is the zone on the \ac{SOM} algorithm where the neurons reside. It works like a cortex where neurons are scattered in a geometric fashion, generally a square. The output space is generally initialized with random values, with a relatively high learning rate, and also a relatively high number of epochs. The algorithm is made this way in order to be able to identify any type of data that can be represented as vectors.
 
 First we will try to change the output space to better resemblance the social network. In order to do this, the squared grid that defines the output space was changed by the social network connections, and the neurons, are represented by a social network user. This changes are applied in the following way:
+\begin{figure}[htpb]
+  \centering
+  \subfigure[The neighbourhood is defined by the relations of followers/followees between the winning neuron and the other neurons]{\includegraphics[scale=0.3]{./images/homophilic_outputspace.pdf}\label{chp3:homout}}
+  \hspace*{0.5cm}
+  \subfigure[Homophilic input space works in the same way as a normal input space]{\includegraphics[scale=0.3]{./images/homophilic_input_space.pdf}\label{chp3:homin}}
+  \label{fig:homo_in_out}
+  \caption{ Homophilic SOM output and input space during the learning phase. }
+\end{figure}
 \begin{itemize}
   \item Each neuron is comprised of the text from all the tweets that he authored.
   \item Each neuron has a unique id, and stores the ids of his followers and followees that are present in the output space.
