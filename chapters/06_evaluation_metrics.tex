@@ -1,43 +1,4 @@
 \fancychapter{Evaluation Metrics}
-\begin{itemize}
-  \item show UMatrixes and multiple steps map trainning of the SOM library trainnig
-  \item show metrics for the crawller, tweets per second, users persecond, size of the dump a long the time.
-  \item compare my som library with other som libraries: training velocity with diferent parameters, map after trainned.
-  \item Compare Homophilic-SOM results with non homophilic: UMatrixes, cluster results, Quantization error, jacknife. 
-\end{itemize}
-%\section{Evaluation Metrics} 
-%\label{sec:evaluation_metrics}
-Evaluation of the topic detection on Tweets will be made in two distinct ways. The first way will focus on  binary classification using the precision and recall metrics, and will be described in Subsection~\ref{sub:testing_for_precision_and_recall}. The second way will focus on statistically testing the SOM learning process and the computed trained network. This testing process will be described in Subsection~\ref{sub:cluster_quality_testing}. 
-
-\section{Testing for Precision and Recall} 
-\label{sec:testing_for_precision_and_recall}
-Precision and Recall are both ways to measure the rate of right guesses made by the trained SOM network, and are defined in the following way:
-\begin{itemize}
-  \item \textbf{Precision:} Fraction of retrieved instances that where relevant 
-    \input{./equations/precision.tex}
-  \item \textbf{Recall:} Fraction of relevant instances that where retrieved
-    \input{./equations/recall.tex}
-\end{itemize}
-
-In order to calculate Precision and Recall we need to have the \emph{relevant documents} and the \emph{retrieved documents}. The \emph{relevant documents} are rather hard to determine because they need to be categorized by humans, which is an expensive task.
-
-\section{Statistically Testing the SOM} 
-\label{sec:cluster_quality_testing}
-SOM training is always subject to some variability due to multiple causes, like the sensitivity of initial conditions, convergence to local minima and sampling variability, as stated by~\citet{Bodt}. This subsection will present statistical tools to measure the quality of the SOM, by measuring its quantization error and topology preservation.
-
-\subsection{Quantization Error} 
-\label{sub:quantization_error}
-The SOM Quantization Error is the mean of all Euclidean distances between the observed data points and their corresponding winning neuron. This value might vary depending on the initialization neurons or the order of the input data fed into the SOM while the training is occurring. When applied to an individual input data, represents how well a neuron is representing input data. Since the SOM Quantization Error represents the mean of all quantization errors from all the input data, generally, the lower the error is the best the SOM was trained.
-\\
-No general formula exists to minimize quantization error~\cite{Bodt} . What is generally done is just to change the number and values of the starting neurons and the order of the input data in order to train multiple SOMs. In the end the SOM with the lowest quantization error is chosen.
-In this project since multiple approaches to the SOM algorithm and data representation will be tested, as described in Section~\ref{ssub:default_som_approach_},and the ones having the lower quantization error will be selected for the prototype.
-
-%TODO Write about jacknife aproach
-\subsection{Topology Preservation} 
-\label{sub:topology_preservation}
-The Self-Organizing Map performs a mapping from the n-dimensional input space into the two dimensional output space and where resides one the most fascinating characteristics, which is that the output map tries to preserve the topology from the input space. This grants the SOM algorithm a way to visualize high-dimensional data that other neural networks or clustering algorithms don't have. Even though this is true, sometimes during training it is not possible to preserve the topology of the network.
-Thus topology preservation can be measured through the Topographic error~\citet{Kiviluoto1996} which is the proportion of all data vectors for which first and second BMUs \footnote{unit that is closest to the winning neuron. BMU Best fitting unit } are not adjacent units.
-In this project the Topographic Error will be calculated for all SOM implementations and VSM usages in order to understand if the representation of the SOM output space is well defined.
 
 
 \section{Conclusions}
@@ -45,3 +6,31 @@ In this project the Topographic Error will be calculated for all SOM implementat
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
  
+%%%%%% REMOVED STUFF
+%\subsection{Topology Preservation} 
+%\label{sub:topology_preservation}
+%The Self-Organizing Map performs a mapping from the n-dimensional input space into the two dimensional output space and where resides one the most fascinating characteristics, which is that the output map tries to preserve the topology from the input space. This grants the SOM algorithm a way to visualize high-dimensional data that other neural networks or clustering algorithms don't have. Even though this is true, sometimes during training it is not possible to preserve the topology of the network.
+%Thus topology preservation can be measured through the Topographic error~\citet{Kiviluoto1996} which is the proportion of all data vectors for which first and second BMUs \footnote{unit that is closest to the winning neuron. BMU Best fitting unit } are not adjacent units.
+%In this project the Topographic Error will be calculated for all SOM implementations and VSM usages in order to understand if the representation of the SOM output space is well defined.
+
+ %\begin{itemize}
+  %\item show UMatrixes and multiple steps map trainning of the SOM library trainnig
+  %\item show metrics for the crawller, tweets per second, users persecond, size of the dump a long the time.
+  %\item compare my som library with other som libraries: training velocity with diferent parameters, map after trainned.
+  %\item Compare Homophilic-SOM results with non homophilic: UMatrixes, cluster results, Quantization error, jacknife. 
+%\end{itemize}
+%%\section{Evaluation Metrics} 
+%%\label{sec:evaluation_metrics}
+%Evaluation of the topic detection on Tweets will be made in two distinct ways. The first way will focus on  binary classification using the precision and recall metrics, and will be described in Subsection~\ref{sub:testing_for_precision_and_recall}. The second way will focus on statistically testing the SOM learning process and the computed trained network. This testing process will be described in Subsection~\ref{sub:cluster_quality_testing}. 
+
+%\section{Testing for Precision and Recall} 
+%\label{sec:testing_for_precision_and_recall}
+%Precision and Recall are both ways to measure the rate of right guesses made by the trained SOM network, and are defined in the following way:
+%\begin{itemize}
+  %\item \textbf{Precision:} Fraction of retrieved instances that where relevant 
+    %\input{./equations/precision.tex}
+  %\item \textbf{Recall:} Fraction of relevant instances that where retrieved
+    %\input{./equations/recall.tex}
+%\end{itemize}
+ 
+%In order to calculate Precision and Recall we need to have the \emph{relevant documents} and the \emph{retrieved documents}. The \emph{relevant documents} are rather hard to determine because they need to be categorized by humans, which is an expensive task.
