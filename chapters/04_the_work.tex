@@ -23,6 +23,12 @@ The \ac{SOM} algorithm has been changed many times in order to better categorize
 
 In order to create the homophilic SOM, described in Section~\ref{sec:algorithm_changes} we first created a SOM framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
 
+\section{Visualizing Neuron Representation Quality}
+\label{sec:visualizing_neuron_representation_quality}
+{\color{red} talk about Q-matrix }
+\input{./algorithms/qmatrix.tex}
+
+
 
 \section{Clustering Socially Connected Data}
 The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
