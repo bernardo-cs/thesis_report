@@ -94,15 +94,13 @@ In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method 
 
 \input{./algorithms/umatrix.tex}
 
-The \ac{U-Matrix} algorithm ( Alg.~\ref{alg:umatrix} ) is composed by four main cycles, wich work in the following way:
+The \ac{U-Matrix} algorithm ( Alg.~\ref{alg:umatrix} ) is composed by four main cycles, which work in the following way:
 
 \begin{itemize}
   \item \textbf{Cycle 1: } On line~\ref{um:initialize} neurons are added to the empty matrix, in order to be able to calculate the distance between them.
   \item \textbf{Cycle 2:} From line \ref{um:distance_h} to \ref{um:distance_d}, we are calculating the distance between adjacent neurons, and adding the distance to the empty position between them. On line \ref{um:distance_h} and line \ref{um:distance_v} we are looking for neurons horizontally and vertically, respectively. On line \ref{um:distance_d} we are looking for neurons on the diagonal. The diagonal calculus is more complex due to the fact that we need to calculate the lower diagonal to the current neuron, and average it withe the upper diagonal of the neuron immediately billow it.
     \item \textbf{Cycle 3: }At this stage the matrix is full of the distances between neurons, theoretically nothing else would be needed to be calculated. But it still has neurons residing on the matrix which need to be removed. On line \ref{um:rem_n} we substitute all neurons with an average of the distances surrounding them.
     \item \textbf{Cycle 4:}  Finally all the values on the matrix are substituted by colors on a black to white scale. Bigger distances between neurons are represented with darker colors while smaller distances are represented with lighter colors. This conversion is done on line \ref{um:conv_color}
-      
-    
   
 \end{itemize}
 
@@ -113,7 +111,7 @@ An example of an \ac{U-Matrix} can be seen in Figure~\ref{chp3:img2}.
   \subfigure[SOM ouputspace trained with random RGB vectors]{\includegraphics[scale=2]{./images/som_training/2_som.pdf}\label{chp3:img1}}
   \hspace*{0.5cm}
   \subfigure[U-Matrix representing how well each neuron maps to input patterns it represents]{\includegraphics[scale=1.05]{./images/som_training/2_umatrix.pdf}\label{chp3:img2}}\\
-  \caption{U-Matrix and SOM output space, computed by training the SOM during 400 epochs, with 1500 random input patterns representing an RGB color.}
+  \caption{U-Matrix and SOM output space, computed after 300 epochs of training, with 1500 random input patterns representing an RGB color.}
   \label{fig:umatrix_and_ouputspace}
 \end{figure}
 
