@@ -11,7 +11,7 @@
     \KwResult{U-Matrix}
     \tcc{Initialize $U$ by adding the trained neurons}
     \For{ $w_{ij} = \overrightarrow{w_{00}}$ to $\overrightarrow{w_{n,n}}$ }{
-      $U_{i*2, j*2} \leftarrow w_{i,j}$
+      \nl\label{um:initialize} $U_{i*2, j*2} \leftarrow w_{i,j}$
     }
     \tcc{Calculate the distance between every adjacent neurons, and apply it to the square between them}
     \For{ $i=0$ to $U_{max}$}{
@@ -19,11 +19,11 @@
       \For{  $j=0$ to $U_{max}$}{
         
         \If{$l+1<m || j+1<m$}{
-          $U_{i+1, j} = \| u_{i,j} - u_{i+2,j} \| $
+        \nl\label{um:distance_h}  $U_{i+1, j} = \| u_{i,j} - u_{i+2,j} \| $
 
-          $U_{i, j+1} = \| u_{i,j} - u_{i,j+2} \| $
+        \nl\label{um:distance_v}  $U_{i, j+1} = \| u_{i,j} - u_{i,j+2} \| $
 
-          $U_{i+1, j+1} = \frac{\| u_{i,j} - u_{i+2,j+2} \| + \|u_{i+2,j} - u_{i,j+2} \| }{2}$
+        \nl\label{um:distance_d}  $U_{i+1, j+1} = \frac{\| u_{i,j} - u_{i+2,j+2} \| + \|u_{i+2,j} - u_{i,j+2} \| }{2}$
 
         }
         $ j \leftarrow j + 1 $
@@ -33,7 +33,7 @@
     \tcc{Substitute the neurons for an average of surrounding distances}
     \For{ $i=0$ to $U_{max}$}{
       \For{  $j=0$ to $U_{max}$}{
-        $ u_{ij} = avg( Adj[u_{ij}] )$
+        \nl\label{um:rem_n} $ u_{ij} = avg( Adj[u_{ij}] )$
 
         $ j \leftarrow j + 1 $
       }
@@ -49,7 +49,7 @@
     $ u_{min} \leftarrow min(U) $
 
     \For{ $u_{ij} = u_{00}$ to $u_{n,n}$ }{
-      $U_{i, j} \leftarrow (1 - \frac{ u_{i,j} - u_{min}  }{u_{max}-u_{min}})* WHITE$
+      \nl\label{um:conv_color}$U_{i, j} \leftarrow (1 - \frac{ u_{i,j} - u_{min}  }{u_{max}-u_{min}})* WHITE$
     }
     \caption{U-Matrix }
   \end{algorithm}
