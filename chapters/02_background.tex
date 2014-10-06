@@ -61,6 +61,10 @@ In \ac{SOM}, neurons will have the same amount of coefficients as the input patt
 
 Before describing the algorithm, it is important to define two key aspects of the \ac{SOM}: the learning rate and the quantization error. The learning rate is a function that will be decreased to converge to zero. It will be applied to winning neurons and their neighbors in order for them to move toward the corresponding input pattern in progressively smaller steps. Quantization error is the distance between a given input pattern and the associated winning neuron. It describes how well neurons represent the input pattern. The radius of the neighborhood around the winning neuron is also particularly relevant to the topology of the \ac{SOM}, deeply affecting the unfolding of the output space as stated by~\citet{Bacao2005}. 
 
+SOM training is always subject to some variability due to multiple causes, like the sensitivity of initial conditions, convergence to local minima and sampling variability~\cite{Bodt}.
+
+No general formula exists to minimize quantization error~\cite{Bodt} . In order to achieve a minimal value, the number of neurons, value of neurons and order of the input data is randomly changed. Multiple SOMs are trained and the one with the lowest mean quantization error is chosen.
+
 In order to know how well a neuron maps to all the input patterns it represents, the average of the quantization error can be used(Eq. \ref{eq:avg_quant_error}). On the equation, $d_{i,n}$ is an input pattern that is represented by the neuron $w$. Each neuron represents an arbitrary number --$n$--of input patterns, that group of input patterns is represented as $D_{i,j}$.
 \par
 \input{./equations/quant_error.tex}
@@ -101,14 +105,4 @@ For representation purposes, after all the averages are computed a lighter color
   \label{fig:umatrix_and_ouputspace}
 \end{figure}
 
-\subsection{Quantization Error} 
-\label{sub:quantization_error}
-SOM training is always subject to some variability due to multiple causes, like the sensitivity of initial conditions, convergence to local minima and sampling variability, as stated by~\citet{Bodt}. This subsection will present statistical tools to measure the quality of the SOM, by measuring its quantization error. 
-
-%and topology preservation.
-
-The SOM Quantization Error is the mean of all Euclidean distances between the observed data points and their corresponding winning neuron. This value might vary depending on the initialization neurons or the order of the input data fed into the SOM while the training is occurring. When applied to an individual input data, represents how well a neuron is representing input data. Since the SOM Quantization Error represents the mean of all quantization errors from all the input data, generally, the lower the error is the best the SOM was trained.
-\\
-No general formula exists to minimize quantization error~\cite{Bodt} . What is generally done is just to change the number and values of the starting neurons and the order of the input data in order to train multiple SOMs. In the end the SOM with the lowest quantization error is chosen.
-In this project since multiple approaches to the SOM algorithm and data representation will be tested, as described in Section~\ref{ssub:default_som_approach_},and the ones having the lower quantization error will be selected for the prototype.
 
