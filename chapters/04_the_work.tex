@@ -10,7 +10,6 @@ Twitter is a social network website and mobile app, where users are able to shar
 
 With the rise of smartphones and decent prices for mobile Internet access, and people becoming always online, GPS coordinates where also added to tweets. In fact a tweet nowadays has a massive amount of information, as can be seen in Figure~\ref{fig:json_tweet}.
 
-\input{./images/json.tex}
 
 There are two main ways to gather data from twitter: Crawl twitter HTML pages and scrap the intended information, access through the twitter API.
 
@@ -50,6 +49,7 @@ The streaming API is extremely useful for building dataset based on keywords ,se
 
 The REST API can be used to get all information that is available on twitter by the time the request is sent. REST API limits are much greater than the ones applied at the streaming API. The basic rules are 15 minutes windows per endpoint where 15 requests can be made. There are some exceptions to these rules and those can be found on twitter documentation \footnote{https://dev.twitter.com/rest/public}
 
+\input{./images/json.tex}
 Due to the amount of specificity allowed by the REST API, it is better suited to create datasets that mimic the way twitter data is interconnected, like getting users and their followers, as well as their tweets.
 
 \subsection{Crawling Twitter for Social Relations}
@@ -86,7 +86,7 @@ Since tweets are very small and have an average of only 10~14 words, there is no
 
 Converting tweets from text to \ac{VSM} can be done in two different approaches: cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, and as soon as a new term is found, it is a new position is added to the \ac{VSM} matrix. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zero's if they occur in the tweet text. 
 
-After the \ac{SVM} is filled with tweets, it can be feed to the \ac{SOM} and training can start. It is important to notice though that since a destructive process was done to minimize the size of the \ac{SVM} if we want to read the tweets associated to clusters after the \ac{SOM} training, some extra mechanisms must be implemented.
+After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and training can start. It is important to notice though that since a destructive process was done to minimize the size of the \ac{VSM} if we want to read the tweets associated to clusters after the \ac{SOM} training, some extra mechanisms must be implemented.
 {\color{red} write about the NLP and how it fits in all of these }
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
