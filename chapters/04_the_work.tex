@@ -58,7 +58,7 @@ When trying to find clusters of topics with \ac{SOM}, integrating the social net
 
 Given the fact that the social relations where required, we opted for making a crawler based on the REST API. Due to the fact that twitter API rate limits would be achieved with some ease, the crawler should be prepared to achieve this maximum amount of requests per 15 minute window and wait for fifteen minutes. 
 
-Also, at a given time, the crawler should be able to serialize its state in order to able to resume crawling in case its has to stop at any given worldly circumstances. 
+Also, at a given time, the crawler should be able to serialize it state in order to able to resume crawling in case its has to stop at any given worldly circumstances. 
 
 \section{SOM}
 
@@ -141,6 +141,16 @@ Just like the default \ac{SOM} algorithm, after the map is trained, input patter
 \subsection{Visualizing Neuron Representation Quality}
 \label{sub:visualizing_neuron_representation_quality}
 The homophilic \ac{SOM} has an output space that doesn't relate to any kind of geometric figure, due to this fact it is not possible to visualize the clusters formed using \ac{U-Matrix}. In order to solve this problem we propose an alternative way to visualize \ac{SOM} that instead of focusing on the distance between the neurons on the output space -- like the \ac{U-Matrix} -- it focuses on the mean quantization error between each neuron and the input patterns it is mapped to. We named this method Q-Matrix ( All. \ref{alg:qmatrix} ) due to its similarity to the \ac{U-Matrix} but using the mean quantization error.
-The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
 
 \input{./algorithms/qmatrix.tex}
+
+The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
+
+Even though we used the Q-Matrix algorithm to find the best clusters on the Homophilic SOM where each neuron represents a cluster. The Q-Matrix can be applied to the default \ac{SOM} algorithm in order to easily visualize neurons which don't represent well their input patterns. An example of a Q-Matrix can be seen in Figure~\ref{fig:som_trqmatrix}
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[scale=2]{./images/som_training/2_quantmatrix.pdf}
+  \caption{Q-Matrix calculated after 300 epochs of training a default SOM algorithm to identify colors. By looking at the matrix it is very easy to see which neurons are not representing their associated input patterns well -- in black -- and in white the ones that have very little quantization error and therefor are good at representing their input patterns}
+  \label{fig:som_trqmatrix}
+\end{figure}
+
