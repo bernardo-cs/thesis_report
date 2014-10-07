@@ -50,13 +50,13 @@ There are many clustering algorithms. In the following section we will describe 
 \section{The Self-Organizing Map} 
 \label{sec:the_self_organizing_map}
 
-\ac{SOM} are a two layer recurrent \ac{ANN} that has the desired property of topology preservation, thus mimicking the way the cortex of highly developed animals brains work. \ac{SOM} allow cluster visualization of multi-dimensional data, similar to methods such as \ac{MDS}~\cite{KruskalWish1978} and \ac{PCA}~\cite{Hotelling_1933} .  
+\ac{SOM} are a two layer recurrent \ac{ANN} that has the desired property of topology preservation, thus mimicking the way cortex of highly developed animal brains work. \ac{SOM} allow cluster visualization of multi-dimensional data, similar to methods such as \ac{MDS}~\cite{KruskalWish1978} and \ac{PCA}~\cite{Hotelling_1933} .  
 
 \citet{Bacao2005} described the basic idea behind \ac{SOM} as a mapping between input data patterns into a n-dimensional grid of neurons, or units. That grid is also know as the output space, as opposed to the initial space --- input space --- where the input patterns reside. An illustration of both spaces can be seen in Figure~\ref{fig:5_neighbours_converge}.
 
 SOMs work in a similar way as is thought the human brain works. Analogously to the human brain, SOMs also have a set of neurons that, through learning experience, specialize in the identification of certain types of patterns. These neurons are responsible for categorizing the input patterns for which they are responsible to identify. Nearby neurons will be organized by similarity, which will cause similar patterns to activate similar areas of the \ac{SOM}.
 With this topology preserving mapping, the \ac{SOM} organizes information spatially, where similar concepts are mapped to adjacent areas. The topology is preserved in a sense that, as far as possible, neighborhoods are preserved throughout the mapping process.
-Output neurons are displayed in an N dimensional grid, generally rectangular, but other structures are possible, such as hexagonal or octagonal.  The grid of neurons, in the output space, can be divided in neighborhoods --- where neurons responsible for the same kind of input reside.
+Output neurons are displayed in an n-dimensional grid, generally rectangular, but other structures are possible, such as hexagonal or octagonal.  The grid of neurons, in the output space, can be divided in neighborhoods --- where neurons responsible for the same kind of input reside.
 In \ac{SOM}, neurons will have the same amount of coefficients as the input patterns and can be represented as vectors.
 
 Before describing the algorithm, it is important to define two key aspects of the \ac{SOM}: the learning rate and the quantization error. The learning rate is a function that will be decreased to converge to zero. It will be applied to winning neurons and their neighbors in order for them to move toward the corresponding input pattern in progressively smaller steps. Quantization error is the distance between a given input pattern and the associated winning neuron. It describes how well neurons represent the input pattern. The radius of the neighborhood around the winning neuron is also particularly relevant to the topology of the \ac{SOM}, deeply affecting the unfolding of the output space as stated by~\citet{Bacao2005}. 
@@ -65,7 +65,7 @@ SOM training is always subject to some variability due to multiple causes, like 
 
 No general formula exists to minimize quantization error~\cite{Bodt} . In order to achieve a minimal value, the number of neurons, value of neurons and order of the input data is randomly changed. Multiple SOMs are trained and the one with the lowest mean quantization error is chosen.
 
-In order to know how well a neuron maps to all the input patterns it represents, the average of the quantization error can be used(Eq. \ref{eq:avg_quant_error}). On the equation, $d_{i,n}$ is an input pattern that is represented by the neuron $w$. Each neuron represents an arbitrary number --$n$--of input patterns, that group of input patterns is represented as $D_{i,j}$.
+In order to know how well a neuron maps to all the input patterns it represents, the average of the quantization error can be used(Eq. \ref{eq:avg_quant_error}). On the equation, $d_{i,n}$ is an input pattern that is represented by the neuron $w$. Each neuron represents an arbitrary number --- $n$ --- of input patterns. That group of input patterns is represented as $D_{i,j}$.
 \par
 \input{./equations/quant_error.tex}
 
@@ -88,9 +88,9 @@ In order to know how well a neuron maps to all the input patterns it represents,
   \label{fig:5_neighbours_converge}
 \end{figure}
 
-The prediction phase can start after the model is learned. On the prediction phase, new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. In other words, only line~\label{som:one} will run. Due to the fact that the input pattern will be assigned to the cluster that is mapped by the nearest neuron. Thus, it is very easy and fast to classify new data now. As stated by ~\citet{Liu2012b}, the advantages of using \ac{SOM} are: data noise immunity, easy to visualize data, and parallel processing.
+The prediction phase can start after the model is learned. On the prediction phase, new input patterns can be quickly assigned to the \ac{SOM}, without need to apply the learning rate to the winning neuron and his neighbors. In other words, only line 1 will run. Due to the fact that the input pattern will be assigned to the cluster that is mapped by the nearest neuron. Thus, it is very easy and fast to classify new data now. As stated by ~\citet{Liu2012b}, the advantages of using \ac{SOM} are: data noise immunity, easy to visualize data, and parallel processing.
 
-In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method may be used~\citep{Bacao2005}. The \ac{U-Matrix} is a representation of the \ac{SOM}, in which, the distance between neurons is represented in a gray-scale where the darkest colors represent the farthest distance and the lightest colors the closer neurons. One way to compute the \ac{U-Matrix} is described in~\ref{alg:umatrix}. 
+In order to visually interpret the result of the \ac{SOM}, \ac{U-Matrix} method may be used~\citep{Bacao2005}. The \ac{U-Matrix} is a representation of the \ac{SOM}, in which the distance between neurons is represented in a gray-scale where the darkest colors represent the farthest distance and the lightest colors the closer neurons. One way to compute the \ac{U-Matrix} is described in Algorithm~\ref{alg:umatrix}. 
 
 \input{./algorithms/umatrix.tex}
 
@@ -98,9 +98,9 @@ The \ac{U-Matrix} algorithm ( Alg.~\ref{alg:umatrix} ) is composed by four main 
 
 \begin{itemize}
   \item \textbf{Cycle 1: } On line~\ref{um:initialize} neurons are added to the empty matrix, in order to be able to calculate the distance between them.
-  \item \textbf{Cycle 2:} From line \ref{um:distance_h} to \ref{um:distance_d}, we are calculating the distance between adjacent neurons, and adding the distance to the empty position between them. On line \ref{um:distance_h} and line \ref{um:distance_v} we are looking for neurons horizontally and vertically, respectively. On line \ref{um:distance_d} we are looking for neurons on the diagonal. The diagonal calculus is more complex due to the fact that we need to calculate the lower diagonal to the current neuron, and average it withe the upper diagonal of the neuron immediately billow it.
-    \item \textbf{Cycle 3: }At this stage the matrix is full of the distances between neurons, theoretically nothing else would be needed to be calculated. But it still has neurons residing on the matrix which need to be removed. On line \ref{um:rem_n} we substitute all neurons with an average of the distances surrounding them.
-    \item \textbf{Cycle 4:}  Finally all the values on the matrix are substituted by colors on a black to white scale. Bigger distances between neurons are represented with darker colors while smaller distances are represented with lighter colors. This conversion is done on line \ref{um:conv_color}
+  \item \textbf{Cycle 2:} From line \ref{um:distance_h} to \ref{um:distance_d}, we are calculating the distance between adjacent neurons, and adding the distance to the empty position between them. On line \ref{um:distance_h} and line \ref{um:distance_v} we are looking for neurons horizontally and vertically, respectively. On line \ref{um:distance_d} we are looking for neurons on the diagonal. The diagonal calculus is more complex due to the fact that we need to calculate the lower diagonal to the current neuron, and average it with the upper diagonal of the neuron immediately billow it.
+    \item \textbf{Cycle 3: }At this, stage the matrix is full of the distances between neurons, theoretically nothing else would be needed to be calculated. But it still has neurons residing on the matrix which need to be removed. On line \ref{um:rem_n} we substitute all neurons with an average of the distances surrounding them.
+    \item \textbf{Cycle 4:}  Finally, all the values on the matrix are substituted by colors on a black to white scale. Bigger distances between neurons are represented with darker colors while smaller distances are represented with lighter colors. This conversion is done on line \ref{um:conv_color}.
   
 \end{itemize}
 
