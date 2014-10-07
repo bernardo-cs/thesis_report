@@ -60,14 +60,33 @@ Given the fact that the social relations where required, we opted for making a c
 
 Also, at a given time, the crawler should be able to serialize its state in order to able to resume crawling in case its has to stop at any given worldly circumstances. 
 
-
-
 \section{SOM}
 
 \subsection{Clustering Tweets}
 \label{sub:clustering_tweets}
 
-In order to use \ac{SOM} to cluster tweets, first the tweets need to be converted into \ac{VSM}. Given the fact the tweets are often misspelled 
+In order to use \ac{SOM} to cluster tweets, first the tweets need to be converted into \ac{VSM}. Given the fact that tweets are often misspelled, with slang words and are written in multiple languages the \ac{VSM} tends to become pretty large with relative ease. 
+
+The in order to reduce the amount of different words that could have the same meaning, or no meaning at all the following rules where applied:
+
+\begin{itemize}
+  \item Only English tweets where used during clustering.
+  \item \ac{URL} are removed. Since most of them are minimized little information can be taken from them without domain translations.
+  \item Numbers are removed.
+  \item All letters are down cased.
+  \item Runs of a character are replaced by a single character.
+  \item Words smaller than 3 chars are discarded.
+  \item Stop words are removed. 
+  \item The tweet text is stemmed.
+\end{itemize}
+
+By applying these rules the \ac{VSM} is greatly reduced without destroying major relevant words. More information about \ac{VSM} reduction can be found on chapter X.
+
+Since tweets are very small and have an average of only 10~14 words, there is no need to store term frequency on the \ac{VSM}, only a binary count is made.
+
+Converting tweets from text to \ac{VSM} can be done in two different approaches: cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, and as soon as a new term is found, it is a new position is added to the \ac{VSM} matrix. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zero's if they occur in the tweet text. 
+
+After the \ac{SVM} is filled with tweets, it can be feed to the \ac{SOM} and training can start. It is important to notice though that since a destructive process was done to minimize the size of the \ac{SVM} if we want to read the tweets associated to clusters after the \ac{SOM} training, some extra mechanisms must be implemented.
 
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
@@ -79,15 +98,12 @@ The \ac{SOM} algorithm has been changed many times in order to better categorize
 In order to create the homophilic SOM, described in Section~\ref{sec:algorithm_changes} we first created a SOM framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
 
 
-\subsection{Clustering Socially Connected Data}
-The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
-
-In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
-
-{\color{red} insert homophilic som algorith here}
 
 \section{Homophilic SOM Definition}
 \label{sec:algorithm_changes}
+The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
+
+In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
 
 \subsection{Output Space}
 \label{sub:output_space}
@@ -109,7 +125,6 @@ First we will try to change the output space to better resemblance the social ne
   %\item Each neuron will cache followers/followees of a follower/followee to a specified depth level, for performance purposes. 
 \end{itemize}
 
-{\color{red} insert image of the output space with social features vrs tipical output space}
 
 \subsection{Learning Phase}
 \label{sub:learning_phase}
@@ -127,18 +142,3 @@ Just like the default \ac{SOM} algorithm, after the map is trained, input patter
 \subsection{Visualizing Neuron Representation Quality}
 \label{sub:visualizing_neuron_representation_quality}
 \input{./algorithms/qmatrix.tex}
-
-\section{Social Clusters}
-\label{sec:hmophilic_som_clusters}
-{\color{red} resume what is written in this chapter }
-
-\subsection{Training}
-\label{sub:dataset}
-In order to train the Homophilic SOM, we used the crawler defined in Section~\ref{sec:data_mining_in_twitter_}. The dataset had the following characteristics:
-{\color{red} add table with number of users, tweets, tags, on the dataset}
-{\color{red} show amount of time it took to train the SOM}
-{\color{red} show umatrixes of the trainne }
-{\color{red} compare clusters/time and umatrixes of the default SOM and the Homophilic SOM}
-{\color{red} show the tweets in some clusters }
-
-
