@@ -87,7 +87,7 @@ Since tweets are very small and have an average of only 10~14 words, there is no
 Converting tweets from text to \ac{VSM} can be done in two different approaches: cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, and as soon as a new term is found, it is a new position is added to the \ac{VSM} matrix. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zero's if they occur in the tweet text. 
 
 After the \ac{SVM} is filled with tweets, it can be feed to the \ac{SOM} and training can start. It is important to notice though that since a destructive process was done to minimize the size of the \ac{SVM} if we want to read the tweets associated to clusters after the \ac{SOM} training, some extra mechanisms must be implemented.
-
+{\color{red} write about the NLP and how it fits in all of these }
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
 
@@ -138,7 +138,9 @@ Like in the default \ac{SOM} the learning phase is where the output space is tra
 
 Just like the default \ac{SOM} algorithm, after the map is trained, input patterns can be fast assign to the nearest neuron since the neuron positions in the output space are no longer updated.
 
-{\color{red} Link to the learning phase in the algorithm on the main chapter, add images of the training model }
 \subsection{Visualizing Neuron Representation Quality}
 \label{sub:visualizing_neuron_representation_quality}
+The homophilic \ac{SOM} has an output space that doesn't relate to any kind of geometric figure, due to this fact it is not possible to visualize the clusters formed using \ac{U-Matrix}. In order to solve this problem we propose an alternative way to visualize \ac{SOM} that instead of focusing on the distance between the neurons on the output space -- like the \ac{U-Matrix} -- it focuses on the mean quantization error between each neuron and the input patterns it is mapped to. We named this method Q-Matrix ( All. \ref{alg:qmatrix} ) due to its similarity to the \ac{U-Matrix} but using the mean quantization error.
+The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
+
 \input{./algorithms/qmatrix.tex}
