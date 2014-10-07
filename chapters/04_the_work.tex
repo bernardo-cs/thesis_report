@@ -93,9 +93,9 @@ After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and tra
 
 When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process. I found that the number of \ac{SOM} libraries was not very extense. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their how implementation of the \ac{SOM} algorithm. I've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
 
-The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features, for example Geo-SOM was described in Subsection~\ref{sub:types_of_soms}, the Growing Hierarchical SOM~\cite[]{1058070}, the time adaptive SOM~\cite[]{1187438}, the Ontological SOM~\cite[]{5446427}, and the list goes on\dots  
+The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features, for example Geo-\ac{SOM} was described in Subsection~\ref{sub:types_of_soms}, the Growing Hierarchical \ac{SOM}~\cite[]{1058070}, the time adaptive \ac{SOM}~\cite[]{1187438}, the Ontological \ac{SOM}~\cite[]{5446427}, and the list goes on\dots  
 
-In order to create the homophilic SOM, described in Section~\ref{sec:algorithm_changes} we first created a SOM framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
+In order to create the homophilic \ac{SOM}, described in Section~\ref{sec:algorithm_changes} we first created a \ac{SOM} framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
 
 
 
@@ -146,11 +146,11 @@ The homophilic \ac{SOM} has an output space that doesn't relate to any kind of g
 
 The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
 
-Even though we used the Q-Matrix algorithm to find the best clusters on the Homophilic SOM where each neuron represents a cluster. The Q-Matrix can be applied to the default \ac{SOM} algorithm in order to easily visualize neurons which don't represent well their input patterns. An example of a Q-Matrix can be seen in Figure~\ref{fig:som_trqmatrix}
+Even though we used the Q-Matrix algorithm to find the best clusters on the Homophilic \ac{SOM} where each neuron represents a cluster. The Q-Matrix can be applied to the default \ac{SOM} algorithm in order to easily visualize neurons which don't represent well their input patterns. An example of a Q-Matrix can be seen in Figure~\ref{fig:som_trqmatrix}
 \begin{figure}[htpb]
   \centering
   \includegraphics[scale=2]{./images/som_training/2_quantmatrix.pdf}
-  \caption{Q-Matrix calculated after 300 epochs of training a default SOM algorithm to identify colors. By looking at the matrix it is very easy to see which neurons are not representing their associated input patterns well -- in black -- and in white the ones that have very little quantization error and therefor are good at representing their input patterns}
+  \caption{Q-Matrix calculated after 300 epochs of training a default \ac{SOM} algorithm to identify colors. By looking at the matrix it is very easy to see which neurons are not representing their associated input patterns well -- in black -- and in white the ones that have very little quantization error and therefor are good at representing their input patterns}
   \label{fig:som_trqmatrix}
 \end{figure}
 
