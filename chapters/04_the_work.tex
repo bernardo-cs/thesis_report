@@ -1,9 +1,6 @@
 \fancychapter{Clustering Tweets with Self Organizing Maps}
 \label{ch:clustering_tweets}
 
-\section{Introduction}
-\label{sec:adapting_the_som_to_the_social_web}
-
 \section{Twitter Data}
 \label{sec:crawling_twitter}
 Twitter is a social network website and mobile app, where users are able to share what's on their mind with less than 140 characters. Due to its limitations, twitter users started to adopt their own kind of language on the social network, sharing shortened \ac{URL}, and tagging topics with a word preceded with an hashtag -- \# -- became so popular, that it was eventually implemented into twitter itself. Nowadays it is possible to monitor events through hashtags selections and links shared on the mobile app are automatically shortened.   
@@ -80,11 +77,23 @@ In order to reduce the amount of different words that could have the same meanin
   \item The tweet text is stemmed.
 \end{itemize}
 
-By applying these rules, the \ac{VSM} is greatly reduced without destroying major relevant words. More information about \ac{VSM} reduction can be found on Sub-chapter~\ref{sub:reducing_som_vector_size} .
+By applying these rules, the \ac{VSM} is greatly reduced without destroying major relevant words. More information about \ac{VSM} reduction can be found on Sub-chapter~\ref{sub:reducing_som_vector_size}. A visual application of these methods can be seen in Figure~\ref{fig:string_reduction}.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.5\linewidth]{./images/string_reduction.pdf}
+  \caption{Reducing the number of unique words on three tweets about cats. Text in red represents letters removed. Underlined text represents words that due to text transformation became equal.}
+  \label{fig:string_reduction}
+\end{figure}
 
-Since tweets are very small and have an average of only 10\~14 words, there is no need to store term frequency on the \ac{VSM}, and therefor only a binary count is made.
+Since tweets are very small and have an average of only 10 to 14 words, there is no need to store term frequency on the \ac{VSM}, and therefor only a binary count is made.
 
-Before applying the string reduction techniques described above, a tweet \ac{NLP} such as the one described on Subsection~\ref{sub:tweeter_natural_language_processing}. Natural language processing enables great \ac{VSM} reduction due to the fact that it enables a precise choice of orthographic entities with relevance to the clustering process.
+\ac{NLP} techniques such as the one described on Subsection~\ref{sub:tweeter_natural_language_processing} can be used in conduction of the method described above for even a more efficient \ac{VSM} reduction. In order to accomplish this, first we need to run the \ac{NLP} on the dataset and specify what kind of tags we want to use. Then, we run the string reduction techniques described above on the words tagged by the \ac{NLP}, these words will then be used to create the \ac{VSM} where each word represents on column. This process can be seen in Figure~\ref{fig:string_nlp}.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./images/string_reduction_nlp.pdf}
+  \caption{Using NLP with string reduction techniques to reduce the VSM size}
+  \label{fig:string_nlp}
+\end{figure}
 
 Converting tweets from text to \ac{VSM} can be done in two different approaches. The first one is the cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, new terms are added as columns to the \ac{VSM} as soon as they are found. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zeros if they occur in the tweet text. 
 
