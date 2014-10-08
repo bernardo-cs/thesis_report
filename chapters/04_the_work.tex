@@ -84,10 +84,15 @@ By applying these rules, the \ac{VSM} is greatly reduced without destroying majo
 
 Since tweets are very small and have an average of only 10\~14 words, there is no need to store term frequency on the \ac{VSM}, and therefor only a binary count is made.
 
+Before applying the string reduction techniques described above, a tweet \ac{NLP} such as the one described on Subsection~\ref{sub:tweeter_natural_language_processing}. Natural language processing enables great \ac{VSM} reduction due to the fact that it enables a precise choice of orthographic entities with relevance to the clustering process.
+
 Converting tweets from text to \ac{VSM} can be done in two different approaches. The first one is the cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, new terms are added as columns to the \ac{VSM} as soon as they are found. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zeros if they occur in the tweet text. 
 
+
 After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and therefor training can start. It is important to notice though, since a destructive process was done to minimize the size of the \ac{VSM} some extra mechanisms must be implemented in order for the tweets to be humanly readable after training.
-{\color{red} write about the NLP and how it fits in all of these }
+
+
+
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
 
