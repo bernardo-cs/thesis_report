@@ -67,11 +67,11 @@ Also, at a given time, the crawler should be able to serialize it state in order
 
 In order to use \ac{SOM} to cluster tweets, first the tweets need to be converted into \ac{VSM}. Given the fact that tweets are often misspelled, with slang words and are written in multiple languages, the \ac{VSM} tends to become pretty large with relative ease. 
 
-In order to reduce the amount of different words that could have the same meaning, or no meaning at all the following rules where applied:
+In order to reduce the amount of different words that could have the same meaning, or no meaning at all, the following rules were applied:
 
 \begin{itemize}
-  \item Only English tweets where used during clustering.
-  \item \ac{URL} are removed. Since most of them are minimized little information can be taken from them without domain translations.
+  \item Only English tweets were used during clustering.
+  \item \ac{URL} are removed. Since most of them are minimized, little information can be taken from them without domain translations.
   \item Numbers are removed.
   \item All letters are down cased.
   \item Runs of a character are replaced by a single character.
@@ -80,20 +80,20 @@ In order to reduce the amount of different words that could have the same meanin
   \item The tweet text is stemmed.
 \end{itemize}
 
-By applying these rules the \ac{VSM} is greatly reduced without destroying major relevant words. More information about \ac{VSM} reduction can be found on chapter X.
+By applying these rules, the \ac{VSM} is greatly reduced without destroying major relevant words. More information about \ac{VSM} reduction can be found on Sub-chapter~\ref{sub:reducing_som_vector_size} .
 
-Since tweets are very small and have an average of only 10~14 words, there is no need to store term frequency on the \ac{VSM}, only a binary count is made.
+Since tweets are very small and have an average of only 10\~14 words, there is no need to store term frequency on the \ac{VSM}, and therefor only a binary count is made.
 
-Converting tweets from text to \ac{VSM} can be done in two different approaches: cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, and as soon as a new term is found, it is a new position is added to the \ac{VSM} matrix. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zero's if they occur in the tweet text. 
+Converting tweets from text to \ac{VSM} can be done in two different approaches. The first one is the cumulative approach, where the \ac{VSM} is being built at the same time that the tweets are read, new terms are added as columns to the \ac{VSM} as soon as they are found. The second way relies on scanning all words present in the dataset in order to first build the \ac{VSM}, then iterate through all tweets and mark them as ones and zeros if they occur in the tweet text. 
 
-After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and training can start. It is important to notice though that since a destructive process was done to minimize the size of the \ac{VSM} if we want to read the tweets associated to clusters after the \ac{SOM} training, some extra mechanisms must be implemented.
+After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and therefor training can start. It is important to notice though, since a destructive process was done to minimize the size of the \ac{VSM} some extra mechanisms must be implemented in order for the tweets to be humanly readable after training.
 {\color{red} write about the NLP and how it fits in all of these }
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
 
-When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process. I found that the number of \ac{SOM} libraries was not very extense. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their how implementation of the \ac{SOM} algorithm. I've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
+When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process. We found that the number of \ac{SOM} libraries was not very expense. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their own implementation of the \ac{SOM} algorithm. We've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
 
-The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features, for example Geo-\ac{SOM} was described in Subsection~\ref{sub:types_of_soms}, the Growing Hierarchical \ac{SOM}~\cite[]{1058070}, the time adaptive \ac{SOM}~\cite[]{1187438}, the Ontological \ac{SOM}~\cite[]{5446427}, and the list goes on\dots  
+The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features. For example, the previously described in Subsection~\ref{sub:types_of_soms} Geo-\ac{SOM}, the Growing Hierarchical \ac{SOM}~\cite[]{1058070}, the time adaptive \ac{SOM}~\cite[]{1187438}, the Ontological \ac{SOM}~\cite[]{5446427}, and the list goes on\dots  
 
 In order to create the homophilic \ac{SOM}, described in Section~\ref{sec:algorithm_changes} we first created a \ac{SOM} framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
 
@@ -103,13 +103,13 @@ In order to create the homophilic \ac{SOM}, described in Section~\ref{sec:algori
 \label{sec:algorithm_changes}
 The default \ac{SOM} algorithm has no idea whatsoever of the social connections between the tweets, it simply looks at the binary vectors that represent sentences and assigns it to the most similar neuron.
 
-In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor better represent the homophilic behavior present on social networks.
+In order to better categorize socially connected data, we propose some alterations to the \ac{SOM} algorithm in order to make it aware of the social connections between the tweets, and therefor, better represent the homophilic behavior present on social networks.
 
 \subsection{Output Space}
 \label{sub:output_space}
-The outputs space is the zone on the \ac{SOM} algorithm where the neurons reside. It works like a cortex where neurons are scattered in a geometric fashion, generally a square. The output space is generally initialized with random values, with a relatively high learning rate, and also a relatively high number of epochs. The algorithm is made this way in order to be able to identify any type of data that can be represented as vectors.
+The output space is the zone on the \ac{SOM} algorithm where the neurons reside. It works like a cortex where neurons are scattered in a geometric fashion, generally a square. The output space is generally initialized with random values, with a relatively high learning rate, and also a relatively high number of epochs. The algorithm is made this way in order to be able to identify any type of data that can be represented as vectors.
 
-First we will try to change the output space to better resemblance the social network. In order to do this, the squared grid that defines the output space was changed by the social network connections, and the neurons, are represented by a social network user. This changes are applied in the following way:
+First, we will try to change the output space to better resemblance the social network. In order to do this, the squared grid that defines the output space was changed by the social network connections, and the neurons, are represented by a social network user. This changes are applied in the following way:
 \begin{figure}[htpb]
   \centering
   \subfigure[The neighbourhood is defined by the relations of followers/followees between the winning neuron and the other neurons]{\includegraphics[scale=0.3]{./images/homophilic_outputspace.pdf}\label{chp3:homout}}
@@ -128,25 +128,25 @@ First we will try to change the output space to better resemblance the social ne
 
 \subsection{Learning Phase}
 \label{sub:learning_phase}
-Like in the default \ac{SOM} the learning phase is where the output space is trained in order to organize the input data into clusters. Since this algorithm is specific to categorize tweets using social network features, the learning rate, radius and number of epochs used can be greatly reduced in order for the algorithm to converge. The learning phase operates in the following way:
+Like in the default \ac{SOM}, the learning phase is where the output space is trained in order to organize the input data into clusters. Since this algorithm is specific to categorize tweets using social network features, the learning rate, radius and number of epochs used can be greatly reduced in order for the algorithm to converge. The learning phase operates in the following way:
 
 \begin{itemize}
   \item The distance between the input pattern and all the neurons is calculated. The neuron closest to the input pattern is considered the winning neuron.
-  \item When the winning neuron is selected, he and his social neighbors within k hops, update their representations in the input space, and move closer to the input patter. The Gaussian function (Func.~\ref{eq:gaussian}) is also used in here in order for the neighbors that are closer to the input pattern be significantly more influenced by the input pattern, while the neurons further away are less influenced. 
-  \item This process is repeated for a predefined number of epochs. While the number of epochs increases, the learning rate, and number of hops that defines the neighborhood decreases in order for the algorithm to converge.
+  \item When the winning neuron is selected, it and its social neighbors within k hops, update their representations in the input space, and move closer to the input pattern. The Gaussian function (Func.~\ref{eq:gaussian}) is also used here. As a way for the neighbors that are closer to the winning neuron, be significantly more influenced by the input pattern, while the neurons further away are less influenced. 
+  \item This process is repeated for a predefined number of epochs. In order for the algorithm to converge, whilst the number of epochs increases, the learning rate and number of hops that defines the neighborhood decreases.
 \end{itemize}
 
 Just like the default \ac{SOM} algorithm, after the map is trained, input patterns can be fast assign to the nearest neuron since the neuron positions in the output space are no longer updated.
 
 \subsection{Visualizing Neuron Representation Quality}
 \label{sub:visualizing_neuron_representation_quality}
-The homophilic \ac{SOM} has an output space that doesn't relate to any kind of geometric figure, due to this fact it is not possible to visualize the clusters formed using \ac{U-Matrix}. In order to solve this problem we propose an alternative way to visualize \ac{SOM} that instead of focusing on the distance between the neurons on the output space -- like the \ac{U-Matrix} -- it focuses on the mean quantization error between each neuron and the input patterns it is mapped to. We named this method Q-Matrix ( All. \ref{alg:qmatrix} ) due to its similarity to the \ac{U-Matrix} but using the mean quantization error.
+The homophilic \ac{SOM} has an output space that doesn't relate to any kind of geometric figure, due to this fact, it is not possible to visualize the clusters formed using \ac{U-Matrix}. In order to solve this problem, we propose an alternative way to visualize \ac{SOM} that, instead of focusing on the distance between the neurons on the output space --- like the \ac{U-Matrix} ---, it focuses on the mean quantization error applied to each neuron and the input patterns it is representing. We named this method Q-Matrix ( Alg. \ref{alg:qmatrix} ) which stands for unified mean quantization error matrix.
 
 \input{./algorithms/qmatrix.tex}
 
-The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
+The algorithm works in the following way: for each neuron in the grid, we find the quantization error between it and all the input patterns it represents. Afterwards, we calculate the average between all the quantization errors associated to the neuron, and add it to the Q-Matrix. After this process is applied to all neurons, all quantizations errors are converted to a color that is directly proportional to the amount of the mean quantization error. 
 
-Even though we used the Q-Matrix algorithm to find the best clusters on the Homophilic \ac{SOM} where each neuron represents a cluster. The Q-Matrix can be applied to the default \ac{SOM} algorithm in order to easily visualize neurons which don't represent well their input patterns. An example of a Q-Matrix can be seen in Figure~\ref{fig:som_trqmatrix}
+Due to the fact that each neuron is a cluster on the homophilic \ac{SOM}, the Q-Matrix algorithm lets you easily see which clusters have the lower quantization error, and therefor better match their input data. On the default \ac{SOM} algorithm, the Q-Matrix can be applied in order to easily visualize which neurons don't represent well their input patterns, being an extra tool to analyze training quality. An example of a Q-Matrix can be seen in Figure~\ref{fig:som_trqmatrix}.
 \begin{figure}[htpb]
   \centering
   \includegraphics[scale=2]{./images/som_training/2_quantmatrix.pdf}
