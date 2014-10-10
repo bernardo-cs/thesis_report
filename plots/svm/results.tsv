@@ -1,0 +1,10 @@
+type	words_number
+all_words	1204743
+remove_url	1055015
+remove_non_letters	801749
+downcase	1116021
+squeeze	1127719
+remove_small_words	1190634
+remove_stop_words_trimed	1204343
+stem	1169204
+trim	316280

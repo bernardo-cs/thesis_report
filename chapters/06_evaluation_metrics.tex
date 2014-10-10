@@ -23,6 +23,16 @@ In order to better understand the dataset at hand, all the \ac{JSON} files where
 
 \subsection{Reducing SOM vector size}
 \label{sub:reducing_som_vector_size}
+In Subsection~\ref{sub:clustering_tweets} we introduced string reducer methods which enabled great \ac{VSM} reduction. On Figure~\ref{fig:plot_word_red} we can see the amount of words removed by each method alone, and by all methods combined --- column "All Methods"---. In order to build this graph, we applied each method independently to a sample of 902802 tweets.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./plots/svm/plot_wordcount.pdf}
+  \caption{Amount of unique words present on dataset sample with 902802, based on the string word reduction technique applied.}
+  \label{fig:plot_word_red}
+\end{figure}
+
+It is interesting to see that each method by itself doesn't remove a great amount of words. The method that removed more words by itself was {\color{red} whatever }, at an order of x\%. On the other hand, the method y by itself removed only y\% of words. All methods combined where able to reduce the \ac{VSM} size in about z\%.
 
 \subsubsection{Identify Tweets language}
 \label{ssub:identify_tweets_lang}

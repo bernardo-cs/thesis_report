@@ -1,10 +1,10 @@
 type	words_number
-Without Reducers	70
-Remove URL	67
-Remove Non Letters	69
-Downcase	65
-Squeeze	70
-Remove Small Words	55
-Remove Stop Words	64
-Stemming	70
-All Methods	27
+Without Reducers	1204743
+Remove URL	1055015
+Remove Non Letters	801749
+Downcase	1116021
+Squeeze	1127719
+Remove Small Words	1190634
+Remove Stop Words	1204343
+Stemming	1169204
+All Methods	316280
