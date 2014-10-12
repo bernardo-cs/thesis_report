@@ -32,7 +32,20 @@ In Subsection~\ref{sub:clustering_tweets} we introduced string reducer methods w
   \label{fig:plot_word_red}
 \end{figure}
 
-It is interesting to see that each method by itself doesn't remove a great amount of words. The method that removed more words by itself was {\color{red} whatever }, at an order of x\%. On the other hand, the method y by itself removed only y\% of words. All methods combined where able to reduce the \ac{VSM} size in about z\%.
+It is interesting to see that each method by itself doesn't remove a great amount of words. The method that removed more words by itself was "remove non letters" --- which removes every character that is not a letter ---, at an order of 33\%. On the other hand, the method "remove stop words" by itself removed only 400 of words. This was expected due to the fact that the full list of MySQL stop words used by this method only has 543 words. All methods combined where able to reduce the \ac{VSM} size in about 75\%.
+
+String reduction techniques work directly with text and has no notion whatsoever of linguistic semantics. I Subsection~\ref{sub:tweeter_natural_language_processing} we presented a twitter \ac{NLP} libray which can be used effectively to understand the linguistic semantics used on twitter. 
+
+By feeding the same dataset as used above to the library we where able to identify multiple types of words that can afterwards be considered relevant for~\ac{TDT}. On Figure \ref{fig:plot_word_red}, the red bars show the amount of words unique words found under a specific semantic tag, whilst in red we can see words tagged under the same category after applying string reduction techniques.
+
+Due to the fact that we are trying to identify topics, most of the tagged words are of no use. We chose to use only common nouns, proper nouns and hashtags during the clustering process. By applying all these filters to the dataset sample, we have a \ac{VSM} reduction of about 90\%, from 1 204 743 different words to 132 861.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./plots/svm/plot_wordcount_nlp.pdf}
+  \caption{Number of words tagged with Ark Tweet NLP. In red we can see the number of words unique words tagged in each category, while in blue we can see the amount of unique words, after applying string reduction techniques.}
+  \label{fig:wordcount_nlp}
+\end{figure}
 
 \subsubsection{Identify Tweets language}
 \label{ssub:identify_tweets_lang}
@@ -40,8 +53,6 @@ Identifying tweets that where not in the English language was done through the u
 
 \subsubsection{Text Manipulation for VSM reduction}
 \label{ssub:Text Manipulation for SVM reduction}
-{\color{red} all the text techniques used }
-{\color{red} show amount of words reduction with the introduction of a new technique and the amount of time that it takes to be applied }
 
 Work done on the INESC twitter dataset with SOMs.
 SOM implementations used, what where their strong points and weaknesses
