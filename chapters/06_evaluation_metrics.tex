@@ -125,13 +125,15 @@ Even though the sample is quite small, it was possible to understand that if bot
 
 \section{Twitter Crawler}
 \label{sec:twitter_crawler}
-  This problem could be solved in any of the following ways:
+After analyzing the work accomplished by clustering tweets with \ac{SOM} we decided that some alterations to the algorithm should done in order for it to take into account the fact we are dealing with socially connected data. In order to accomplish this we needed a dataset with social connections of behind the author of the tweet. There was two ways to accomplish this: 
+
 \begin{itemize}
-  \item \textbf{First aproach: } For each tweet, fetch the user information including the users he is connected to.
+  \item \textbf{First aproach: } For each tweet we have on our dataset, fetch the user information including the users he is connected to.
   \item \textbf{Second aproach: } Create our own crawler, where the social connections, tweets and users are saved.
 \end{itemize}                                                                                             
+We followed the second approach in order to have more control over the data used from this moment forth, and to have a better integration of the tweets with the \ac{SOM} framework, described in Section~\ref{sec:som_framework}.
 
-When designing the twitter crawler, we took into consideration that it had to be extremely resilient in order to be able to be left alone, crawling the twitter, until told to stop. Also if anything happened to the machine where the crawler was running it would be necessary to return to some previous crawling state, with minimum data loss. Algorithm {\color{red} I NEED TO WRITE THIS ALGORITHM } shows the crawler algorithm, which works in the following way:
+When designing the twitter crawler, we took into consideration that it had to be extremely resilient in order to be able to be left alone, crawling the twitter, until told to stop. Also if anything happened to the machine where the crawler was running it would be necessary to return to some previous crawling state, with minimum data loss. The crawler works in the following way:
 
 \begin{itemize}
   \item \textbf{Step 1:} Choose some seed users to start crawling or deserialize a serialized version of the crawler if available.
@@ -140,14 +142,7 @@ When designing the twitter crawler, we took into consideration that it had to be
   \item \textbf{Step 4:} When API limit is reached, print the state of the crawled network, serialize the current state, and wait 15 minutes until it is possible to resume crawling. 
 \end{itemize}
 
-\subsection{Crawler Performance}
-\label{sub:crawler_performance}
-{\color{red} show number of tweets per second, number user per second, and users reached per second. }
-{\color{red} compare the with the theoretical maximum }
-{\color{red} compare size of the serialized social network with the amount of tweets and users it is getting  }
-{\color{red} compare time taken to deserialize with amount of tweets crawled }
-{\color{red} compare time to serialize with amount of tweets crawled }
- 
+The crawler is able to get {\color{red} x users per second, x tweets per second }, it serializes itself to \ac{YAML} which besides being directly compatible with Ruby, it is also human readable making it easy to parse with unix tools.
 
 
 \section{SOM Framework}
@@ -167,7 +162,7 @@ Due to the features described above, it is possible to train a \ac{SOM} to ident
   \item Create 1500 input patterns with size 3 and random values between 0 and 255. 
   \item Tell the SOM to print its state at the end of each epoch.
 \end{itemize}
-The machine used for training had the hardware specifications outlined in table \ref{tab:mac_test}
+The machine used for training had the hardware specifications outlined in table \ref{tab:mac_test}.
 
 \input{./tables/mac.tex}
 
@@ -180,11 +175,20 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
   \caption{Changes in topological error throughout the SOM training, lrate stands for learning rate, and radius for radius applied to the winning neuron}
 \end{figure}
 
+On Figure~\ref{fig:top_error} we can see the evolution of the topological error and how it is converging throwout the training process, as the radius and learning rate are decreasing, and as well as the number of epochs is rising. 
+
 \begin{figure}[h]
   \centerline{\includegraphics[scale=0.6]{./plots/som/average_distance.pdf}}
   \label{fig:avg_dist}
   \caption{Changes in the average distance between neurons, throughout the SOM training}
 \end{figure}
+
+On Figure~\ref{fig:avg_dist} we can see the average distance between neurons increasing. At first this might not look like a desired property, but in fact it is. When the distance between the neurons is increasing and the topological error is decreasing, it means that the neurons are scattering in the output space in order to better identify the input patterns they are responsible for.
+
+During the training of this \ac{SOM}, we analyzed the output space, \ac{U-Matrix} and \ac{Q-Matrix} during the begging, half of the train, and finally at the end of the training.
+When comparing the output space on Figure~\ref{onesom} at the staring of the training, it is possible to see a lot less colors that on Figure~\ref{threesom}, this is due to the fact that neurons are getting more specified through the training. 
+The \ac{U-Matrix} evolves in a way where clusters are almost unnoticeable, which is due to the fact that each neuron is a cluster by itself, and the distance between it and his neighbors was homogenized throughout the output space. 
+The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean topographic error is becoming smaller. This was already seen before in Figure~\ref{fig:top_error}, but now we can also see which neurons are worst at representing the input patterns.  
 
 \begin{figure}[htpb]
   \centering
@@ -212,21 +216,24 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 \begin{figure}[htpb]
   \centering
-  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/3_som.pdf}\label{chp3:onesom}}
+  \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/3_som.pdf}\label{chp3:threesom}}
   \hspace*{0.5cm}
-  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/3_umatrix.pdf}\label{chp3:onematrix}}
+  \subfigure[U-Matrix]{\includegraphics[scale=0.5]{./images/som_training/3_umatrix.pdf}\label{chp3:threematrix}}
   \hspace*{0.5cm}
-  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/3_quantmatrix.pdf}\label{chp3:onetopmat}}
+  \subfigure[Q-Matrix]{\includegraphics[scale=1]{./images/som_training/3_quantmatrix.pdf}\label{chp3:threetopmat}}
   \hspace*{0.5cm}
   \caption{ SOM state after third epoch of training. Its learning rate is at 0.081, and radius at 1.  }
   \label{fig:}
 \end{figure}
 
+In order to see how well the neurons are representing the input patterns, we looked at the \ac{Q-Matrix} and selected the darkest area in order to know which neuron is the worst at representing its input patterns. Afterwards we printed the input patterns associated to that neuron. This process was graphically represented in Figure~\ref{fig:somtrained} where the colors which represent the input patterns are in fact RGB vector coordinates used during training. It is possible to see that even though this neuron ought to be the worst at representing it input data, he represents it quite well as they are all shades of red. 
+It is important to know that all of this visualization can only be made due to the fact that, we are working with arrays with three dimension and values comprised between 0 and 255 which makes it possible for them to be presented as RGB images. 
+
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.8\linewidth]{./images/som_trainned.pdf}
-  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of trainning  }
-  \label{fig:./images/som_trainned}
+  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of training  }
+  \label{fig:somtrained}
 \end{figure}
 
 \subsection{Benchmarking}
@@ -240,7 +247,6 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 
 \section{Conclusions}
-{\color{red} Only these methods are not enough to cluster tweets }
 
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
