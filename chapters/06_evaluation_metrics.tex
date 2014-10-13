@@ -238,7 +238,34 @@ It is important to know that all of this visualization can only be made due to t
 
 \subsection{Benchmarking}
 \label{sub:benchmarking}
+The \ac{SOM} was not created with the purpose of being extremely fast, for that there are already very goo implementations like \citet{somoclu} distributed library for \ac{SOM} or \citet{rsom} R kohonen package which implements the training algorithm in C, and only exposes the interface in the high level language R.  
+Being purely written in a higher level language, the \ac{SOM} framework enables researchers and programmers to write training algorithms very fast. For example the code necessary for training the colored vectors on the previous Subsection can be seen in Figure~\ref{fig:rubysom}.
 
+\begin{figure}[htpb]
+  \centering
+  \begin{boxedverbatim}
+  ## Create a new SOM object
+  som = SOM::SOM.new output_space_size: 15, epochs: 1500
+
+  ## Generate 1500 random input patterns
+  som.input_patterns = 1500.times.inject([]){ |arr| arr << Array.new(3){ rand(0..255) }; arr  }
+
+  ## Start training
+  som.exec!
+  \end{boxedverbatim}
+  \caption{ Ruby code necessary for training a SOM with 1500 input patterns.  }
+  \label{fig:rubysom}
+\end{figure}
+
+In order to better understand the amount of data \ac{SOM} framework is able to handle, we benchmarked it on the same machine used in Table~\ref{tab:mac_test}. The framework was tested against multiple sizes of output space and input patterns, multiple numbers of input patterns, and multiple numbers of epochs. 
+The results where summarized on Figure~\ref{fig:benchmarkingsom}, where it is possible to see on the upper quadrant that if all parameters increase, \ac{SOM} training will suffer as well.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./plots/som/benchmarking.pdf}
+  \caption{SOM framework train duration, influenced by output space size in the x axis, number of epochs in the left, size of input patterns on top, and number of input patterns on the right in color from red to blue.}
+  \label{fig:benchmarkingsom}
+\end{figure}
 
 
 \section{Homophilic SOM}
