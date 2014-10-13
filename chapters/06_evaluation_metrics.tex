@@ -3,23 +3,86 @@
 \section{Clustering Tweets with Self-Organizing Maps}
 \label{ch:clustering_tweets}
 
-\subsection{Twitter Dataset}
-\label{subsec:twitter_dataset}
-
-As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emitted the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
-
-
-In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed --- since most of them where minified in order to fit in less that 140 characters, without translating the minified URL, not a lot of information can be gathered. Also, all tweets that where not identified as being in English where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
-
-\input{./images/tweet_csv.tex}
-{\color{red} Add table with dataset characteristics }
-\input{./tables/inesc_dataset.tex}
-
 \subsection{SOM training}
 \label{sub:clustering_tweets_with_soms}
-{\color{red} Refer dataset info on }
-{\color{red} Describe naive approach to SOM training in R }
-{\color{red} Describe amount of weird words }
+Our first approach to cluster tweets with \ac{SOM} started by dynamically creating \ac{VSM} for each new word that was encountered while scanning each tweet. Due to simplicity of the approach, an overwhelming amount of different words, some, even without any clear meaning. 
+Due to the huge amount \ac{VSM} size, the trainings at hand took an eternity to process, in order to prevent this from happening we took a sample of 50MB of tweets, all in English, from the dataset and started to train the \ac{SOM} with it. String manipulation for \ac{VSM} reduction described on Subsection~\ref{sec:reducing_som_vector_size} where used.
+The \ac{SOM} training was performed using the R kohonen package~\cite{rsom}. We have added some information about this train on Appendix~\ref{ch:rsom_training}, three kinds of clusters where found. Clusters where no topic could be made sense of, clusters with a ton of tweets which had the same text and clusters that had more than one topic/no topics at all. An example of tweets presents in these clusters can be seen in Figures \ref{fig:cluster1}, \ref{fig:cluster2} and \ref{fig:cluster3}.   
+ \begin{figure}[htpb]
+  \centering
+    \begin{boxedverbatim}
+    iKitCloudKicker,guess its a twitter day at work
+    mgdotorg,rick hunolt back in action for more than a song or two just saw this posted on exodus san fran
+    ChoclateIceCian,such a rough and shit sleep lastnight has totally ruined my twitter buzz today l and tea isnt cheering me up o
+    oooocherryoooo,received a postcrossing postcard from finland
+    Carnage4Life,wil google is making a huge and annoying mistake
+    earcario,this is a great invention simply via joleneo
+    __missvalentine,guess my hair is going in a pony stupid rain
+    iMacNoBook,it s crazy how twitter can make or break a relationship
+    MattMullenUK,missed this yesterday google bigquery now out of trial mode brings bigdata for all at a price
+AtlantaStreet,career work people are freaking out over a conservative whose twitter account keeps getting shut please retweet
+    \end{boxedverbatim}
+    \caption{Cluster without topics}
+    \label{fig:cluster1}
+\end{figure} 
+\begin{figure}[htpb]
+  \centering
+    \begin{boxedverbatim}
+    amanzana_com,la aplicaci n en la ipad o el iphone que un m dico debe chest journal diario m dico de la univerdad de stanford
+    Avi_Fogel,nyangels ipad based look of day outfit sales for women bar rafaeli investor and model designers multiple stylist
+    GaryPHayes,multi platform fantasy experience graphic novel ipad app augmented reality app film anomaly this oct pet
+    iOSsociety,via instagram neon museum las vegas ios iphone ipad
+    iznix,what s better than a protective case for iphone or ipad a case that can charge your device too solar cases are
+    itine_utine,edwin andriann anak mu udiiin gak maen puzzle ntr tapi zaman ipad d pake maen tembing
+    Visit_Newquay,we re selling our ipad new so if your in town its free delivery
+    DigitalLyncher,if only spotify premium wasn t so pricy lol rt spotify finally arrives on ipad thanks to new universal update
+    crunchy_f,i would love to get an ipad that s why i entered to win one
+    landmarkpx,younger abstention doctrine kindle ipad landmarkpublications
+    canadanielle,country music hey who s meowing who has an ipad
+    dawsotron,anyone want to buy an ipad gb g locked to network my new ipad rd generation is being delivered tomorrow inbox me if interested
+    CelinaAtFCM,linkedin launches a killer new ipad app business insider
+    miramahira,arinasolehah hahaha pakcik die pun dah takleh wat pape kalu die dah conquer ipad tu
+    GuitarChordz,spotify launches new ipad app with beautiful graphics gapless playback and more please retweet
+    bahrainme,blackberry porsche design p apple iphone s ipad brand new original unlocked blackberry porsche desi
+    ErikBernskiold,linkedin goes ipad native ios
+    54111145,ipad z
+    \end{boxedverbatim}
+    \caption{Cluster filled with iPad tweets}
+    \label{fig:cluster1}
+\end{figure}
+\begin{figure}[htpb]
+  \centering
+    \begin{boxedverbatim}                   
+    studio44salon,i posted a new photo to facebook
+    mynor1,i posted a new photo to facebook
+    Sheikh_Basit,i posted a new photo to facebook
+    Antalyarentacar,i posted a new photo to facebook
+    sagitario1509_,i posted a new photo to facebook
+    nishantgourav,i posted a new photo to facebook
+    DISTINCT89,i posted a new photo to facebook
+    markleeks,i posted a new photo to facebook
+    bjbaloncio,i posted a new photo to facebook
+    pastorbbg,i posted a new photo to facebook
+    Christochelsea9,i posted a new photo to facebook
+    ShaniChaudhary,i posted a new photo to facebook
+    MaderaBrookside,i posted a new photo to facebook
+    eveproducer,i posted a new photo to facebook
+    Imamean1,i posted a new photo to facebook
+    Peetje1960,i posted a new photo to facebook
+    BmacMotorsport,i posted a new photo to facebook
+    emilybr00ke,i posted a new photo to facebook
+    StratfordSchool,i posted a new photo to facebook
+    walkers4u,i posted a new photo to facebook
+    sairussairus,i posted a new photo to facebook
+    delifreshfood27,i posted a new photo to facebook
+    igaurav430,i posted a new photo to facebook
+    MyHolylandOrg,i posted a new photo to facebook
+    saurav_saus,i posted a new photo to facebook
+   
+    \end{boxedverbatim}
+    \caption{Cluster of \ac{CSV} tweets with very similar text}
+    \label{fig:cluster3}
+\end{figure}
 
 \subsection{Reducing SOM vector size}
 \label{sub:reducing_som_vector_size}
@@ -28,7 +91,7 @@ In Subsection~\ref{sub:clustering_tweets} we introduced string reducer methods w
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.8\linewidth]{./plots/svm/plot_wordcount.pdf}
-  \caption{Amount of unique words present on dataset sample with 902802, based on the string word reduction technique applied.}
+  \caption{Amount of unique words present on dataset sample with 902802 tweets, based on the string word reduction technique applied.}
   \label{fig:plot_word_red}
 \end{figure}
 
@@ -49,30 +112,16 @@ Due to the fact that we are trying to identify topics, most of the tagged words 
 
 \subsubsection{Identify Tweets language}
 \label{ssub:identify_tweets_lang}
+Twitter is a social network with users from every corner of the world, and due to this fact, tweets tend to be in a lot of different languages which complicates the process of clustering due to increasing the number of sining ms, idiomatic expression and results interpretation due to lack of knowledge of a specific language.  
+In order to find a tweets language, it is possible to see the language that a user has on his twitter profile through the twitter API, but these are not always the same thing. Some times, users use their profiles on different languages that the language in which they issue their tweets.
 Identifying tweets that where not in the English language was done through the usage of Ruby library called whatlanguage~\footnote{https://github.com/peterc/whatlanguage}, which tries to identify one language through Bloom Filters. Inside the tweet there is a field which identifies the user language, we found that x is not acurate. Removing tweets that weren't in the english language reduced the amount of different words in x and therefor will reduce the dimensional size of the \ac{SOM}.
+In order to prove that the using the whatlanguage library in conduction with the language which users have on twitter will improve the overall percentage of English written tweets, we took a random sample of 100 tweets from our own dataset, and categorized it by hand. Afterwards we compared the results of using only the language on the tweet, using the language detection library and both. The results are summarized on Table~\ref{tab:mac_test}.  
+\input{tables/tweets_lang.tex}
 
-\subsubsection{Text Manipulation for VSM reduction}
-\label{ssub:Text Manipulation for SVM reduction}
-
-Work done on the INESC twitter dataset with SOMs.
-SOM implementations used, what where their strong points and weaknesses
-
-\subsubsection{Clustering with Word Selection }
-\label{ssub:Word Selection for Clustering}
-{\color{red} Results of SOMs using selected words based on occurrence after applying SVM reduction }
-{\color{red} Results where pretty bad }
-
-\subsection{Clustering with NLP selected words}
-\label{sub:clustering_with_nlp_selected_words}
-{\color{red} results of som using arktweet NLP }
-{\color{red} types of tags selected }
-{\color{red} show tweets that had no representation }
-{\color{red} review clusters and results }
+Even though the sample is quite small, it was possible to understand that if both techniques where combined in order to detect the language of the tweet, the biggest problem which we could come across, would be to discard tweets that where not tagged as being in English, but in fact where. This is preferable, given that it easier to get more tweets in order to have English tweets, than constructing an \ac{VSM} with foreign terms.
 
 \subsection{Conclusions}
 \label{sub:conclusions}
-
-
 
 \section{Twitter Crawler}
 \label{sec:twitter_crawler}
@@ -195,6 +244,13 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
+ %\subsection{Twitter Dataset}
+%\label{subsec:twitter_dataset}
+
+%As can be seen in Figure~\ref{fig:json_tweet_user} no information about the social relations of the user which emitted the tweet are present. Therefor in order to retrieve the social network in which a user is contained, it will be necessary to connect to the Twitter API. Crawling twitter is discussed in further depth in Chapter~\ref{chap:crawling_twitter}.  
+
+
+%In order to better understand the dataset at hand, all the \ac{JSON} files where converted into \ac{CSV}in a way to reduce the size of the dataset. While tweets where being converted, \ac{URL} where removed --- since most of them where minified in order to fit in less that 140 characters, without translating the minified URL, not a lot of information can be gathered. Also, all tweets that where not identified as being in English where also removed. The tweet shown in \ac{JSON} format in Figure~\ref{fig:json_tweet} is converted to \ac{CSV} in Figure~\ref{fig:csv_tweet}.
  
 %%%%%% REMOVED STUFF
 %\subsection{Topology Preservation} 
