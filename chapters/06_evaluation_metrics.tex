@@ -271,7 +271,27 @@ The results where summarized on Figure~\ref{fig:benchmarkingsom}, where it is po
 \section{Homophilic SOM}
 \label{sec:homophilic_som}
 
+In order bring the concept of homophily --- love of the same --- to clustering socially connected data, on Section \ref{sec:algorithm_changes} we suggested some alterations to the default \ac{SOM} algorithm. These alterations where mainly applied to the output space of the \ac{SOM}, where in order for the neurons to actually represent users, and the connections between users of a social network. 
 
+These features where implemented into the \ac{SOM} framework described in the previous chapter. The data used to train the homophilic \ac{SOM} can be seen in Table \ref{tab:homosom}. The training was performed on a machine with the characteristics show in Table \ref{tab:acer_test}.
+
+\input{./tables/acer.tex}
+\input{./tables/homosom.tex}
+
+It is not possible to draw a \ac{U-Matrix} due to the fact that the output space from is no longer a rectangular matrix, but a graph. Also drawing the \ac{Q-Matrix} is possible, but the disposition of the neurons will not represent the actual disposition in the graph. This can still be useful to easily visualize which neurons are better at representing their input patterns. 
+
+Looking at the results, there are a lot of different topics of clusters. There where neurons clearly responsible to identify music, like it can be seen on Figure~\ref{clust:tech}. On Figure~\ref{clust:music} we can see a cluster about tech and programing, the most surprising part about this cluster is that the tweet about the banana phone, is actually inserted into the tech topic --- it was tech project presented at codebits ---. 
+On the other hand, some clusters of people saying that they have posted photos on facebook, or that they've liked youtube videos where also found. Even though they can be considered topics, their relevance is not very high.
+
+\begin{figure}[h!]
+  \centering
+  \subfigure[Cluster about tech and programing]{\includegraphics[scale=2]{./images/1clustertech.pdf}\label{clust:tech}}
+  \hspace*{0.5cm}
+  \centering
+  \subfigure[Cluster about music]{\includegraphics[scale=2]{./images/2clustertech.pdf}\label{clust:music}}
+  \label{fig:clusters}
+  \caption{Two clusters with different topics}
+\end{figure}
 
 \section{Conclusions}
 

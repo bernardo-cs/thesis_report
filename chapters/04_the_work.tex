@@ -109,8 +109,11 @@ When researching ways to extend the \ac{SOM} algorithm, in order to add social f
 
 The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features. For example, the previously described in Subsection~\ref{sub:types_of_soms} Geo-\ac{SOM}, the Growing Hierarchical \ac{SOM}~\cite[]{1058070}, the time adaptive \ac{SOM}~\cite[]{1187438}, the Ontological \ac{SOM}~\cite[]{5446427}, and the list goes on\dots  
 
-In order to create the homophilic \ac{SOM}, described in Section~\ref{sec:algorithm_changes} we first created a \ac{SOM} framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
+The \ac{SOM} framework is an open source ruby library for creating custom \ac{SOM} implementations. The \ac{SOM} framework, implements the basic \ac{SOM} algorithm with a squared output space, is readably available. Any kind of data which implements enumerable --- can be treated as arrays --- can be used as input patterns. 
 
+It is possible to print \ac{U-Matrix}, \ac{Q-Matrix} at any given time of the training, as well as inspect the topological error. In case the output space is represented as colored vectors, it is also possible to print the current color of the output space at each iteration.
+
+In order to create the homophilic \ac{SOM}, described in Section~\ref{sec:algorithm_changes} we first created a \ac{SOM} framework that is easy to extend due to be fully object oriented, scripted --- even though it can be compiled to run on the JVM --- and without C extensions.
 
 
 \section{Homophilic SOM Definition}
