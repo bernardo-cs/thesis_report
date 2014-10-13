@@ -8,80 +8,17 @@
 Our first approach to cluster tweets with \ac{SOM} started by dynamically creating \ac{VSM} for each new word that was encountered while scanning each tweet. Due to simplicity of the approach, an overwhelming amount of different words, some, even without any clear meaning. 
 Due to the huge amount \ac{VSM} size, the trainings at hand took an eternity to process, in order to prevent this from happening we took a sample of 50MB of tweets, all in English, from the dataset and started to train the \ac{SOM} with it. String manipulation for \ac{VSM} reduction described on Subsection~\ref{sec:reducing_som_vector_size} where used.
 The \ac{SOM} training was performed using the R kohonen package~\cite{rsom}. We have added some information about this train on Appendix~\ref{ch:rsom_training}, three kinds of clusters where found. Clusters where no topic could be made sense of, clusters with a ton of tweets which had the same text and clusters that had more than one topic/no topics at all. An example of tweets presents in these clusters can be seen in Figures \ref{fig:cluster1}, \ref{fig:cluster2} and \ref{fig:cluster3}.   
- \begin{figure}[htpb]
+
+\begin{figure}[h!]
   \centering
-    \begin{boxedverbatim}
-    iKitCloudKicker,guess its a twitter day at work
-    mgdotorg,rick hunolt back in action for more than a song or two just saw this posted on exodus san fran
-    ChoclateIceCian,such a rough and shit sleep lastnight has totally ruined my twitter buzz today l and tea isnt cheering me up o
-    oooocherryoooo,received a postcrossing postcard from finland
-    Carnage4Life,wil google is making a huge and annoying mistake
-    earcario,this is a great invention simply via joleneo
-    __missvalentine,guess my hair is going in a pony stupid rain
-    iMacNoBook,it s crazy how twitter can make or break a relationship
-    MattMullenUK,missed this yesterday google bigquery now out of trial mode brings bigdata for all at a price
-AtlantaStreet,career work people are freaking out over a conservative whose twitter account keeps getting shut please retweet
-    \end{boxedverbatim}
-    \caption{Cluster without topics}
-    \label{fig:cluster1}
-\end{figure} 
-\begin{figure}[htpb]
+  \subfigure[Cluster without topics]{\includegraphics[scale=0.6]{./images/clutercluster.pdf}\label{fig:cluster1}}
+  \hspace*{0.5cm}
   \centering
-    \begin{boxedverbatim}
-    amanzana_com,la aplicaci n en la ipad o el iphone que un m dico debe chest journal diario m dico de la univerdad de stanford
-    Avi_Fogel,nyangels ipad based look of day outfit sales for women bar rafaeli investor and model designers multiple stylist
-    GaryPHayes,multi platform fantasy experience graphic novel ipad app augmented reality app film anomaly this oct pet
-    iOSsociety,via instagram neon museum las vegas ios iphone ipad
-    iznix,what s better than a protective case for iphone or ipad a case that can charge your device too solar cases are
-    itine_utine,edwin andriann anak mu udiiin gak maen puzzle ntr tapi zaman ipad d pake maen tembing
-    Visit_Newquay,we re selling our ipad new so if your in town its free delivery
-    DigitalLyncher,if only spotify premium wasn t so pricy lol rt spotify finally arrives on ipad thanks to new universal update
-    crunchy_f,i would love to get an ipad that s why i entered to win one
-    landmarkpx,younger abstention doctrine kindle ipad landmarkpublications
-    canadanielle,country music hey who s meowing who has an ipad
-    dawsotron,anyone want to buy an ipad gb g locked to network my new ipad rd generation is being delivered tomorrow inbox me if interested
-    CelinaAtFCM,linkedin launches a killer new ipad app business insider
-    miramahira,arinasolehah hahaha pakcik die pun dah takleh wat pape kalu die dah conquer ipad tu
-    GuitarChordz,spotify launches new ipad app with beautiful graphics gapless playback and more please retweet
-    bahrainme,blackberry porsche design p apple iphone s ipad brand new original unlocked blackberry porsche desi
-    ErikBernskiold,linkedin goes ipad native ios
-    54111145,ipad z
-    \end{boxedverbatim}
-    \caption{Cluster filled with iPad tweets}
-    \label{fig:cluster1}
-\end{figure}
-\begin{figure}[htpb]
+  \subfigure[Cluster with the iPad topic]{\includegraphics[scale=0.6]{./images/ipadcluster.pdf}\label{fig:cluster2}}
+  \hspace*{0.5cm}
   \centering
-    \begin{boxedverbatim}                   
-    studio44salon,i posted a new photo to facebook
-    mynor1,i posted a new photo to facebook
-    Sheikh_Basit,i posted a new photo to facebook
-    Antalyarentacar,i posted a new photo to facebook
-    sagitario1509_,i posted a new photo to facebook
-    nishantgourav,i posted a new photo to facebook
-    DISTINCT89,i posted a new photo to facebook
-    markleeks,i posted a new photo to facebook
-    bjbaloncio,i posted a new photo to facebook
-    pastorbbg,i posted a new photo to facebook
-    Christochelsea9,i posted a new photo to facebook
-    ShaniChaudhary,i posted a new photo to facebook
-    MaderaBrookside,i posted a new photo to facebook
-    eveproducer,i posted a new photo to facebook
-    Imamean1,i posted a new photo to facebook
-    Peetje1960,i posted a new photo to facebook
-    BmacMotorsport,i posted a new photo to facebook
-    emilybr00ke,i posted a new photo to facebook
-    StratfordSchool,i posted a new photo to facebook
-    walkers4u,i posted a new photo to facebook
-    sairussairus,i posted a new photo to facebook
-    delifreshfood27,i posted a new photo to facebook
-    igaurav430,i posted a new photo to facebook
-    MyHolylandOrg,i posted a new photo to facebook
-    saurav_saus,i posted a new photo to facebook
-   
-    \end{boxedverbatim}
-    \caption{Cluster of \ac{CSV} tweets with very similar text}
-    \label{fig:cluster3}
+  \subfigure[Cluster with the iPad topic]{\includegraphics[scale=0.6]{./images/facecluster.pdf}\label{fig:cluster3}}
+  \caption{Three types of clusters}
 \end{figure}
 
 \subsection{Reducing SOM vector size}
@@ -142,7 +79,7 @@ When designing the twitter crawler, we took into consideration that it had to be
   \item \textbf{Step 4:} When API limit is reached, print the state of the crawled network, serialize the current state, and wait 15 minutes until it is possible to resume crawling. 
 \end{itemize}
 
-The crawler is able to get {\color{red} x users per second, x tweets per second }, it serializes itself to \ac{YAML} which besides being directly compatible with Ruby, it is also human readable making it easy to parse with unix tools.
+The crawler is able to get an average of 3 users with their social connections, and 150 tweets per 15 minutes window, it serializes itself to \ac{YAML} which besides being directly compatible with Ruby, it is also human readable making it easy to parse with unix tools.
 
 
 \section{SOM Framework}
@@ -169,7 +106,7 @@ The machine used for training had the hardware specifications outlined in table 
 A summary of the training is specified in Table~\ref{tab:som_colours}
 \input{./tables/som_colours.tex}
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \includegraphics[scale=0.6]{./plots/som/topological_error.pdf}
   \label{fig:top_error}
   \caption{Changes in topological error throughout the SOM training, lrate stands for learning rate, and radius for radius applied to the winning neuron}
@@ -177,7 +114,7 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 On Figure~\ref{fig:top_error} we can see the evolution of the topological error and how it is converging throwout the training process, as the radius and learning rate are decreasing, and as well as the number of epochs is rising. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centerline{\includegraphics[scale=0.6]{./plots/som/average_distance.pdf}}
   \label{fig:avg_dist}
   \caption{Changes in the average distance between neurons, throughout the SOM training}
@@ -190,7 +127,7 @@ When comparing the output space on Figure~\ref{onesom} at the staring of the tra
 The \ac{U-Matrix} evolves in a way where clusters are almost unnoticeable, which is due to the fact that each neuron is a cluster by itself, and the distance between it and his neighbors was homogenized throughout the output space. 
 The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean topographic error is becoming smaller. This was already seen before in Figure~\ref{fig:top_error}, but now we can also see which neurons are worst at representing the input patterns.  
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/1_som.pdf}\label{chp3:onesom}}
   \hspace*{0.5cm}
@@ -202,7 +139,7 @@ The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean top
   \label{fig:}
 \end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/2_som.pdf}\label{chp3:onesom}}
   \hspace*{0.5cm}
@@ -214,7 +151,7 @@ The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean top
   \label{fig:}
 \end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \subfigure[Output Space]{\includegraphics[scale=1]{./images/som_training/3_som.pdf}\label{chp3:threesom}}
   \hspace*{0.5cm}
@@ -229,7 +166,7 @@ The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean top
 In order to see how well the neurons are representing the input patterns, we looked at the \ac{Q-Matrix} and selected the darkest area in order to know which neuron is the worst at representing its input patterns. Afterwards we printed the input patterns associated to that neuron. This process was graphically represented in Figure~\ref{fig:somtrained} where the colors which represent the input patterns are in fact RGB vector coordinates used during training. It is possible to see that even though this neuron ought to be the worst at representing it input data, he represents it quite well as they are all shades of red. 
 It is important to know that all of this visualization can only be made due to the fact that, we are working with arrays with three dimension and values comprised between 0 and 255 which makes it possible for them to be presented as RGB images. 
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\linewidth]{./images/som_trainned.pdf}
   \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of training  }
@@ -241,7 +178,7 @@ It is important to know that all of this visualization can only be made due to t
 The \ac{SOM} was not created with the purpose of being extremely fast, for that there are already very goo implementations like \citet{somoclu} distributed library for \ac{SOM} or \citet{rsom} R kohonen package which implements the training algorithm in C, and only exposes the interface in the high level language R.  
 Being purely written in a higher level language, the \ac{SOM} framework enables researchers and programmers to write training algorithms very fast. For example the code necessary for training the colored vectors on the previous Subsection can be seen in Figure~\ref{fig:rubysom}.
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \begin{boxedverbatim}
   ## Create a new SOM object
@@ -260,7 +197,7 @@ Being purely written in a higher level language, the \ac{SOM} framework enables 
 In order to better understand the amount of data \ac{SOM} framework is able to handle, we benchmarked it on the same machine used in Table~\ref{tab:mac_test}. The framework was tested against multiple sizes of output space and input patterns, multiple numbers of input patterns, and multiple numbers of epochs. 
 The results where summarized on Figure~\ref{fig:benchmarkingsom}, where it is possible to see on the upper quadrant that if all parameters increase, \ac{SOM} training will suffer as well.
 
-\begin{figure}[htpb]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\linewidth]{./plots/som/benchmarking.pdf}
   \caption{SOM framework train duration, influenced by output space size in the x axis, number of epochs in the left, size of input patterns on top, and number of input patterns on the right in color from red to blue.}
@@ -285,10 +222,10 @@ On the other hand, some clusters of people saying that they have posted photos o
 
 \begin{figure}[h!]
   \centering
-  \subfigure[Cluster about tech and programing]{\includegraphics[scale=2]{./images/1clustertech.pdf}\label{clust:tech}}
+  \subfigure[Cluster about tech and programing]{\includegraphics[scale=0.6]{./images/1clustertech.pdf}\label{clust:tech}}
   \hspace*{0.5cm}
   \centering
-  \subfigure[Cluster about music]{\includegraphics[scale=2]{./images/2clustertech.pdf}\label{clust:music}}
+  \subfigure[Cluster about music]{\includegraphics[scale=0.6]{./images/2clustertech.pdf}\label{clust:music}}
   \label{fig:clusters}
   \caption{Two clusters with different topics}
 \end{figure}
