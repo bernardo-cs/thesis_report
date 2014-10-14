@@ -96,10 +96,15 @@ The WEBSOM was not based on keywords and boolean expressions, instead, words wit
   \label{fig:websom}
 \end{figure}
 
+\section{Twitter Data Mining and TTD} 
+\label{sec:data_mining_in_twitter_}
 
- 
-\section{Topic Detection and Tracking with Clustering} 
-\label{sec:topic_detection_on_twitter}
+In this subsection, we will focus on work done on the Twitter social network in order to leverage insights on how the public data available from the website can be explored. 
+
+\subsection{Topic and Trending Detection} 
+\label{sub:real_time_topic_and_trending_detection}
+%\section{Topic Detection and Tracking with Clustering} 
+%\label{sec:topic_detection_on_twitter}
 
 ~\citet{allan2002topic} defined \ac{TDT} as “a constantly arriving stream of text from newswire and from automatic speech-to-text systems that are monitoring selected television, radio, Web broadcast news shows. Roughly speaking, the goal of \ac{TDT} is to break the text down into individual news stories, to monitor the stories for the events that have not been seen before, and to gather stories into groups that each discuss a single news topic".
 
@@ -108,19 +113,13 @@ Nowadays, due to the rapid adaptation of people to always be on-line, through th
 The challenge of \ac{TDT} is evermore focused on online generated documents, and in new forms to be able to track and categorize all the information that is continuously being generated.
 Many \ac{TDT} techniques have been proposed,  a significant amount of them rely on the \ac{TF-IDF}~\cite{Baeza-Yates:1999:MIR:553876}. Because tweets are very small, often with typos or slang words, and because the same tweet might be written in multiple languages, \ac{TF-IDF} is not particularly adequate for topic detection on twitter. In this subsection, we will take a look at multiple methods of topic detection in general, and also specifically on the Twitter social network.
 
-\subsection{Topic and Trending Detection} 
-\label{sub:real_time_topic_and_trending_detection}
 %With amount of content increasing, new real-time and scalable algorithms are needed in order to make sense of all this data.
 ~\citet{Cataldi2010} proposed a new technique for emerging topic detection that permits real-time retrieval of the most emergent topics expressed by a community on Twitter. Their work applies the PageRank algorithm~\cite{Pagerank1998} to the users follower/followee relationship, in order to find the most influential users on the network. Then, the most trending topics are calculated, by relating social influence, word co-occurrence and time frame. In the end, an interface was created where it would be possible to navigate, through hot topics in a given time frame. Topic labeling was not automatic and was implicit by the time frame of an event.
 %REMOVEDBYPAVEL
 %, if two highly social events would occur in the same time frame with word relations the results could be interpreted as the same, for example if a political candidate would win the elections at the same of an important sports club would win a specific cup, the word \emph{win} could be trending at the same time for two different topics and due to high temporal dependency they could be interpreted as the same topic.
 
 ~\citet{Weng2010} also used the PageRank algorithm to find the most influential twitter users on a certain topic. However, using a different approach, they represent each twitter user as a bag of words comprising of all the tweets that they have posted, and applied \ac{LDA}~\cite{Blei2003} in order to find topics in which users are interested in. Finally, it was possible to prove that follower/followee relations on twitter are not just casual, but that people actually follow other people to whom they have some resemblance or common interest. This concept is called homophily and will be further explored on this thesis.
-
-\section{Twitter Data Mining} 
-\label{sec:data_mining_in_twitter_}
-In this subsection, we will focus on work done on the Twitter social network in order to leverage insights on how the public data available from the website can be explored. 
-
+ 
 \subsection{Tweets Implicit Data} 
 \label{sub:the_tweet}
 Tweet retrieval and analysis is a double edged problem. On one side, the tweet is really small, which makes it almost impossible to retrieve any actual sense from it. On the other hand, the amount of tweets generated per day is around 140 million\footnote{https://blog.twitter.com/2011/numbers}, which means that it is very hard to do a deep analysis of the semantics and content of individual tweet, and that only the more appropriate signals should be evaluated.
