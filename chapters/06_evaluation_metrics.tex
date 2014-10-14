@@ -2,7 +2,7 @@
 \label{ch:eval_met}
 
 \section{Clustering Tweets with Self-Organizing Maps}
-
+\label{sec:clustering_tbla}
 \subsection{SOM training}
 \label{sub:clustering_tweets_with_soms}
 Our first approach to cluster tweets with \ac{SOM} started by dynamically creating \ac{VSM} for each new word that was encountered while scanning each tweet on the dataset. Due to simplicity of the approach, an overwhelming amount of different words, some even without any clear meaning, took relevance on the \ac{VSM}. 
@@ -69,7 +69,7 @@ Reducing the \ac{VSM} size by string reduction and tweet language identification
 
 \section{Twitter Crawler}
 \label{sec:twitter_crawler}
-After analyzing the work accomplished by clustering tweets with \ac{SOM} we decided that some alterations to the algorithm should done in order for it to take into account the fact we are dealing with socially connected data. In order to accomplish this we needed a dataset with social connections of behind the author of the tweet. There was two ways to accomplish this: 
+After analyzing the work accomplished by clustering tweets on Section~\ref{sec:clustering_tbla}, we decided that some alterations to the algorithm should be done in order for it to take into account the social connections between the data. In order to accomplish this we needed a dataset with social connections behind the authors of the tweets. There was two ways to accomplish this: 
 
 \begin{itemize}
   \item \textbf{First aproach: } For each tweet we have on our dataset, fetch the user information including the users he is connected to.
@@ -77,30 +77,30 @@ After analyzing the work accomplished by clustering tweets with \ac{SOM} we deci
 \end{itemize}                                                                                             
 We followed the second approach in order to have more control over the data used from this moment forth, and to have a better integration of the tweets with the \ac{SOM} framework, described in Section~\ref{sec:som_framework}.
 
-When designing the twitter crawler, we took into consideration that it had to be extremely resilient in order to be able to be left alone, crawling the twitter, until told to stop. Also if anything happened to the machine where the crawler was running it would be necessary to return to some previous crawling state, with minimum data loss. The crawler works in the following way:
+When designing the twitter crawler, we took into consideration that it had to be extremely resilient in order to be able to be left alone crawling the twitter, until told to stop. Also, if anything happened to the machine where the crawler was running, it would be necessary to return to some previous crawling state, with minimum data loss. The crawler works in the following way:
 
 \begin{itemize}
-  \item \textbf{Step 1:} Choose some seed users to start crawling or deserialize a serialized version of the crawler if available.
-  \item \textbf{Step 2:} For each seed user get all of his followers, and add them to an array if they haven't yet been crawled.
+  \item \textbf{Step 1:} Choose some seed users to start crawling or deserialize a serialized version of the crawler --- if available.
+  \item \textbf{Step 2:} For each seed user, get all of his followers --- if they haven't yet been crawled.
   \item \textbf{Step 3:} Repeat step one with random users taken from the array on step 2, until API limit is reached.
   \item \textbf{Step 4:} When API limit is reached, print the state of the crawled network, serialize the current state, and wait 15 minutes until it is possible to resume crawling. 
 \end{itemize}
 
-The crawler is able to get an average of 3 users with their social connections, and 150 tweets per 15 minutes window, it serializes itself to \ac{YAML} which besides being directly compatible with Ruby, it is also human readable making it easy to parse with unix tools.
+The crawler is able to get an average of 3 users with their social connections, and 150 tweets per 15 minutes window. It serializes itself to \ac{YAML} which besides being directly compatible with Ruby, it is also human readable, making it easy to parse with unix tools.
 
 
 \section{SOM Framework}
 \label{sec:som_framework}
-The \ac{SOM} framework was developed in the Ruby programing language \footnote{https://www.ruby-lang.org/en/} due to the desired characteristic of allowing great levels of introspection and being an almost pure object oriented programing language. Due to this characteristics making modifications to core parts of the algorithm is fairly easy.
+The \ac{SOM} framework was developed in the Ruby programing language \footnote{https://www.ruby-lang.org/en/} due to the desired characteristic of allowing great levels of introspection and being an almost pure object oriented programing language. Due to this characteristics, making modifications to core parts of the algorithm is fairly easy.
 
 The \ac{SOM} Framework was developed in a test driven fashion, having 100\% of its public methods tested and documented for expected behavior. These characteristics, associated with the fact that was published under an open source license, makes it available for other researchers to implement their own SOM variants.
 
 By default, the base SOM algorithm is implemented as described by the Algorithm~\ref{alg:som} in Section \ref{sec:the_self_organizing_map}. 
 \subsection{Clustering Color Vectors}
 \label{sub:main_features}
-Out of the box, the \ac{SOM} Framework implements a squared output space, where all residing neurons are manipulated as arrays. It is possible ate any given moment of the training to export the output space to \ac{JSON}, \ac{CSV} or to visualize its current \ac{U-Matrix}. Also during training a progress bar is displayed in order to know how much time will be needed for the training to end.
+Out of the box, the \ac{SOM} Framework implements a squared output space, where all residing neurons are manipulated as arrays. It is possible at any given moment of the training to export the output space to \ac{JSON}, \ac{CSV} or to visualize its current \ac{U-Matrix}. Also, during training, a progress bar is displayed in order to know how much time will be needed for the training to end.
 
-Due to the features described above, it is possible to train a \ac{SOM} to identify random colors --- RGB vectors --- while printing the results. In order to do this we will start by:
+Due to the features described above, it is possible to train a \ac{SOM} to identify random colors --- RGB vectors --- while printing the results. In order to do this, we will start by:
 \begin{itemize}
   \item Initializing a SOM object with an output space size of 15 by 15 neurons, which will yield a total of 255 neurons --- and directly maps to the maximum number of clusters --- and 700 epochs.
   \item Create 1500 input patterns with size 3 and random values between 0 and 255. 
@@ -115,23 +115,23 @@ A summary of the training is specified in Table~\ref{tab:som_colours}
 
 \begin{figure}[h!]
   \includegraphics[scale=0.6]{./plots/som/topological_error.pdf}
-  \label{fig:top_error}
   \caption{Changes in topological error throughout the SOM training, lrate stands for learning rate, and radius for radius applied to the winning neuron}
+  \label{fig:top_error}
 \end{figure}
 
 On Figure~\ref{fig:top_error} we can see the evolution of the topological error and how it is converging throwout the training process, as the radius and learning rate are decreasing, and as well as the number of epochs is rising. 
 
 \begin{figure}[h!]
   \centerline{\includegraphics[scale=0.6]{./plots/som/average_distance.pdf}}
-  \label{fig:avg_dist}
   \caption{Changes in the average distance between neurons, throughout the SOM training}
+  \label{avg_dist}
 \end{figure}
 
-On Figure~\ref{fig:avg_dist} we can see the average distance between neurons increasing. At first this might not look like a desired property, but in fact it is. When the distance between the neurons is increasing and the topological error is decreasing, it means that the neurons are scattering in the output space in order to better identify the input patterns they are responsible for.
+On Figure~\ref{avg_dist} we can see the average distance between neurons increasing. At first this might not look like a desired property, but in fact it is. When the distance between the neurons is increasing and the topological error is decreasing, it means that the neurons are scattering in the output space in order to better identify the input patterns they are responsible for.
 
 During the training of this \ac{SOM}, we analyzed the output space, \ac{U-Matrix} and \ac{Q-Matrix} during the begging, half of the train, and finally at the end of the training.
-When comparing the output space on Figure~\ref{onesom} at the staring of the training, it is possible to see a lot less colors that on Figure~\ref{threesom}, this is due to the fact that neurons are getting more specified through the training. 
-The \ac{U-Matrix} evolves in a way where clusters are almost unnoticeable, which is due to the fact that each neuron is a cluster by itself, and the distance between it and his neighbors was homogenized throughout the output space. 
+When comparing the output space on Figure~\ref{chp3:onesom} at the starting of the training, it is possible to see a lot less colors that on Figure~\ref{chp3:threesom}, this is due to the fact that neurons are getting more specified through the training. 
+The \ac{U-Matrix} evolves in a way where clusters are almost unnoticeable, which is because each neuron is a cluster by itself, and the distance between it and his neighbors was homogenized throughout the output space. 
 The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean topographic error is becoming smaller. This was already seen before in Figure~\ref{fig:top_error}, but now we can also see which neurons are worst at representing the input patterns.  
 
 \begin{figure}[h!]
@@ -170,20 +170,20 @@ The \ac{Q-Matrix} evolves, by becoming whiter which represents that the mean top
   \label{fig:}
 \end{figure}
 
-In order to see how well the neurons are representing the input patterns, we looked at the \ac{Q-Matrix} and selected the darkest area in order to know which neuron is the worst at representing its input patterns. Afterwards we printed the input patterns associated to that neuron. This process was graphically represented in Figure~\ref{fig:somtrained} where the colors which represent the input patterns are in fact RGB vector coordinates used during training. It is possible to see that even though this neuron ought to be the worst at representing it input data, he represents it quite well as they are all shades of red. 
-It is important to know that all of this visualization can only be made due to the fact that, we are working with arrays with three dimension and values comprised between 0 and 255 which makes it possible for them to be presented as RGB images. 
+In order to see how well the neurons are representing the input patterns, we looked at the \ac{Q-Matrix} and selected the darkest area in order to know which neuron is the worst at representing its input patterns. Afterwards, we printed the input patterns associated to that neuron. This process was graphically represented in Figure~\ref{fig:somtrained} where the colors which represent the input patterns are in fact RGB vector coordinates used during training. It is possible to see that even though this neuron ought to be the worst at representing it input data, he represents it quite well as they are all shades of red. 
+It is important to know that all of this visualization can only be made due to the fact that, we are working with arrays with three dimension and values comprised between 0 and 255 --- which makes it possible for them to be presented as RGB images. 
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\linewidth]{./images/som_trainned.pdf}
-  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of training  }
+  \caption{Input patterns associated with the neuron with maximum topological error --31. Even though the neuron has the biggest topological error of all neurons, it still has a good representation of the input patterns. The colors in this image are not figurative, and represent the entities at the end of training.  }
   \label{fig:somtrained}
 \end{figure}
 
 \subsection{Benchmarking}
 \label{sub:benchmarking}
-The \ac{SOM} was not created with the purpose of being extremely fast, for that there are already very goo implementations like \citet{somoclu} distributed library for \ac{SOM} or \citet{rsom} R kohonen package which implements the training algorithm in C, and only exposes the interface in the high level language R.  
-Being purely written in a higher level language, the \ac{SOM} framework enables researchers and programmers to write training algorithms very fast. For example the code necessary for training the colored vectors on the previous Subsection can be seen in Figure~\ref{fig:rubysom}.
+The \ac{SOM} was not created with the purpose of being extremely fast, for that there are already very good implementations like \citet{somoclu} distributed library for \ac{SOM} or \citet{rsom} R kohonen package which implements the training algorithm in C, and only exposes the interface in the high level language R.  
+Being purely written in a higher level language, the \ac{SOM} framework enables researchers and programmers to write training algorithms very fast. For example, the code necessary for training the colored vectors on the previous subsection can be seen in Figure~\ref{fig:rubysom}.
 
 \begin{figure}[h!]
   \centering
@@ -202,12 +202,12 @@ Being purely written in a higher level language, the \ac{SOM} framework enables 
 \end{figure}
 
 In order to better understand the amount of data \ac{SOM} framework is able to handle, we benchmarked it on the same machine used in Table~\ref{tab:mac_test}. The framework was tested against multiple sizes of output space and input patterns, multiple numbers of input patterns, and multiple numbers of epochs. 
-The results where summarized on Figure~\ref{fig:benchmarkingsom}, where it is possible to see on the upper quadrant that if all parameters increase, \ac{SOM} training will suffer as well.
+The results were summarized on Figure~\ref{fig:benchmarkingsom}, where it is possible to see on the upper quadrant that if all parameters increase, \ac{SOM} training will suffer as well.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\linewidth]{./plots/som/benchmarking.pdf}
-  \caption{SOM framework train duration, influenced by output space size in the x axis, number of epochs in the left, size of input patterns on top, and number of input patterns on the right in color from red to blue.}
+  \caption{SOM framework train duration, influenced by output space size in the XX axis, duration of the training on the YY axis, number of epochs in the right, size of input patterns on top, and number of input patterns on the right in color from red to blue.}
   \label{fig:benchmarkingsom}
 \end{figure}
 
@@ -215,17 +215,17 @@ The results where summarized on Figure~\ref{fig:benchmarkingsom}, where it is po
 \section{Homophilic SOM}
 \label{sec:homophilic_som}
 
-In order bring the concept of homophily --- love of the same --- to clustering socially connected data, on Section \ref{sec:algorithm_changes} we suggested some alterations to the default \ac{SOM} algorithm. These alterations where mainly applied to the output space of the \ac{SOM}, where in order for the neurons to actually represent users, and the connections between users of a social network. 
+In order bring the concept of homophily --- which have proved to be present on social networks~\cite[]{Wehrens2007}  --- to clustering socially connected data, on Section \ref{sec:algorithm_changes} we suggested some alterations to the default \ac{SOM} algorithm. These modifications were mainly applied to the output space, where each neuron started to represent a user, and his neighborhood is comprised of his social relations.
 
-These features where implemented into the \ac{SOM} framework described in the previous chapter. The data used to train the homophilic \ac{SOM} can be seen in Table \ref{tab:homosom}. The training was performed on a machine with the characteristics show in Table \ref{tab:acer_test}.
+These features were implemented into the \ac{SOM} framework described in the previous chapter. The data used to train the homophilic \ac{SOM} can be seen in Table \ref{tab:homosom}. The training was performed on a machine with the characteristics show in Table \ref{tab:acer_test}.
 
 \input{./tables/acer.tex}
 \input{./tables/homosom.tex}
 
-It is not possible to draw a \ac{U-Matrix} due to the fact that the output space from is no longer a rectangular matrix, but a graph. Also drawing the \ac{Q-Matrix} is possible, but the disposition of the neurons will not represent the actual disposition in the graph. This can still be useful to easily visualize which neurons are better at representing their input patterns. 
+It is not possible to draw a \ac{U-Matrix} due to the fact that the output space is no longer a rectangular matrix, but a graph. Also drawing, the \ac{Q-Matrix} is possible, but the disposition of the neurons will not represent the actual disposition in the graph. This can still be useful to easily visualize which neurons are better at representing their input patterns. 
 
-Looking at the results, there are a lot of different topics of clusters. There where neurons clearly responsible to identify music, like it can be seen on Figure~\ref{clust:tech}. On Figure~\ref{clust:music} we can see a cluster about tech and programing, the most surprising part about this cluster is that the tweet about the banana phone, is actually inserted into the tech topic --- it was tech project presented at codebits ---. 
-On the other hand, some clusters of people saying that they have posted photos on facebook, or that they've liked youtube videos where also found. Even though they can be considered topics, their relevance is not very high.
+Looking at the results, there are a lot of different topics of clusters. There were neurons clearly responsible to identify music, like it can be seen on Figure~\ref{clust:tech}. On Figure~\ref{clust:music} we can see a cluster about tech and programing, the most surprising part about this cluster is that the tweet about the banana phone, is actually inserted into the tech topic --- it was tech project presented at codebits. 
+On the other hand, some clusters of people saying that they have posted photos on facebook, or that they've liked youtube videos were also found. Even though they can be considered topics, their relevance is not very high.
 
 \begin{figure}[h!]
   \centering

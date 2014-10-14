@@ -1,5 +1,7 @@
 \fancychapter{Clustering Tweets with Self Organizing Maps}
 \label{ch:clustering_tweets}
+On this chapter, we will discuss how it is possible to apply \ac{SOM} for \ac{TDT} on the social network twitter. There will be a focus on how it is possible to reduce \ac{SVM} size, without copromising the quality of the data. 
+Finally we will descibe what needs to be done in order to change the \ac{SOM} algorithm so it can take the social relations of the data into account. 
 
 \section{Twitter Data}
 \label{sec:crawling_twitter}
@@ -102,7 +104,7 @@ After the \ac{VSM} is filled with tweets, it can be feed to the \ac{SOM} and the
 \subsection{Extensible SOM Library}
 \label{sub:extensible_som_library}
 
-When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process. We found that the number of \ac{SOM} libraries was not very expense. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their own implementation of the \ac{SOM} algorithm. We've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
+When researching ways to extend the \ac{SOM} algorithm, in order to add social features to the learning process, we found that there weren't many \ac{SOM} software libraries. Even though, programing languages often used in \ac{ML} and Data Mining, such as Python or C++, have their own implementation of the \ac{SOM} algorithm. We've found that most of these libraries are made in such a way to be extremely fast, in order to take as much advantage from the hardware they are running on as possible. They often lack the modularity needed to adapt the \ac{SOM} algorithm to specific problems.
 
 The \ac{SOM} algorithm has been changed many times in order to better categorize data with specific features. For example, the previously described in Subsection~\ref{sub:types_of_soms} Geo-\ac{SOM}, the Growing Hierarchical \ac{SOM}~\cite[]{1058070}, the time adaptive \ac{SOM}~\cite[]{1187438}, the Ontological \ac{SOM}~\cite[]{5446427}, and the list goes on\dots  
 
