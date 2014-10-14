@@ -5,7 +5,6 @@ The usage of social networks for branding quality and on-line marketing is speci
 Thus, academic and enterprise worlds started looking at \ac{ML} for new ways to achieve revenue or simply explore and discover patterns in data. 
 As a consequence, the \ac{ML} course at Standford is the one with more students enrolling in the year of 2014~\footnote{http://www.forbes.com/sites/anthonykosner/2013/12/29/why-is-machine-learning-cs-229-the-most-popular-course-at-stanford/} with more than 760 students enrolled.
 
-%NOTE: Tem a ver com machine learning e unsupervised stuffs
 Using unsupervised \ac{ML}, \citet{Le2011} was able to achieved 81.7\% accuracy in detecting human faces, 76.7\% accuracy when identifying human body parts and 74.8\% accuracy when identifying cats. He used a 9-layered locally connected sparse auto-encoder with pooling and local contrast normalization on a large dataset of images (the model has 1 billion connections, the dataset has 10 million 200x200 pixel images downloaded from the Internet). This dataset was trained using model parallelism and asynchronous SGD on a cluster with 1,000 machines (16,000 cores) during three days. Even though the amount of computing power used in this project was of several order of magnitude, it is remarkable how an unsupervised algorithm could achieve such results.
 
 Even though a lot of solutions have arisen in order to automate real time searches, topic categorization and many other data intensive tasks are still done manually. Twitter still uses humans to deliver ads to trending queries, states Edwin Chen's Data Scientist responsible for ads quality at Twitter. On his blog post \footnote{http://blog.echen.me/2013/01/08/improving-twitter-search-with-real-time-human-computation/}, Edwin Chen describes the process of delivering real time adds to trending queries at Twitter. The main problems that arise in the Twitter platform in order to identify rising topics are:
@@ -45,14 +44,20 @@ After creating the dataset, we will try to find clusters of topics using the def
 \section{Contributions}
 The main contributions of this work are as follow:
 \begin{itemize}
-  \item A method to enhance topic discovery on data with small text corpus and high social significance.
-  \item A framework to easily edit multiple parts of a \ac{SOM} algorithm, by passing high order functions as configuration.
-  \item To develop highly customizable infinite tweeter crawler that preserves the social network.  
+  \item  \textbf{Homophilic SOM: } We proposed and analyzed the application of integrating social relations into the \ac{SOM} clustering algorithm.
+  \item \textbf{SOM framework: } A framework to easily extend the \ac{SOM} algorithm.
+  \item \textbf{Vector Space Reduction for Tweets: } We analyzed and proposed multiple ways to reduce the size of the \ac{VSM} when working specifically with data from Twitter.
+  \item \textbf{Mini Twitter: } An highly customizable twitter crawler. 
 \end{itemize}
 
 \section{Dissertation outline}
-%TODO Write the outline
-%This document is organized as follows. First will be dedicated to explain some basics concepts like Document Clustering and specifically Self-Organizing Maps in Section ~\ref{sec:basic_concepts}.  Further in, Section ~\ref{sec:related_work} will be dedicated to the state of the art solutions related not only to topic detection but also to twitter data analysis and Self-Organizing Maps. In Section ~\ref{sec:architecture} Architecture of the purposed solution and  at Section ~\ref{sec:evaluation_metrics} it will be discussed how to evaluate results achieved. Finally we will this report by referencing some possible future work and with a brief conclusion at Section ~\ref{sec:coclusions_future_work}.
-Explain how did you organized your thesis.
+This document is organized as follow:
+\begin{itemize}
+  \item \textbf{Chapter \ref{ch:back}} presents the background information about \ac{SOM} and \ac{DC}, being the two most important concepts needed to understand the following chapters.  
+  \item \textbf{Chapter \ref{ch:state_of_the_art}} describes the latest work done with \ac{TDT} on Twitter, and the latest work done with \ac{SOM}. 
+  \item \textbf{Chapter \ref{ch:clustering_tweets}} describes the theoretical details which need to be taken into account, in order to efficiently modify the \ac{SOM} algorithm.
+  \item \textbf{ Chapter \ref{ch:eval_met} } analyzes and benchmarks the work described on Chapter~\ref{ch:clustering_tweets}.
+  \item \textbf{ Chapter \ref{ch:conclusions} } summarizes the work developed and analysis of future work.
+\end{itemize}
 
 \cleardoublepage 
