@@ -5,6 +5,8 @@ Section~\ref{sec:som_framework}, will describe particular parts, and benchmark t
 
 \section{Clustering Tweets with Self-Organizing Maps}
 \label{sec:clustering_tbla}
+This section is dedicated to the evaluation of clustering tweets with the default \ac{SOM} algorithm. We also benchmarked the application of string reduction techniques to the \ac{VSM}.  
+
 \subsection{SOM training}
 \label{sub:clustering_tweets_with_soms}
 Our first approach to cluster tweets with \ac{SOM} started by dynamically creating \ac{VSM} for each new word that was encountered while scanning each tweet on the dataset. Due to simplicity of the approach, an overwhelming amount of different words, some even without any clear meaning, took relevance on the \ac{VSM}. 
