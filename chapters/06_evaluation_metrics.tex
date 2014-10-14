@@ -215,10 +215,15 @@ The results were summarized on Figure~\ref{fig:benchmarkingsom}, where it is pos
   \label{fig:benchmarkingsom}
 \end{figure}
 
+\subsection{Conclusions}
+\label{sub:conclusionssom}
+The \ac{SOM} framework is an easy to use and extend \ac{SOM} framework, the drawback from this extensibility is lower performance, compared to \ac{SOM} implementations that require C extension, or are implemented in lower level languages. 
+The Ruby programing language written in C, and it has an API to develop C extensions in case the detection of hot-points on the code. In case a user actually feels like their alterations to the \ac{SOM} framework are suffering from a lack of performance, they can replace some of the Ruby code for C. 
+On Section \ref{sec:homophilic_som}, we will use the \ac{SOM} framework to implement social relations into the \ac{SOM} algorithm.
+
 
 \section{Homophilic SOM}
 \label{sec:homophilic_som}
-
 In order bring the concept of homophily --- which have proved to be present on social networks~\cite[]{Wehrens2007}  --- to clustering socially connected data, on Section \ref{sec:algorithm_changes} we suggested some alterations to the default \ac{SOM} algorithm. These modifications were mainly applied to the output space, where each neuron started to represent a user, and his neighborhood is comprised of his social relations.
 
 These features were implemented into the \ac{SOM} framework described in the previous chapter. The data used to train the homophilic \ac{SOM} can be seen in Table \ref{tab:homosom}. The training was performed on a machine with the characteristics show in Table \ref{tab:acer_test}.
