@@ -1,0 +1,95 @@
+
+\documentclass[journal]{IEEEtran}
+%% Enable Latin characters
+\usepackage[utf8]{inputenc}
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage[square,numbers,sort&compress]{natbib}
+
+%% Acronyms
+\usepackage[nolist]{acronym}
+
+\usepackage{hyperref}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+% Do not put math or special symbols in the title.
+\title{Homophilic Self Organizing Feature Maps:\\ Finding Topics on Socially Connected Data}
+
+\author{Bernardo Simões}
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+With the evolution of social media platforms, the amount of unlabeled information has gone skyrocketing. The process of labeling this kind of information is evermore complex. Typical approaches used on the WEB for Topic Detection and Tracking cannot be directly applied due to the small amount of text produced per tweet, orthographic errors, abbreviations and so on.
+
+In this thesis, we propose and analyze a new form of topic detection and tracking on social networks. By leveraging the social relations between authors of the gathered content, and apply them to the clustering process.
+
+In order to achieve this, we proposed some modifications to the artificial neural network  and clustering algorithm --- Self Organizing Maps. 
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+topic detection, twitter, self-organizing maps, classification, clustering
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{W}{ith} the evolution of social network websites like Facebook and Twitter, the amount of pertinent content about a specif issue is increasing dramatically, which calls for new ways to make sense and catalog this data.
+The usage of social networks for branding quality and on-line marketing is specially compelling since 19\% of all tweets ~\cite{Jansen2009} and 32\% of blog posts~\cite{Melville2009} are about brands or products. Nevertheless, finding topic sensitive information on social networks is extremely complicated due to the fact that documents have very little content, slang vocabulary, orthographic mistakes and abbreviations. \citet{Asur2010} successfully predicted box-office revenues by monitoring the rate of creation of new topics based on debuting movies. Their work outperformed some traditional market-based predictors.
+
+Thus, academic and enterprise worlds started looking at \ac{ML} for new ways to achieve revenue or simply explore and discover patterns in data. 
+
+Using unsupervised \ac{ML}, \citet{Le2011} was able to achieved 81.7\% accuracy in detecting human faces, 76.7\% accuracy when identifying human body parts and 74.8\% accuracy when identifying cats. He used a 9-layered locally connected sparse auto-encoder with pooling and local contrast normalization on a large dataset of images (the model has 1 billion connections, the dataset has 10 million 200x200 pixel images downloaded from the Internet). This dataset was trained using model parallelism and asynchronous SGD on a cluster with 1,000 machines (16,000 cores) during three days. Even though the amount of computing power used in this project was of several order of magnitude, it is remarkable how an unsupervised algorithm could achieve such results.
+
+Social Media Analytics is another raising topic that draws from Social Network Analysis~\cite{knoke2008social}, \ac{ML}, Data Mining~\cite{witten2005data}, \ac{IR}~\cite{salton1983introduction}, and \ac{NLP}. As stated~\citet{Melville2009}, 32\% of the 200 million active bloggers write about opinions on products and brands, while 71\% of 625 million Internet users read blogs and 78\% of respondents put their trust in the opinion of other consumers. In comparison, traditional advertising is only trusted by 57\% of consumers.
+This kind of data drives companies to Social Media Analytics as a way to know what people are saying on the web about their companies and products. This new worry has brought to life a lot of new startups like Sumalor ThoughtBuzz, but also solutions from the old players like IBM and SAS.
+
+
+\section{Conclusion}
+The conclusion goes here.
+
+
+\appendices
+
+\bibliographystyle{apalike}
+\bibliography{./bibliographies/library,./bibliographies/sites}
+
+
+
+\begin{acronym}[TDMA]
+	\acro{YAML}{Yet Another Markup Language}
+	\acro{SOM}{Self-Organizing Maps}
+	\acro{DC}{Document Clustering}
+	\acro{NLP}{Natural Language Processing}
+	\acro{Q-Matrix}{Unified Mean Quantization Error Matrix}
+	\acro{U-Matrix}{Unified Distance Matrix}
+	\acro{TF-IDF}{Term Frequency–Inverse Document Frequency}
+	\acro{BMU}{Best Matching Unit}
+	\acro{LDA}{Latent Dirichlet Allocation}
+	\acro{TDT}{Topic Detection and Tracking}
+	\acro{VSM}{Vector Space Model}
+	\acro{IR}{Information Retrieval}
+	\acro{ML}{Machine Learning}
+	\acro{ANN}{Artificial Neural Network}
+	\acro{MDS}{Multi Dimensional Scalling}
+	\acro{PCA}{Principle Component Analysis}
+	\acro{URL}{Uniform Resource Locator}
+	\acro{JSON}{JavaScript Object Notation}
+	\acro{CSV}{Comma Separated Values}
+	\acro{VM}{Virtual Machine}
+	\acrodefplural{SOM}[SOMs]{Self Organizing Maps}
+	\acrodefplural{ANN}[ANNs]{Artificial Neural Networks}
+\end{acronym}
+
+\end{document}
+
+

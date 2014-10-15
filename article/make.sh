@@ -1,0 +1,10 @@
+pdflatex resumo
+bibtex resumo
+pdflatex resumo
+pdflatex resumo
+#latex main.tex
+#bibtex main.aux
+#latex main.tex
+#latex main.tex 
+#dvips main.dvi
+#ps2pdf main.ps
