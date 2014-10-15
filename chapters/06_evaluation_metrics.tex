@@ -1,7 +1,7 @@
 \fancychapter{Evaluation Metrics}
 \label{ch:eval_met}
 On this chapter, we will start by describing the results of \ac{SOM} for clustering topics on twitter. The following section will be dedicated to analyze the work done on \ac{VSM} reduction with tweets.
-Section~\ref{sec:som_framework}, will describe particular parts, and benchmark the training process with generic RGB vectors on the \ac{SOM} framework. Finally we will show the results of clustering tweets, with our tweaks applyed to the \ac{SOM} algorithm --- The Homophilic \ac{SOM}.
+Section~\ref{sec:som_framework} will describe particular parts, and benchmark the training process with generic RGB vectors on the \ac{SOM} framework. Finally, we will show the results of clustering tweets, with our tweaks applyed to the \ac{SOM} algorithm --- The Homophilic \ac{SOM}.
 
 \section{Clustering Tweets with Self-Organizing Maps}
 \label{sec:clustering_tbla}
@@ -73,7 +73,7 @@ Reducing the \ac{VSM} size by string reduction and tweet language identification
 
 \section{Twitter Crawler}
 \label{sec:twitter_crawler}
-After analyzing the work accomplished by clustering tweets on Section~\ref{sec:clustering_tbla}, we decided that some alterations to the algorithm should be done in order for it to take into account the social connections between the data. In order to accomplish this we needed a dataset with social connections behind the authors of the tweets. There was two ways to accomplish this: 
+After analyzing the work accomplished by clustering tweets on Section~\ref{sec:clustering_tbla}, we decided that some alterations to the algorithm should be done in order for it to take into account the social connections between the data. In order to accomplish this, we needed a dataset with social connections behind the authors of the tweets. This can be done in two ways:
 
 \begin{itemize}
   \item \textbf{First aproach: } For each tweet we have on our dataset, fetch the user information including the users he is connected to.
@@ -217,8 +217,8 @@ The results were summarized on Figure~\ref{fig:benchmarkingsom}, where it is pos
 
 \subsection{Conclusions}
 \label{sub:conclusionssom}
-The \ac{SOM} framework is an easy to use and extend \ac{SOM} framework, the drawback from this extensibility is lower performance, compared to \ac{SOM} implementations that require C extension, or are implemented in lower level languages. 
-The Ruby programing language written in C, and it has an API to develop C extensions in case the detection of hot-points on the code. In case a user actually feels like their alterations to the \ac{SOM} framework are suffering from a lack of performance, they can replace some of the Ruby code for C. 
+The \ac{SOM} framework is an easy to use and extend \ac{SOM} framework. The drawback from this extensibility is lower performance, compared to \ac{SOM} implementations that require C extension, or are implemented in lower level languages. 
+The Ruby programing language \ac{VM} is written in C, and it has an API to develop C extensions in case of  hot-points detection on the code. In case a user actually feels like their alterations to the \ac{SOM} framework are suffering from a lack of performance, they can replace some of the Ruby code for C. 
 On Section \ref{sec:homophilic_som}, we will use the \ac{SOM} framework to implement social relations into the \ac{SOM} algorithm.
 
 
@@ -247,7 +247,7 @@ On the other hand, some clusters of people saying that they have posted photos o
 \end{figure}
 
 \subsection{Conclusions}
-The Homophilic \ac{SOM} could categorize tweets in a way which if we just looked at their text wouldn't  be possible to find. On the other hand some more random results also appeared, this results where expected if we take into account that for a certain kind of users those tweets could actually make sense to be together. Specifically, for the author of this thesis, having a cluster with technological and programing tweets could be a valid topic, where for someone who doesn't know what programing is could be interpreted as a bug.
+The Homophilic \ac{SOM} could categorize tweets in a way which if we just looked at their text wouldn't  be possible to find. On the other hand, some more random results appeared, this results were expected if we take into account that for a certain kind of users those tweets could actually make sense to be together. Specifically, for the author of this thesis, having a cluster with technological and programing tweets could be a valid topic, where for someone who doesn't know what programing is could be interpreted as a bug.
 % Ensure that the next chapter starts in a odd page
 \cleardoublepage
  %\subsection{Twitter Dataset}
