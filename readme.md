@@ -14,6 +14,10 @@ This stylesheet is practically a ripoff from [Pedro Tomás](http://sips.inesc-id
 ## Extra info
  All the rules and bureaucracies regrading thesis submission can be officially found [here](http://da.tecnico.ulisboa.pt/dissertacao-de-mestrado/).
 
+·  The article has a maximum number of 10 pages.
+
+·  The dissertation has a maximum number of 80 pages, for the main text.
+
 ## Template Structure
 The amount of trash latex produces in order to compile a document is ridiculous, so lets try to separate our important files from compile sh*t. 
 
