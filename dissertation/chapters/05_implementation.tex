@@ -1,0 +1,32 @@
+ \fancychapter{Implementation}
+ %TODO how it was implemented
+I have no idea what to write here\dots
+
+\begin{figure}
+\begin{boxedverbatim}
+DefineGlobals
+   clock   alias   clk
+   reset   alias   rst
+   max_latency     17
+   feedback        0
+   DefineInputs
+      X   std_logic_vector(11 downto 0)
+   EndInputs
+   DefineOutputs
+      Y   std_logic_vector(11 downto 0)
+   EndOutputs
+EndGlobals
+\end{boxedverbatim}
+\caption{An example code section.}
+\label{chp4:img}
+\end{figure}
+
+Figure~\ref{chp4:img} shows an example of a \verb"\boxedverbatim" section. It allows to put blocks of code within a frame. I think makes a prettier printing.
+
+\section{Summary}
+
+An ending section summarizing the chapter, is typically a good idea.
+
+% Ensure that the next chapter starts in a odd page
+\cleardoublepage
+

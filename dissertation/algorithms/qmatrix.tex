@@ -1,0 +1,33 @@
+\begin{figure}[h]
+  \begin{algorithm}[H]
+    \label{alg:qmatrix}
+    \DontPrintSemicolon
+    \KwData{
+      Input patterns $X = \{  \overrightarrow{x_{0,0}}$,\dots,$\overrightarrow{x_{n,n}}$ \},
+    
+      Trainned neurons $W = \{  \overrightarrow{w_{0,0}}$,\dots,$\overrightarrow{w_{n,n}}$ \} 
+
+      \textbf{let} $D_{i,j}$ be the input patterns represented by neuron $w_{i,j}$
+    }
+    \KwResult{Q-Matrix}
+    \textbf{let} $Q$ be an empty matrix of size $n*n$
+
+    \For{ $i=0$ to $W_{max}$}{
+      \For{  $j=0$ to $W_{max}$}{
+        $q_{i,j} \leftarrow avg\_quant\_error( w_{i,j}, D_{i,j} ) $
+      }}
+    \tcc{convert the distances to color}
+    $WHITE = 255$
+
+    $BLACK = 0$
+
+    $ q_{max} \leftarrow max(Q) $
+
+    $ q_{min} \leftarrow min(Q) $
+
+    \For{ $q_{ij} = q_{00}$ to $q_{n,n}$ }{
+      $Q_{i, j} \leftarrow (1 - \frac{ q_{i,j} - q_{min}  }{q_{max}-q_{min}})* WHITE$
+    } 
+    \caption{Q-Matrix }
+  \end{algorithm}
+\end{figure}

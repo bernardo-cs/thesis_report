@@ -1,0 +1,5 @@
+library(ggplot2)
+som.benchmarking = read.table("benchamrking.tsv",header = T,sep = "\t")
+p <- qplot(data = som.benchmarking, out_size, train_time,  geom = c("point"), color = in_pattern_numb,xlab = "Output Space Size",group = in_pattern_numb ,ylab = "Train Duration in Seconds" )
+p + scale_y_log10() + facet_grid(epochs ~ in_size) + scale_colour_gradient(limits=c(10, 50000), low="red", trans = "log", expression("Number of Input Patterns")) + geom_line()
+ggsave(file="benchmarking.pdf")

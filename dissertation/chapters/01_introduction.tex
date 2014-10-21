@@ -1,0 +1,63 @@
+\fancychapter{Introduction}
+With the evolution of social network websites like Facebook and Twitter, the amount of pertinent content about a specif issue is increasing dramatically, which calls for new ways to make sense and catalog this data.
+The usage of social networks for branding quality and on-line marketing is specially compelling since 19\% of all tweets ~\cite{Jansen2009} and 32\% of blog posts~\cite{Melville2009} are about brands or products. Nevertheless, finding topic sensitive information on social networks is extremely complicated due to the fact that documents have very little content, slang vocabulary, orthographic mistakes and abbreviations. \citet{Asur2010} successfully predicted box-office revenues by monitoring the rate of creation of new topics based on debuting movies. Their work outperformed some traditional market-based predictors.
+
+Thus, academic and enterprise worlds started looking at \ac{ML} for new ways to achieve revenue or simply explore and discover patterns in data. 
+As a consequence, the \ac{ML} course at Standford is the one with more students enrolling in the year of 2014~\footnote{http://www.forbes.com/sites/anthonykosner/2013/12/29/why-is-machine-learning-cs-229-the-most-popular-course-at-stanford/} with more than 760 students enrolled.
+
+Using unsupervised \ac{ML}, \citet{Le2011} was able to achieved 81.7\% accuracy in detecting human faces, 76.7\% accuracy when identifying human body parts and 74.8\% accuracy when identifying cats. He used a 9-layered locally connected sparse auto-encoder with pooling and local contrast normalization on a large dataset of images (the model has 1 billion connections, the dataset has 10 million 200x200 pixel images downloaded from the Internet). This dataset was trained using model parallelism and asynchronous SGD on a cluster with 1,000 machines (16,000 cores) during three days. Even though the amount of computing power used in this project was of several order of magnitude, it is remarkable how an unsupervised algorithm could achieve such results.
+
+Even though a lot of solutions have arisen in order to automate real time searches, topic categorization and many other data intensive tasks are still done manually. Twitter still uses humans to deliver ads to trending queries, states Edwin Chen's Data Scientist responsible for ads quality at Twitter. On his blog post \footnote{http://blog.echen.me/2013/01/08/improving-twitter-search-with-real-time-human-computation/}, Edwin Chen describes the process of delivering real time adds to trending queries at Twitter. The main problems that arise in the Twitter platform in order to identify rising topics are:
+\begin{itemize}
+  \item The queries people perform have never before been seen, so it is impossible to know beforehand what they mean.
+  \item Since the spikes in search queries are short-lived, there's only a short window of opportunity to learn what they mean.
+\end{itemize}
+This means that when an event happens, people immediately come to Twitter in order to know what is happening in a determined place. Twitter solves this issue by monitoring which queries are currently popular in real time, using a Storm topology~\footnote{http://storm-project.net/}. After the queries are identified, they are sent to a Thrift API~\footnote{http://thrift.apache.org/} that dispatches the query to Amazon's Mechanical Turk service~\footnote{https://www.mturk.com/mturk/} where real people will be asked a variety of questions about the query.
+
+Social Media Analytics is another raising topic that draws from Social Network Analysis~\cite{knoke2008social}, \ac{ML}, Data Mining~\cite{witten2005data}, \ac{IR}~\cite{salton1983introduction}, and \ac{NLP}. As stated~\citet{Melville2009}, 32\% of the 200 million active bloggers write about opinions on products and brands, while 71\% of 625 million Internet users read blogs and 78\% of respondents put their trust in the opinion of other consumers. In comparison, traditional advertising is only trusted by 57\% of consumers.
+This kind of data drives companies to Social Media Analytics as a way to know what people are saying on the web about their companies and products. This new worry has brought to life a lot of new startups like Sumal\footnote{https://sumall.com/} or ThoughtBuzz\footnote{http://www.thoughtbuzz.net/}, but also solutions from the old players like IBM\footnote{http://www-01.ibm.com/software/analytics/solutions/customer-analytics/social-media-analytics/} and SAS\footnote{http://www.sas.com/software/customer-intelligence/social-media-analytics.html}
+
+It's also important to notice that in the last few years Data Science/Analysis has been a trending topic, mostly due to the fact that big dot-com companies have been having high revenues by exploiting user specific information in order to deliver ads and sell products. Not surprisingly that if you look that in the top ten ebooks sold by O'Reilly throughout 2013, four are about data science \footnote{http://shop.oreilly.com/category/deals/best\-of\-oreilly\-dotd.do?code=DEAL\&cmp=tw\-na\-books\-videos\-info\-authornote\_best\_of\_2013}.
+ 
+%TODO Check if Im Answering these questions
+%\begin{enumerate}
+ %\item what is the background of your work?
+ %\item how do your work fit in todays knowledge? Have you done something that does not exist in the market? What are the differences? What is missing in nowadays products and solutions?
+ %\item is your thesis made as part of a larger project? If so, describe it.
+ %\item is your thesis usefull for some work environment? If so, describe it.
+%\end{enumerate}
+
+\section{Motivation}
+Clustering analysis has been widely used throughout the times, from its first occurrence in England, where John Snow was able to map a wider amount of people infected with cholera to a well in the center of London. Nowadays the applications are endless, and fields where it is applied are quite vast.
+
+Specifically with a greater amount of people describing events around them, and their lives on social media, it is increasingly more challenging to categorize this data, due to its sparsity and volume. 
+
+However, data generated on social networks, have more information than simply written text, on a tweet, or a photo published on Facebook. Data generated in social network is connected by entities, and these entities tend to be closer to other entities with the same kind of interests~\cite{McPherson2001}. In this thesis we will explore how a clustering algorithm can be altered in order to add social relevance to its fed data. By focusing  on using an unsupervised learning technique based on neural networks named ~\ac{SOM}~\cite{Kohonen1990} in order to detect topics in Twitter posts, by using the Social Network users as base neurons for clustering. After the network is trained, it will be possible to categorize tweets in real time. 
+
+\section{Objectives}
+The main objective of this project is to find topics on tweets by contextualizing the social network involving the person that authored the tweet in the clustering process.
+
+We start by building a dataset, in order to train the \ac{SOM}, that will later classify each future tweet that arrives on the network.
+
+After creating the dataset, we will try to find clusters of topics using the default \ac{SOM} approach, converting each tweet to \ac{VSM}. After analyzing the results from the default \ac{SOM} approach, the algorithm will be changed in order to give relevance to the social relationship between authors of tweets.
+
+\section{Contributions}
+The main contributions of this work are as follow:
+\begin{itemize}
+  \item  \textbf{Homophilic SOM: } We proposed and analyzed the application of integrating social relations into the \ac{SOM} clustering algorithm.
+  \item \textbf{SOM framework: } A framework to easily extend the \ac{SOM} algorithm.
+  \item \textbf{Quantization Error Matrix: } We purposed a new visualization technique based on the mean quantization error between a neurons and the input patterns he represents. 
+  \item \textbf{Vector Space Reduction for Tweets: } We analyzed and proposed multiple ways to reduce the size of the \ac{VSM} when working specifically with data from Twitter.
+\end{itemize}
+
+\section{Dissertation outline}
+This document is organized as follow:
+\begin{itemize}
+  \item \textbf{Chapter \ref{ch:back}} presents the background information about \ac{SOM} and \ac{DC}, being the two most important concepts needed to understand the following chapters.  
+  \item \textbf{Chapter \ref{ch:state_of_the_art}} describes the latest work done with \ac{TDT} on Twitter, and the latest work done with \ac{SOM}. 
+  \item \textbf{Chapter \ref{ch:clustering_tweets}} describes the theoretical details which need to be taken into account, in order to efficiently modify the \ac{SOM} algorithm.
+  \item \textbf{ Chapter \ref{ch:eval_met} } analyzes and benchmarks the work described on Chapter~\ref{ch:clustering_tweets}.
+  \item \textbf{ Chapter \ref{ch:conclusions} } summarizes the work developed and analysis of future work.
+\end{itemize}
+
+\cleardoublepage 

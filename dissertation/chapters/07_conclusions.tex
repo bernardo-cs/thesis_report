@@ -1,0 +1,25 @@
+\fancychapter{Conclusions and Future Work}
+\label{ch:conclusions}
+
+This work presents an innovative approach to topic detection on social networks. The clustering mechanism takes into consideration the concept of homophily, which have been proved to occur in social  networks~\cite{Wehrens2007}.
+
+In order to achieve this, we presented a new way to reduce the \ac{VSM} up to 90\% with minimum relevant data loss for topic detection on twitter. Built a \ac{SOM} library in ruby,  which we edited afterwards to add social connections to the neurons during the training process.
+
+Proposed a new visualization technique for \ac{SOM} called \ac{Q-Matrix}, where it is possible to see how well a neuron represents its associated input patterns.
+
+%This thesis main goal was to find topics on social networks, using clustering techniques. Due to overgrowing amount of pertinent information on social networks, the process of labeling such kind of data has been proved a huge challenge in modern \ac{IR} techniques. 
+
+We started by analyzing the state of the art techniques for \ac{TDT} used on Twitter. Researched how \ac{SOM} are used in specific contexts, in order to better understand what adaptations could be applied to the \ac{SOM} algorithm, in order for it to better categorize data from social networks.
+
+Afterwards, we outlined how it would be possible to use \ac{SOM} with twitter data, and specified how the neural network algorithm could be changed in order to better manage socially connected data. 
+
+In order to create this new version of the \ac{SOM}, first a \ac{SOM} framework was built and tested. Only then, the algorithm of the default \ac{SOM} was changed in order to create the Homophilic SOM.
+
+Finally, we analyzed the results of clustering social connected data with the default \ac{SOM} algorithm, against the Homophilic SOM, and concluded that the homophilic \ac{SOM} could in fact organize tweets in clusters similar to a user interest.
+
+As future work, we would like to improve performance of Homophilic \ac{SOM} in order for it to be able to crunch a lot more data. It would also be awesome to have some pre categorized tweets, so we could compare results faster without having to be reading the content of the clusters.
+
+Also designing \ac{U-Matrix} and \ac{Q-Matrix} for the homophilic \ac{SOM} should be possible. This should be accomplished, by printing the output space as graph and afterwards,  apply the same concepts used for the squared output space. One way to do this, would be by processing the \ac{SOM} results into HTML documents, and use libraries like D3js \footnote{http://d3js.org/} to build all the graphical parts. 
+% Ensure that the next chapter starts in a odd page
+\cleardoublepage
+ 
