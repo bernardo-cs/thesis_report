@@ -1,0 +1,132 @@
+%\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usefonttheme{structurebold}
+\usepackage{pgfpages}
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\renewcommand{\labelitemi}{$\bullet$}
+%\usepackage[inline]{enumitem}
+\usepackage{multirow}
+%\usepackage{chngpage}
+%\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{eurosym}
+
+\usepackage{hyperref}
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  tabsize=3,
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape 
+}
+
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+\setbeamertemplate{caption}[numbered]
+
+
+
+\definecolor{istblue}{RGB}{0,157,224}
+\definecolor{istgrey}{RGB}{70,85,95}
+\definecolor{almostwhite}{RGB}{240,240,240}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=istblue}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=almostwhite}
+
+
+\setbeamercolor{structure}{bg=white, fg=istblue}
+\setbeamercolor{palette sidebar primary}{fg=istgrey}
+\setbeamercolor{frametitle}{fg=istgrey}
+\setbeamercolor{title}{fg=istblue}
+
+
+\setbeamercolor{headfootlinecolor}{fg=black,bg=istblue}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[sep=1em,wd=\paperwidth,leftskip=0.5cm,rightskip=0.5cm]{headfootlinecolor}{\textcolor{white}{} \hspace*{\fill} \textcolor{white}{Cloud-based Facility Management Benchmarking}}
+   \end{beamercolorbox}%
+}
+
+\useoutertheme{sidebar}
+\useinnertheme{circles}
+\setbeamertemplate{itemize items}[circles]
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+\title[]{\usebeamercolor[bg]{white}Cloud-based Facility Management Benchmarking}
+\author[]{\usebeamercolor[bg]{white}Sofia Martins \\ \scriptsize Instituto Superior Técnico \\
+}
+
+\logo{\includegraphics[scale=0,1]{images/istlogo}}
+
+
+\AtBeginSection[]
+{
+\begin{frame}{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+\note[itemize]{
+\item Current Section
+}
+}
+
+\setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+
+
+\begin{document}
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \centering
+  \usebeamerfont{title}\usebeamercolor[fg]{almostwhite}\inserttitle\par
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{almostwhite}\insertsubtitle\par 
+  \bigskip
+  \usebeamerfont{author}\insertauthor\par
+  \bigskip
+  \usebeamerfont{institute}\insertinstitute\par
+  \usebeamerfont{date}\today\par
+}
+
+
+\begingroup
+\setbeamercolor{background canvas}{bg=istblue}
+
+\hspace{-40pt}
+\begin{frame}[plain]
+    \titlepage
+    \vspace{-7cm}
+    \begin{figure}
+    \begin{center}
+        \includegraphics[scale=0.2]{images/istlogoazul}
+    \end{center}
+    \end{figure}
+\end{frame}
+\endgroup
+
+
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+\note[itemize]{
+\item Table of Contents
+}
+
+
+\input{./chapters/introduction}
+\input{./chapters/related-work}
+\input{./chapters/solution-proposal}
+\input{./chapters/evaluation}
+\input{./chapters/conclusion}
+
+
