@@ -18,6 +18,8 @@ This stylesheet is practically a ripoff from [Pedro Tomás](http://sips.inesc-id
 
 ·  The dissertation has a maximum number of 80 pages, for the main text.
 
+·  Both presentations ( project and dissertation ), should be presented in around 20 min.
+
 ## Template Structure
 The amount of trash latex produces in order to compile a document is ridiculous, so lets try to separate our important files from compile sh*t. 
 

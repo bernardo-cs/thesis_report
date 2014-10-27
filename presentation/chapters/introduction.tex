@@ -1,302 +1,97 @@
-
 \section{Introduction}
+\begin{frame}{Introduction}
 
-%====================================================================================
+  \textbf{What is Twitter:}
+  \begin{itemize}
+    \item Twitter is a Microbloging Platform.\\
+    \item Users share what is happening in less than 140
+      characters.\\
+  \end{itemize}
 
-%Vou começar por fazer uma introdução ao tema do Facilities management, passando por referir o problema que esta tese tenta resolver, Vou mostrar o que foi feito em termos de trabalho relacionado, nomeadamente standards, literatura cientifica e softwares existentes. Vou falar sobre a solução proposta e como a podemos validar. Por fim, vou falar das conclusões que podemos retirar.
+  \textbf{  Why do Topic Detection on Twitter? }
+  \begin{itemize}
+    \item 19\% of all tweets are about brands and 78\% of Internet users put their trust on other users.\\
+    \item Before events hit the news reports, they are being commented on Twitter.
+  \end{itemize}
+\end{frame}
 
-\begin{frame}{Facilities Management}
+\note[itemize]{
+\item Twitter is a Microbloging Platform.\\
+\item Users share what is happening in less than \textbf{140}
+\item \textbf{19\%} of all tweets are about brands and 78\% of Internet users put their \textbf{trust }on other users.\\
+\item Before \textbf{events } hit the news reports, they are being \textbf{commented on Twitter.}
+}
 
-	\begin{itemize}
-
-	\item Rationalizes expenditures related to facilities \\
-
-	\vspace{0.5cm}
-
-	\item Makes organizations more efficient \\
-
-	\vspace{0.5cm}
-
-	\item It is important to measure the effect of the FM, and its own performance
-
-	\vspace{0.5cm}
-
-	\item Specialized software such as CAFM, IWMS, CMMS, CAD, BAS, EMS, ERP  
-	\end{itemize}
+\begin{frame}{Topic Detection on Twitter}
+  \textbf{Hard to Detect Topics on Individual Tweets}
+  \begin{itemize}
+    \item Slang words.
+    \item Typos.
+    \item Small body of text.
+    \item General \textit{topic detection} mechanisms rely heavily on \textit{TF-IDF}.
+  \end{itemize}
+  \textbf{More Information Than Just Words}
+  \begin{itemize}
+    \item Hashtags; Replies; Timestamps; Geo Coordinates. 
+    \item Social network behind the author of the tweet.
+  \end{itemize}
 \end{frame}
 \note[itemize]{
-	\item Disciplina em crescimento que ajuda as organizações a atingirem os seus objectivos\\
-	\item Todas as organizações têm uma series de instalações para gerir. E esta gestão é uma fatia muito grande dos custos de uma organização. O objectivo do Facilities Management é encontrar formas mais eficientes de gerir estas instalações. Mas não queremos só gerir de forma mais eficiente, nos queremos que essas instalações ofereçam melhores condições para que as actividades que lá ocorrem sejam mais eficientes. Portanto, de uma forma geral, o FM serve para tornar as organizações mais eficientes. 
-	%\item É uma actividade de non-core que suporta as actividades core da organização
-	%\item Torna a organização mais eficiente oferecendo melhores condições de trabalho e uma racionalização dos gastos da organização
-	\item Do ponto de vista da gestão, também a minha função de FM deve ser medida. O FM é complexo, e como tal, tem de ser apoiado por uma série de sistemas de software, nomeadamente software de: Gestão de espaços, gestão integrada de espaços de trabalho, gestão de manutenção, ferramentas de CAD, ferramentas de automatação, gestão de enegia, ERPs. 
-	\item No entanto, não há ainda um software que permita fazer a comparação de performance de facilities. E seria altamente desejavel que ele existisse. E porque? Bom se ele existisse (prox slide)
-	%É importante adoptar sistemas que meçam o efeito de FM na organização, bem como sistemas que meçam a performance da própria FM
-	%\item Linhas de actividade da FM como {\bf property management} ou {\bf maintenance} são apoiadas por softwares especializados como o CAFM, BIM, CMMS, CAD, BAS, EMS, ERP, IWMS.
-	%\item explicar CAFM e outro
-	%\item IT -> Conseguimos coleccionar KPIs através de IT, mas isto dos kpis já existe em vários outros dominios como Energia. Em facilities é a forma que temos de medir a {\bf performance}. 
-	%\item So conseguimos avaliar aquilo que conseguimos medir
-
+\item \textbf{Hard to Detect Topics on Individual Tweets}
+\item Slang words.
+\item Typos.
+\item Small body of text.
+\item General \textit{topic detection} mechanisms rely heavily on \textit{TF-IDF}.
+\item  \textbf{More Information Than Just Words}
+\item Hashtags; Replies; Timestamps; Geo Coordinates. 
+\item Social network behind the author of the tweet.
+\item \textbf{TF-IDF} tf–idf, short for term frequency–inverse document frequency, \textbf{division} between how many times a word appears in the document, divided by how relevant the word can be on the entire set.
 }
 
-\begin{frame}{Motivation Scenario A}
-Improvement Path Awareness
-\begin{figure}
-  \includegraphics[width=1\textwidth]{images/raking2.jpeg}
-  \label{fig:importanceXfrequency}
-\end{figure}
+\begin{frame}{Clustering for Topic Detection and Tracking}
+  \begin{block}{Document Clustering}
+        \textit{Cluster analysis } or \textit{clustering } is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters).
+  \end{block}
 \end{frame}
 \note[itemize]{
-	\item vamos supor que existe uma aplicação que agrega informação de várias organizações e faz um raking entre elas
-	\item 
-	\item {\bf Scenario 1} Consider an organization that has applied FM and where benchmarking has been applied for some time now. This organization decides to use the application proposed in this document. Through it, verifies that its position is raking well below than expected. Thus, seeing their ranking, they become motivated to improve (as they have a perception of their space for improvement) both globally and at the level of a particular indicator.
-	\item ainda há um caminho de melhoria, e a gestão de fm começou a percorrer um caminho de melhoria.
+\item Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters).
+  \item can be \textbf{supervised} or \textbf{unsupervised}
 }
 
-\begin{frame}{Motivation Scenario B}
-Continuous Improvement Awareness
-\begin{figure}
-  \includegraphics[width=1\textwidth]{images/raking3.jpeg}
-  \label{fig:importanceXfrequency}
-\end{figure}
+\begin{frame}{The Self Organizing Map}
+  \begin{block}{The Self Organizing Map}
+    \begin{itemize}
+      \item  A self-organizing map is a type of artificial neural network that is trained using \textit{ unsupervised } learning to produce a low-dimensional representation of the input space of the training samples, called a map. 
+        \item Self-organizing maps use a neighborhood function to preserve the topological properties of the input space.
+        \item Mimics the way the cortex of highly developed animals brain (are supposed to) work.
+    \end{itemize}
+  \end{block}
 \end{frame}
 \note[itemize]{
-	 \item {\bf Scenario 2} Consider two distinct organizations that are using the cloud application presented in this document. The first organization has been on the raking first place for some time now. However, the second organization took their place in the raking, but the first organization wants to regain its position. Thus, it creates a healthy competition among participants (who do not know the identity of the other), where improvement is still driven dynamically.
-	 %\item vai ser despoletada a consciencia nos agentes de gestão de possibilidade de uma conit
-
+\item \textbf{The clustering algorithm used during this thesis}
+\item  A self-organizing map is a type of artificial neural network that is trained using \textit{ unsupervised } learning to produce a low-dimensional representation of the input space of the training samples, called a map. 
+\item Self-organizing maps use a neighborhood function to preserve the topological properties of the input space.
+\item Mimics the way the cortex of highly developed animals brain work.
 }
 
-\begin{frame}{Motivation-Scenario 2}
-Continuous Improvement Awareness
-\begin{figure}
-  \includegraphics[width=1\textwidth]{images/raking4.jpeg}
-  \label{fig:importanceXfrequency}
-\end{figure}
+\begin{frame}{SOM Input Space}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/1_wining_neuron_converge.eps}
+    \label{fig:MeasurementCatPriority}
+  \end{figure}
 \end{frame}
 \note[itemize]{
-	 \item {\bf Scenario 2} Consider two distinct organizations that are using the cloud application presented in this document. The first organization has been on the raking first place for some time now. However, the second organization took their place in the raking, but the first organization wants to regain its position. Thus, it creates a healthy competition among participants (who do not know the identity of the other), where improvement is still driven dynamically.
-	% \item Entrar em detalhe que é importante ter kpis para comparaçao
-	% \item Ha aqui 2 detalhes muito importantes:
-	% \item Os kpi para fazer as medições
-	% \item O benchmarking para comparação de facilities
-
-		 \item Se uma solução destas existisse, tornaria clara uma consciencialização dos gestores de facilities para uma melhoria sustentada das suas facilities. A partilha de informação de benchmarking é uma ferramenta que permite aumentar a consciencia da necessidade de melhoria.
-	 \item Nesta área de gestão, já foram estudados processos de melhoria continua, são baseados em indicadores de performance, em particular no FM, são conhecidos por Key performance indicators.
+  \item Explain the input space
 }
 
-\begin{frame}{Key Performance Indicators}
-	Through the FM software is possible to extract measures which are used to calculate Key Performance Indicators (KPIs)\\ 
-	\vspace{0.5cm}
-	KPIs give important insight into functioning of the FM functions\\
-
-	\begin{block}{KPIs Examples}
-	\begin{itemize}
-		\item {\bf Cleaning Cost per $m^2$:} Total Cleaning Costs/Net Floor Area
-		\item {\bf Repairs VS Preventive Maintenance:} (Number of Corrective Maintenance per month/Number of Preventive Maintenance per month)x100
-		\item {\bf Quality of Cleaning:} Obtained Through Audits or Questionnaires
-	\end{itemize}
-	\end{block}
-
+\begin{frame}{SOM Output Space}
+  \begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{images/5_neighbours_converge-eps-converted-to.pdf}
+    \label{fig:MeasurementCatPriority}
+  \end{figure}
 \end{frame}
 \note[itemize]{
-\item Através do software de FM falado anteriormente é possível retirar medições e indicadores que podem ser utilizados para calcular Key Performance Indicators (KPIs), que por sua vez dão informação importante sobre o funcionamento das funções FM.
-\item No FM há um conjunto de indicadores mais ou menos comuns, e que são conhecidos. Por exemplo, Custo de limpeza por $m^2$, Ratio entre o Numero de Reparações sobre Numero de intervenções preventivas, e qualidade da limpeza.
-\item Estes kpis sao obtidos apartir de um conjunto de metricas base, Mais em detalhe, temos o custo de limpeza por $m^2$ é calculado através do total do custo das limpezas a dividir pela área util.
-\item Estas métricas são, entao obtidas através do software de fm referido anteriormente.
+  \item Explain the output space space
 }
-
-\begin{frame}{Key Performance Indicators}
-	\begin{block}{KPIs must be SMART}	
-		\begin{itemize}
-			\item {\bf S}pecific: well defined and clearly understood
-			\item {\bf M}easurable: theres a well defined process that enables the KPI tracking
-			\item {\bf A}greed: all stakeholders have to agree with it
-			\item {\bf R}ealistic: that can be measured at a reasonable cost
-			\item {\bf T}ime driven: if corresponds of a time interval
-		\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{
-\item KOs KPIs para serem uteis, têm de obedecer a um conjunto de principios, conhecidos por SMART:
-\begin{itemize}
-		\item Specific: bem definidos e claramente compreendidos
-		\item Measurable: o processo bem definido que permite seguir o indicador
-		\item Agreed: todos os stakeholders concordam com eles
-		\item Realistic: passíveis de serem medidos a um custo razoável
-		\item Time driven: devem  corresponder a um determinado intervalo de tempo/tm um intervalo de tempo/pode ser medido no tempo
-\end{itemize}
-}
-
-\begin{frame}{Key Performance Indicators}
-	\begin{block}{KPIs for FM are not always SMART}	
-		\begin{itemize}
-			\item They are not specific
-			\vspace{0.5cm}
-			\item They are not a standard measure method
-		\end{itemize}
-	\end{block}
-	\begin{block}{And more...}	
-		\begin{itemize}
-			\vspace{0.5cm}
-			\item There are not even an agreed set of KPIs for FM
-		\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{
-\item No entanto, verifica-se que os KPIs em FM nem sempre são SMART:
-\
-\item muitas vezes a sua definição é difusa 
-\item
-\item nao sao especificos: porque o mesmo aparece com varios nomes (tem muitas variações) - a sua definição é difusa
-\item
-\item Existem percepções variáveis relativamente à forma como devem ser medidos
-\item
-\item Mas, como se isto não bastasse, nem sequer há concordância a qual é o conjunto de kpis que é de facto relevante para o FM.
-%não existe um conjunto de KPIs standardizados, de forma a que todas as organizações usem os mesmos
-}
-
-\begin{frame}{Benchmarking}
-	\begin{block}{Benchmarking in Management}
-	\begin{itemize}
-		\item Organizations have to perform better than their competitors
-	\end{itemize}
-	\begin{itemize}
-		\item Organizations have to operate at the lower costs
-	\end{itemize}
-	\begin{itemize}		
-		\item Benchmarking enables to compare performance aspects 
-	\end{itemize}
-	\end{block}
-	\begin{block}{Benchmarking in Facilities Management}
-	\begin{itemize}		
-		\item Benchmarking can compare distinct organizations or a facility with itself at different time lines
-	\end{itemize}
-	\begin{itemize}		
-		\item We have to measure the same things
-	\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{
-\item A motivação para o Benchmarking do ponto de vista de gestão, é que as organizações querem ter um desempenho melhor do que a sua concorrência, em particular o objectivo é fazer melhor, mais depressa, e com custos mais baixos.
-
-\item Relativamente ao FM, 
-
-\item É importante conseguir comparar as organizações e isto é possível através de KPIs e benchmarking
-
-\item Benchmarking permite comparar aspectos de performance como: {\bf Operating costs, Maintenance and Cleaning activities, Space utilization, Energy consumption or Administrative costs}
-
-\item O benchmarking é possível entre organizações, mas também como forma de comparar a mesma organização em diferentes pontos de uma linha temporal, tomando-se conhecimento da evolução da mesma
-\item Tem de se fazer benchmarking de forma acordada por todos. As organizações têm de estar a comparar os mesmos indicadores, não existem standards que o permita.
-
-}
-
-\begin{frame}{Benchmarking}
-	\begin{block}{Fundamental steps for benchmarking}	
-		\begin{itemize}
-			\item {\bf Knowing operation} to evaluate internal operation strengths and weaknesses
-		\end{itemize}
-		\begin{itemize}
-			\item {\bf Knowing the industry leaders or competitors} to know the strengths and weaknesses of the competition
-		\end{itemize}
-		\begin{itemize}
-			\item {\bf Incorporating the best} to emulate the strengths of the leaders in competition
-		\end{itemize}
-		\begin{itemize}	
-			\item {\bf Gaining superiority} to go beyond the best practices installed and be the best of the best
-		\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{
-\item Passos fundamentais para o benchmarking:
-\item
-\item Conhecer a Operação: para avaliar pontos fortes e fracos da operação interna
-\item
-\item Conhecer a Concorrência e lideres da industria e os seus pontos fortes e fracos
-\item
-\item Incorporar o melhor de cada um para fazer frente e competir com os rivais
-\item
-\item Tentar ser o melhor de todos
-}
-
-
-
-
-
-\section{Problem Statement}
-\begin{frame}{Problem Statement}
-\fontsize{20}{10}\selectfont
-There is not an agreed set of KPIs or a benchmarking process.
-\end{frame}
-\note[itemize]{
-\item There is not an agreement about which KPI should be applicable in each sector
-\item
-\item Nao se sabe muito bem que kpis se deve utilizar, nao ha um conjunto kpis neste momento que seja aceite por todos
-\item
-\item Existe uma falta de soluções de FM que permitam integrar informação de diferentes organizações por forma a dar-lhes ganhos
-\item
-\item As organizações continuam a usar softwares distintos para o seu FM e aglomeração de KPIs
-
-}
-
-\begin{frame}{Methodology}
-	\begin{block}{Analysis of Related Work}
-	\begin{itemize}
-	\item Analysis of existent standards for FM
-	\end{itemize}
-	\vspace{0.5cm}
-	\begin{itemize}
-	\item Analysis of scientific literature about selection of KPIs
-	\end{itemize}
-	\vspace{0.5cm}
-	\begin{itemize}
-	\item Analysis of existing tools for FM and benchmarking
-	\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{
-	\item Então como se pode resolver este problema?
-	\item
-	\item 1) O primeiro passo será fazer um levantamento dos standards existentes
-	\item
-	\item 2) Uma analise da literatura
-	\item
-	\item3) Analise de ferramentas de FM e Benchmarking 
-}
-
-\begin{frame}{Methodology}
-	\begin{block}{Matrix Elaboration}
-	\begin{itemize}
-	\item Elaboration of a normalized and prioritized KPI matrix
-	\end{itemize}
-	\end{block}
-	\vspace{0.5cm}
-	\begin{block}{Matrix Validation}
-	\begin{itemize}
-	\item Cross-over of KPI matrix with experts opinion
-	\end{itemize}
-	\vspace{0.5cm}
-	\begin{itemize}
-	\item Evaluation of conclusions through a cloud application
-	\end{itemize}
-	\end{block}
-\end{frame}
-\note[itemize]{ 
-	\item4) Para tentar chegar à conclusao de uma matriz de kpis, que sofre uma  normalização dos indicadores (para baterem certo uns com os outros) e 
-	\item
-	\item5) Prioritização de indicadores, Cruzamento de dados da matriz de KPIs com a opniao de experts na área.
-	\item
-	\item6) E vamos avaliar isso atraves de uma aplicação cloud que vai permitir aceder aos KPIs de cada edificio, bem como uma comparação entre várias organizações
-}
-
-% \begin{frame}{Final Goal}
-% 	\begin{itemize}
-% 		\item Migration of facilities benchmarking to the cloud
-% 		\item Design a solution of a cloud application that would receive all important data from multiple sources and calculate KPIs 
-% 		\item Carry out a benchmark comparison between organizations through the proposal solution
-% 	\end{itemize}
-
-% \end{frame}
-% \note[itemize]{
-% \item la
-% }
-
